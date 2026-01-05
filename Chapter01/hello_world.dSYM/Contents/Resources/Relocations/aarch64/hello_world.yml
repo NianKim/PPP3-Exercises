@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/niankim/Documents/Coding/PPP3-Exercises/Chapter01/hello_world'
+relocations:     []
+...
