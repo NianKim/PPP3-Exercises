@@ -10,6 +10,17 @@ int main(){ //simple program to exercise operations
                             << "\ntwice n == " << n+n
                             << "\nn squared == " << n*n
                             << "\nhalf of n == " << n/2
-                            << "\n square root of n == " << sqrt(n)
+                            << "\nsquare root of n == " << sqrt(n)
                             << '\n';
+    //adding some things I personally want to try:
+    std::cout << "Now please enter two integers:\n";
+    int a = 0;
+    int b = 0; 
+    std::cout << "Integer: ";
+    std::cin >> a;
+    std::cout << "Integer: ";
+    std::cin >> b;
+    //after reading inputs, checking if
+    int result = a/b *b+a%b;
+    std::cout << "Check if " << result << " == " << a << ".\n";
 }
