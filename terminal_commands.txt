@@ -1,0 +1,2 @@
+g++ -Wall 		flag Checks for type safety and gives more comprehensive warnings
+g++ -Wextra -Wpedantic	can catch a wider range of potential issues

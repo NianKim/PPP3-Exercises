@@ -7,3 +7,7 @@ Insert a multiline in VIM:
 2)select line you wanna insert the space and press j
 3)Shift + I to insert
 4)arrow keys select downwards or upwards.
+
+/word searches for word
+* (shift forwards one entry of search)
+# (shift back one entry of search)
