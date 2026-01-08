@@ -34,11 +34,44 @@ debugging			fixing errors, can sometimes require a complete overhaul or rethinki
 
 Chapter 2:
 ================================================
-object:				is a region of memory with a type
-type				specifies what kind of information can be placed in an object
+object:				region of memory that holds a value with a given type
+type				specifies set of possible values and operations in an object
 variable			named object
 prompt				output/message that encourages user to take action
-definition			a statement that introduces a new name and sets aside memory for a variable
-name				needed to access an object in memory
-values				data items put into variables
+definition			a statement that introduces a new name and sets aside memory for an object
+declaration			statement that gives a name and type to an object.
+name				needed to access an object in memory, case sensitive
+values				bits in memory interpreted according to type
 initializer			the value after {=} in a definition
+types				property that restricts permitted operations of name or expression (cppreference)
+int				standard integer type, at least 2 bytes
+char				1 Byte in width can be signed or unsigned (implementation specific)
+bool				size is implementation defined
+fundamental types		void, std::nullptr_t (cpp11), integral and floating-point types
+standard integer type		char, int, long
+modifiers			for integral types (signedness and size) 
+signed				default if omitted
+
+short				target type at least 2 bytes
+long				target type at least 4 bytes
+long long			target type at least 8 bytes
+C++ Standard:			1 == sizeof(char) ≤ sizeof(short) ≤ sizeof(int) ≤ sizeof(long) ≤ sizeof(long long)
+
+floating-point types		(float,double, long double)
+special values 			infinity, negative zero, not-a-number NaN
+string reading termination	convention: whitespace (space, newline and tab)
+				This is super important because it leads to problems in programs (see Chapter02 name_age.cpp) -> TODO
+useful operations:
+concatenation			string 		+
+modulo				int		%
+increment by n			int, double	+=n	//decrement -=n
+add to end			string 		+=
+multiply and assign		int, double	*=	//divide /=
+greater than or equal		all		>=	// less than or equal <=
+
+names				must start with a letter, consist of letters, digits or underscores, never write a _name starting with an underscore (reserved for implementation and system entities)
+keywords			reserved names that generate an error if user defined, defining standard library names like "int string" will cause trouble too
+conventional use of variables	x: local variable or parameter, i: loop index
+conventional use of CAPITALS	reserved for macros 
+
+

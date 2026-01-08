@@ -1,0 +1,9 @@
+Search and replace on specific lines in Vim:
+:x,ys/a/b/g
+replaces a with b on lines x to y
+
+Insert a multiline in VIM:
+1)Ctrl + V to enter visual block mode
+2)select line you wanna insert the space and press j
+3)Shift + I to insert
+4)arrow keys select downwards or upwards.
