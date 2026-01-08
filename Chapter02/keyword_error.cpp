@@ -1,6 +1,6 @@
 #include <iostream>
 
 int main(){
-    std::STRING s = "Goodbye, cruel world! ";
-    cOut << S << '\n';
+    std::string s = "Goodbye, cruel world! ";
+    std::cout << s << '\n';
 }
