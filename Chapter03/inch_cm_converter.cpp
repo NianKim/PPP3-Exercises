@@ -12,7 +12,9 @@ int main(){
     std::cin >> length >> unit;
     if (unit == 'i'){
             std::cout << length << "in == " << length*cm_per_inch << "cm\n";
-    }else{ //will default to cm conversion, even if neither of the two chars is entered.
+    }else if(unit == 'c'){ //will default to cm conversion, even if neither of the two chars is entered.
             std::cout << length << "cm == " << length/cm_per_inch << "in\n";
+    }else{
+        std::cout << "Sorry, I don't know a unit called '" << unit << "'\n";
     }
 }
