@@ -1,0 +1,66 @@
+[1] What is a computation?
+The process of manipulating data to produce a result
+[2] What do we mean by inputs and outputs to a computation? Give examples.
+input: keyboard, sensors, network
+output: screen, audio, network
+[3] What are the three requirements a programmer should keep in mind when expressing computations?
+correctness, simplicity, efficiency
+[4] What does an expression do?
+computes the values from a number of operands
+[5] What is the difference between a statement and an expression, as described in this chapter?
+expressions produce values, statements execute an action and usually end with a semicolon.
+[6] What is an lvalue? List the operators that require an lvalue. Why do these operators, and not the others, require an lvalue?
+named object on the left side of an assignment operator. ++ or += require an lvalue because they reference and assign an operation to the lvalue. 
+[7] What is a constant expression?
+an expression that the compiler can evaluate at compile time. the value is kown before the program even runs
+[8] What is a literal?
+a value written out, like a string or int
+[9] What is a symbolic constant and why do we use them?
+useful tool when writing programs, usually a mathematical/physical constant (ex. pi = 3.14)
+[10] What is a magic constant? Give examples.
+a literal number used directly in code where the meaning is not explicitly named. they should be avoided and usually replaced with a well defined, symbolic constant
+[11] What are some operators that we can use for integers and floating-point values?
+example operators: arithmetic, comparators, in-/decrement
+[12] What operators can be used on integers but not on floating-point numbers?
+modulo for int
+[13] What are some operators that can be used for strings?
+concatenation '+', read/write << >>, comparator (output is bool)
+[14] When would a programmer prefer a switch-statement to an if-statement?
+if the cases can be predefined or one wishes to use many if/else if statements in a row (more efficient)
+[15] What are some common problems with switch-statements?
+forgetting to Break;
+[16] What is the function of each part of the header line in a for-loop, and in what sequence are they executed?
+ for(initialization;condition;increment)
+first the initiatization is run to define the index. Then the condition is checked. at the end of the loop, the increment takes place (though ++x and x++ are different, but not in a headers behavior)
+[17] When should the for-loop be used and when should the while-loop be used?
+while-loops are best when you don't know how many times you'll loop. for-loop is best for number of iterations known or tied to a data structure
+[18] Describe what the line char foo(int x) means in a function definition.
+the function of return type char called foo will take the argument int x
+[19] When should you define a separate function for part of a program? List reasons.
+not sure about when, except when you want to take an input to synthesise an output a reason is reusability, semantic legibility and overall visual clarity
+[20] What can you do to an int that you cannot do to a string?
+you can increment an int
+[21] What can you do to a string that you cannot do to an int?
+you can concatenate a string
+[22] What is the index of the third element of a vector?
+index is 2, because vectors are 0-indexed
+[23] How do you write a for-loop that prints every element of a vector?
+for(int i = 0; i < vector.size(); ++i)
+[24] What does vector<char> alphabet(26); do?
+() in declaration is the number of empty elements to create
+[25] Describe what push_back() does to a vector.
+vector.push_back(object) takes the object (assuming it is the right type) and adds it to the STACK in a LIFO manner
+[26] What does vector’s member size() do?
+returns the number of elements in the vector ( not it's data size)
+[27] What makes vector so popular/useful?
+one of the best data structures for iteration, always stores it's size, always can be accessed with indexes
+[28] How do you sort the elements of a vector?
+std::sort(v.begin(), v.end());
+
+[A] What is a "Range-for-loop"?
+for (int x : v) //for each x in v much safer, because no "off-by-one"
+[B] What is the difference between a "Declaration" and a "Definition"?
+a definition is a statement that introduces a new name and sets aside memory for an object. a declaration is just a "promise" to the compiler that something exists, does not set aside memory
+[C] What happens to a vector's size when you call push_back()?
+the size increases
+
