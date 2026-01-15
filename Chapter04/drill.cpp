@@ -9,11 +9,7 @@ using namespace std;
 
 int main()
 try{
-        int x = 4; 
-        double d = 8.5; 
-        if (d==((2*x)+0.5)){
-            cout << "Success!\n";
-        }
+        cout << "Success!\n";
         return 0;
 }
 catch (exception& e){
