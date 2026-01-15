@@ -1,0 +1,120 @@
+Review
+[1] Name four major types of errors and briefly define each one.
+compile-time errors, found by the compiler (syntax errors or type errors)
+link-time errors, found by the linker (when combining object files into an executable program)
+Run-time errors, found by checks when running a program (detected by the computer, llibrary or user code) -> logic errors
+undetected logic errors leading to crashes/wrong results
+mismatch between what the user needs and the code delivers
+[2] What kinds of errors can we ignore in student programs?
+ideally meet the following requirements
+-produce the desired results for all legal inputs
+-give resonable error messages for all illegal inputs
+-need not worry about misbehaving hardware/system software
+-allowed to terminate after an error
+[3] What guarantees should every completed project offer?
+see (2), especially the first two points
+[4] List three approaches we can take to eliminate errors in programs and produce acceptable software.
+-organize software to minimize errors
+-eliminate most of the errors we made through debugging and testing
+-make sure the remaining errors are not serious
+[5] Why do we hate debugging?
+compiling, linking, getting the program to do what its supposed to is very tedious and time wasting to hunt bugs
+avoiding, finding and correcting errors takes 90% of the offort when developing software
+[6] What is a syntax error? Give five examples. (forgetting ;, etc
+mistyping, giving a improper type like Int ('4) is not an int either, compiler refers to line or above where something is improper
+[7] What is a type error? Give five examples. int x = "hello"; etc.
+see [6] calling a function but using the wrong argument, falsely defined scope 
+[8] What is a linker error? Give three examples. 
+a program consists of translation units/modules. functions must be decalred with exactly the same type in every unit in which it is used. every function must be defined exactlyonce in a program
+promising an object exists to the compiler with declaraton but the definition is missing
+[9] What is a logic error? Give three examples. waiting for a string when the problem requires another type
+AKA run-time errors, example dividing with zero, leads to very cryptic hardware errors
+
+[10] List four potential sources of program errors discussed 
+in the text.
+-poor specification	not making sure all cases are handled 
+-incomplete programs	functions are passed arguments. not knowing when we handled all cases
+-unexpected arguments	if a function is undefined for a certain argument, almost like a domain in maths 
+-unexpected input	programs make assumptions on the users input, handling all inputs
+-unexpected state	incorrect/incomplete data in a vector used by different parts of the system
+-logical errors		the code doesn't know what it's supposed to do
+[11] How do you know if a result is plausible? What techniques do you have to answer such questions?
+estimation: understanding your program before implementing it on paper to validate output, knowing what answers need to be ridiculous (like checking SI-units and orders of magintute in physics)
+follow the C++ Core guidelines (CG)
+[12] How do you test if an input operation succeeded?
+returning an error value return -1; checking the cin-state if(cin >> x)
+[13] Compare and contrast having the caller of a function handle a run-time error vs. having the called function handle the run-time error.
+if we are writing a library where we cannot modify the arguments, we leave the "user beware" to type the right argument. this usually looks very messy and requires a lot of "if-else"
+when the callee handles: we can't modify the function definition, the function doesn't knwo what to do in case of an error, function doesn't know where it was called from, performance
+[14] When is throwing an exception preferable to returning an “error value”?
+ensuring a detectd error cannot be ignored, allows us to combine the best of the various approaches to error handling
+[15] When is returning an “error value” preferable to throwing an exception?
+if we want to know that something went wrong and do not want to consider the error "exceptional"
+[16] Describe the process of how exceptions are thrown and caught.
+fucntion finds the error it cannot handle, instead of returning normally it throws an expection. a caller can catch the exception by specifying what to do if the code used throw (using a try-block), if no caller catches the excpetion, the program terminates ( example runtime_error, out_of_range) you can catch both with exception
+[17] Why, with a vector called v, is v[v.size()] a range error? What would be the result of calling this?
+because vectors are 0-indexed. offbyone error/range error, throws an exception of out_of_range (ex. catch (out_of_range) {})
+[18] What is an assertion?
+a statement that states that an invariant is called an assertion an sometimes contract (use error-reporting output stream cerr)
+[19] Define precondition and postcondition; give an example (that is not the area() function from this chapter), preferably a computation that requires a loop.
+precondition: a requirement of a fucntion upon its argument, if it's violated you can check it and report the error or ignore it and hope all callers give correct arguments, report them at compile time
+document preconditions in comments so a caller sees what a function expects
+postcondition: see precondition, except for return values instead of arguments, both conditions provide sanity checks for code.
+
+Pre-Condition (Input Requirement): The input x must be non-negative.
+
+assert(x >= 0);
+
+The Loop: Calculates...
+
+Post-Condition (Output Requirement): The result r squared must be close to x.
+
+assert(abs(r*r - x) < 0.0001);
+
+[20] When would you not test a precondition?
+-nobody would give bad arguments, slowing down code, too complicated to check
+if we know who calls a function, premature optimization (you can always remove chekcs if they turn out to be a burden), sometimes checking the precondition can take sugnificatnly more work than executing the function
+[21] When would you not test a postcondition?
+see precondtion
+[22] What are the steps in debugging a program? iterate:
+get the program to compile
+get the program to link
+get the program to do what it is supposed to do
+[23] Why does commenting help when debugging?
+makes code understandable, see guidelines .txt file i made
+[24] How does testing differ from debugging?
+expecting preconditions helps catching usage errors early and makes us think about what a function requires
+expect([&]{ return 0<a && a<b && b<c; }, "bad arguments for mcf"); is a lambda expression that creates a function that tests the condition and returns 
+compared to fixing bugs, testing is a systematic method of searching for errors using a selected set of inputs called test cases. breaking code and working through the process of improving is a valuable skill
+test frameworks exist too for experienced developers/projects
+[25] What is a random number?
+usually pseudo random, generated from a mathematical formula, the c++ std library procudes spohisticated random number component (default_random_engine engine;) for random distribution: uniform_int_distribution<int> dist (1,6); or normal_/exponential_distribution
+[26] How do we use random_int() and seed()?
+useful for debugging
+to get different sequences from an engine we seed it 
+
+Also, you didn't quiz me on these terms last chapter, so I will ask you here to ask me and check my answers:
+argument error
+exception
+requirement
+assertion
+invariant
+run-time error
+catch
+link-time error
+syntax error
+compile-time error
+logic error
+testing
+container
+postcondition
+throw
+debugging
+precondition
+type error
+error
+range error
+expect()
+random_int()
+seed()
+distribution
