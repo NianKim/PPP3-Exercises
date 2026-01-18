@@ -1,26 +1,28 @@
-/*
-[7] Quadratic equations are of the form 
-a*x2 + b*x + c = 0. To solve these, 
-one uses the quadratic formula: x=−b±b2−4ac2a. 
-There is a problem, though: if b2- 4ac is less 
-than zero, then it will fail. Write a program 
-that can calculate x for a quadratic equation. 
-Create a function that prints out the roots of a 
-quadratic equation, given a, b, c. When the program
- detects an equation with no real roots, have it 
- print out a message. How do you know that your 
- results are plausible? Can you check that they
-  are correct?
-*/
+
 #include<iostream>
 #include<algorithm>
 
-int check_discriminant(int a, int b, int c){
-    if ((4*a*c) >= (b*b)){
-        //this is a valid input
-        return 0;
+void solve_quadratic(double a, double b, double c){
+    if(a == 0){
+        std::cout << "Error: 'a' cannot be zero in a quadratic equation.\n";
+        return;
+    }
+    double discriminant = (b*b) - (4 * a * c);
+    if (discriminant < 0){
+        //this equation has non-real solutions
+        std::cout << "No real roots (discriminant is negative).\n";
+        return;
+    }else if (discriminant == 0){
+        //one real root
+        double x = -b/(2*a);
+        std::cout << "One real root: x = " << x << '\n'; 
     }else{
-        return -1;
+        //two real roots
+        double x1 = (-b + sqrt(discriminant)) /(2*a);
+        double x2 = (-b - sqrt(discriminant)) /(2*a);
+        std::cout << "Two real roots: \n";
+        std::cout << "x1 = " << x1 << "\n";
+        std::cout << "x2 = " << x2 << "\n";
     }
 }
 
@@ -29,24 +31,19 @@ int main(){
     double b;
     double c;
     //reading the input equation
-    std::cout << "Please enter the coefficients of your formula a*x^2 + b*x + c.";
-    std::cout << "a: ";
-    std::cin >> a;
-    std::cout << "b: ";
-    std::cin >> b;
-    std::cout << "c: ";
-    std::cin >> c;
-/*
+    std::cout << "Please enter the coefficients of your formula a*x^2 + b*x + c.\n";
+    std::cout << "a: "; std::cin >> a;
+    std::cout << "b: "; std::cin >> b;
+    std::cout << "c: "; std::cin >> c;
+
     try{
-        if()
-        {
-        }
-        
+      solve_quadratic(a,b,c);
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e){
         std::cerr << e.what() << '\n';
         return 1;
-    }*/
-    
+    }catch(...){
+        std::cerr << "Unknown error \n";
+        return 2;
+    }
 }
