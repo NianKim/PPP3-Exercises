@@ -41,3 +41,4 @@ int main(){
     return 2;
 }
 //atm the calculations are not in accordance to mathematical norms
+//needed tokens: floating point literals, operators, parentheses
