@@ -142,14 +142,6 @@ Token_stream ts;      // provides get() and putback()
 
 //------------------------------------------------------------------------------
 
-double expression();  // read and evaluate a Expression
-
-//------------------------------------------------------------------------------
-
-double term();        // read and evaluate a Term
-
-//------------------------------------------------------------------------------
-
 double primary()     // read and evaluate a Primary
 {
     Token t = ts.get();
@@ -168,49 +160,6 @@ double primary()     // read and evaluate a Primary
     }
 }
 //------------------------------------------------------------------------------
-
-int main()
-try {
-    while (cin)
-        cout << expression() << '\n';
-    keep_window_open("~0");
-}
-catch (exception& e) {
-    cerr << e.what() << endl;
-    keep_window_open ("~1");
-    return 1;
-}
-catch (...) {
-    cerr << "exception \n";
-    keep_window_open ("~2");
-    return 2;
-}
-
-//------------------------------------------------------------------------------
-
-double expression()
-{
-    double left = term();      // read and evaluate a Term
-    Token t = ts.get();        // get the next token
-    while(true) {    
-        switch(t.kind) {
-        case '+':
-            left += term();    // evaluate Term and add
-            t = ts.get();
-            break;
-        case '-':
-            left -= term();    // evaluate Term and subtract
-            t = ts.get();
-            break;
-        default:
-            ts.putback(t);
-            return left;       // finally: no more + or -: return the answer
-        }
-    }
-}
-
-//------------------------------------------------------------------------------
-
 double term()
 {
     double left = primary();
@@ -238,3 +187,57 @@ double term()
 }
 
 //------------------------------------------------------------------------------
+// read and evaluate a Expression
+double expression()
+{
+    double left = term();      // read and evaluate a Term
+    Token t = ts.get();        // get the next token
+    while(true) {    
+        switch(t.kind) {
+        case '+':
+            left += term();    // evaluate Term and add
+            t = ts.get();
+            break;
+        case '-':
+            left -= term();    // evaluate Term and subtract
+            t = ts.get();
+            break;
+        default:
+            ts.putback(t);
+            return left;       // finally: no more + or -: return the answer
+        }
+    }
+}
+//-----------------------------------------------------------------------------------
+
+int main()
+try {
+    double val = 0;
+    while (cin){
+        Token t = ts.get();
+        if(t.kind == 'q'){
+            //'q' for "quit"
+            break;
+        }else if (t.kind == ';'){
+            //';' for "print now"
+            cout << "=" << val << '\n';
+        }else{
+            ts.putback(t);
+        }
+        val = expression();
+    }
+    //keep_window_open("~0");
+}
+catch (exception& e) {
+    cerr << e.what() << endl;
+    keep_window_open ("~1");
+    return 1;
+}
+catch (...) {
+    cerr << "exception \n";
+    keep_window_open ("~2");
+    return 2;
+}
+
+//------------------------------------------------------------------------------
+
