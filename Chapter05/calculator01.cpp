@@ -141,6 +141,8 @@ Token Token_stream::get()
 Token_stream ts;      // provides get() and putback()
 
 //------------------------------------------------------------------------------
+double expression();    //Declaration (A promise)
+double term();          //Decalration (A promise)
 
 double primary()     // read and evaluate a Primary
 {
