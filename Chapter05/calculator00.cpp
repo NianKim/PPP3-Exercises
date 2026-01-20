@@ -111,7 +111,7 @@ double primary()     // read and evaluate a Primary
 int main()
 try {
     while (cin)
-        cout << expression() << '\n';
+        cout << "=" << expression() << '\n';
     keep_window_open("~0");
 }
 catch (exception& e) {
@@ -150,29 +150,29 @@ double expression()
 
 //------------------------------------------------------------------------------
 
-double term()
-{
-    double left = primary();
-    Token t = get_token();     // get the next token
-
-    while (true) {
-        switch (t.kind) {
-        case '*':
-            left *= primary();
-            t = get_token();
-            break;
-        case '/':
-        {
-            double d = primary();
-            if (d == 0) error("divide by zero");
-            left /= d;
-            t = get_token();
-            break;
+double term(){
+    Token t = ts.get();     //TODO : define token_stream() class                           // get the next Token from the Token stream
+         while (true) {
+                  switch (t.kind) {
+                  case '*':
+                           left *= primary();
+                           t = ts.get();
+                           break;
+                  case '/':
+                  {       
+                  double d = primary();
+                    if (d == 0){
+                        error("divide by zero");
+                    }
+                    left /= d;
+                    t = ts.get();
+                    break;
+                }
+                default:
+                        ts.putback(t);                     // put t back into the Token stream
+                        return left;
+                }
         }
-        default:
-            return left;
-        }
-    }
 }
 
 //------------------------------------------------------------------------------
