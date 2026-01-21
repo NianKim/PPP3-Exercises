@@ -80,10 +80,10 @@ Token get_token()    // read a token from cin
 //------------------------------------------------------------------------------
 
 class Token_stream {
-    public:
+    public: //user interface
         Token get();            // get a Token
         void putback(Token t);  // put a Token back
-    private:
+    private: // implementation details, not directly accessible to users of Token_stream
         bool full {false};      // is there a Token in the buffer?
         Token buffer = {'0'};           // where we store a 'putback' Token
 };

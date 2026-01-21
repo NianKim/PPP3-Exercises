@@ -1,0 +1,100 @@
+[1] What do we mean by “Programming is understanding”?
+Due to programming always being used to solve problems, in order to write a good program to solve a problem, the first step is thouroughly understanding the problem at hand.
+
+[2] The chapter details the creation of a calculator program. Write a short analysis of what the calculator should be able to do.
+Take the following inputs:
+integers and floating point types
+arithmetic operators (+,-,/,*)
+//braces()
+The Calculator should prioritize by the BEMDAS scheme (braces, exponents, multiplication, division, addition, subtraction)
+output a simple double value
+
+[3] How do you break a problem up into smaller manageable parts?
+By the method of divide and conquer:
+-analysis (set of requirements/specifications: Inputs, outputs/states and logic)
+-design (structure, comminication between systems, libraries
+-implementation (code, debug, test)
+[4] Why is creating a small, limited version of a program a good idea?
+through iteration it's easier to control the amount of variables you change per version and therefore it's easier to improve 
+
+[5] Why is feature creep a bad idea?
+Feature creep makes software unwieldy and hard to maintain
+you fall prone to not properly thinking the problem through
+
+[6] What are the three main phases of software development?
+analysis
+design
+implementation
+
+[7] What is a “use case”?
+when discussing design and analysis such examples of use are called use case
+
+[8] What is the purpose of testing?
+
+[9] According to the outline in the chapter, describe the difference between a Term, an Expression, a Number, and a Primary.
+A primary handles numbers and brackets
+a term handles multiplication and division
+an expression handles addition and subtraction
+number is indicated by '8' char
+
+[10] In the chapter, an input was broken down into its components: Terms, Expressions, Primarys, and Numbers. Do this for (17+4)/(5−1).
+expressions: 17+4, 5-1
+term: /
+primary (), ()
+
+[11] Why does the program not have a function called number()?
+because we assign a pair of values to the input steam, first and identifier (operator, bracket or number) and then the value associated with that identifier (e.g the number itself) 
+
+[12] What is a token?
+user defined types
+sequence of characters that represents something we consdider a unit such as a number or an operator
+can have member funcitons (operations) as well as data members
+
+[13] What is a grammar? A grammar rule?
+defining the syntax of our input. For example: division '/' binds tighter than '+' addition
+example: top-down (top rule and searches through hierarchy of rules until we find a match for the currently read token) bottom-up checks grammar rules, then sees what rules apply for the next token to find a unique answer
+reading a stream of tokens according to grammar is called parsing
+
+recipie for writing grammar:
+- Distinguish a rule from a token
+- Put one rule after another (sequencing)
+- Express alternative patterns (alternation)
+- Express a repeating pattern (repetition)
+- Recognize the grammar rule to start with
+
+tokens are called terminals
+rules are non-terminals or productions
+
+[14] What is a class? What do we use classes for?
+a class is a user defined type that can be used to facilitate certain data structures
+it contains data and fuctions (member data and member functions)
+
+[15] How can we provide a default value for a member of a class?
+
+
+[16] In the expression function, why is the default for the switch-statement to “put back” the token?
+
+[17] What is “look-ahead”?
+
+[18] What does putback() do and why is it useful?
+
+
+[19] Why is the remainder (modulus) operation, %, difficult to implement in the term()?
+because it only works for integers but our program is written with floats
+
+[20] What do we use the two data members of the Token class for?
+
+[21] Why do we (sometimes) split a class’s members into private and public members?
+because we don't want implementation details accessible by users of the class
+
+[22] What happens in the Token_stream class when there is a token in the buffer and the get() function is called?
+
+[23] Why were the ';' and 'q' characters added to the switch-statement in the get() function of the Token_stream class?
+
+[24] When should we start testing our program?
+
+[25] What is a “user-defined type”? Why would we want one?
+
+[26] What is the interface to a C++ “user-defined type”?
+
+[27] Why do we want to rely on libraries of code?
