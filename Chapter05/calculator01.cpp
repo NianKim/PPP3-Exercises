@@ -52,32 +52,6 @@ public:
 };
 
 //------------------------------------------------------------------------------
-/*
-Token get_token()    // read a token from cin
-{
-    char ch;
-    cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
-
-    switch (ch) {
- //not yet   case ';':    // for "print"
- //not yet   case 'q':    // for "quit"
-    case '(': case ')': case '+': case '-': case '*': case '/': 
-        return Token(ch);        // let each character represent itself
-    case '.':
-    case '0': case '1': case '2': case '3': case '4':
-    case '5': case '6': case '7': case '8': case '9':
-        {    
-            cin.putback(ch);         // put digit back into the input stream
-            double val;
-            cin >> val;              // read a floating-point number
-            return Token('8',val);   // let '8' represent "a number"
-        }
-    default:
-        error("Bad token");
-    }
-}
-*/
-//------------------------------------------------------------------------------
 
 class Token_stream {
     public: //user interface
@@ -90,7 +64,7 @@ class Token_stream {
 
 void Token_stream::putback(Token t)
 {
-    if (full) error("putback() into a full buffer");
+    if (full) {error("putback() into a full buffer");}
     buffer = t;         // copy t to buffer
     full = true;        // buffer is now full
 }
@@ -105,8 +79,8 @@ Token Token_stream::get()
     cin >> ch;
 
     switch (ch) {
-        case ';':       // for "print"
-        case 'q':       // for "quit"
+        case '=':       // for "print"
+        case 'x':       // for "quit"
         case '(':
         case ')':
         case '+':
@@ -127,12 +101,12 @@ Token Token_stream::get()
         case '9':
             {
                 cin.putback(ch);
-                double val;
+                double val = 0;
                 cin >> val;
-                return Token{'8', val};
+                return Token{'8', val}; //C++ reference: numeric literal starts with digit or decimal point
             }
         default:
-            error("Bad Token");
+            error("Bad Token"); //terminates the program
     }
 }
 
@@ -141,8 +115,7 @@ Token Token_stream::get()
 Token_stream ts;      // provides get() and putback()
 
 //------------------------------------------------------------------------------
-double expression();    //Declaration (A promise)
-double term();          //Decalration (A promise)
+double expression();    //forward Declaration (A promise)
 
 double primary()     // read and evaluate a Primary
 {
@@ -189,8 +162,7 @@ double term()
 }
 
 //------------------------------------------------------------------------------
-// read and evaluate a Expression
-double expression()
+double expression() // read and evaluate a Expression
 {
     double left = term();      // read and evaluate a Term
     Token t = ts.get();        // get the next token
@@ -212,33 +184,36 @@ double expression()
 }
 //-----------------------------------------------------------------------------------
 
-int main()
-try {
-    double val = 0;
-    while (cin){
-        Token t = ts.get();
-        if(t.kind == 'q'){
-            //'q' for "quit"
-            break;
-        }else if (t.kind == ';'){
-            //';' for "print now"
-            cout << "=" << val << '\n';
-        }else{
-            ts.putback(t);
+int main(){
+    cout << "Welcome to our simple calculator. \n Please enter expressions using floating−point numbers.\n";
+    cout << "You can use Brackets, Operators +-*/, = to get an output and x to terminate the program.\n";
+    try {
+        double val = 0;
+        while (cin){
+            Token t = ts.get();
+            if(t.kind == 'q'){
+                //'q' for "quit"
+                break;
+            }else if (t.kind == ';'){
+                //';' for "print now"
+                cout << "=" << val << '\n';
+            }else{
+                ts.putback(t);
+            }
+            val = expression();
         }
-        val = expression();
+        //keep_window_open("~0");
     }
-    //keep_window_open("~0");
-}
-catch (exception& e) {
-    cerr << e.what() << endl;
-    keep_window_open ("~1");
-    return 1;
-}
-catch (...) {
-    cerr << "exception \n";
-    keep_window_open ("~2");
-    return 2;
+    catch (exception& e) {
+        cerr << e.what() << endl;
+        keep_window_open ("~1");
+        return 1;
+    }
+    catch (...) {
+        cerr << "exception \n";
+        keep_window_open ("~2");
+        return 2;
+    }
 }
 
 //------------------------------------------------------------------------------
