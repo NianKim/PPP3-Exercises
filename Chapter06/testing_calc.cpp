@@ -23,6 +23,12 @@
 #include<stdexcept>
 using namespace std;
 
+constexpr char number = '8';    // t.kind==number means that t is a number Token
+constexpr char quit = 'q';      // t.kind==quit means that t is a quit Token
+constexpr char prin = ';';     // t.kind==print means that t is a print Token
+constexpr string prompt = "> ";
+constexpr string result = "= "; // used to indicate that what follows is a result
+
 // eg. error("putback() into a full buffer");
 inline void error(const string& s)
 {
@@ -79,13 +85,6 @@ private:
 };
 
 //------------------------------------------------------------------------------
-/*
-// The constructor just sets full to indicate that the buffer is empty:
-Token Token_stream::get(){
-    :full(false), buffer(0)    // no Token in buffer
-}
-*/
-//------------------------------------------------------------------------------
 
 // The putback() member function puts its argument back into the Token_stream's buffer:
 void Token_stream::putback(Token t)
@@ -109,18 +108,24 @@ Token Token_stream::get()
     cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
 
     switch (ch) {
-    case '=':    // for "print"
-    case 'x':    // for "quit"
-    case '(': case ')': case '+': case '-': case '*': case '/': case'%':
+    case prin: 
+    case quit: 
+    case '(': 
+    case ')': 
+    case '+': 
+    case '-': 
+    case '*': 
+    case '/': 
+    case '%':
         return Token(ch);        // let each character represent itself
-    case '.':
-    case '0': case '1': case '2': case '3': case '4':
+    case '.':                       //floating point literal can start with a dot
+    case '0': case '1': case '2': case '3': case '4': //numeric literal
     case '5': case '6': case '7': case '8': case '9':
     {
         cin.putback(ch);         // put digit back into the input stream
         double val;
         cin >> val;              // read a floating-point number
-        return Token('8', val);   // let '8' represent "a number"
+        return Token(number, val);   // let '8' represent "a number"
     }
     default:
         error("Bad token");
@@ -149,7 +154,7 @@ double primary()
         if (t.kind != ')') error("')' expected");
             return d;
     }
-    case '8':            // we use '8' to represent a number
+    case number:    
         return t.value;  // return the number's value
     case '-':
         return - primary();
@@ -223,23 +228,27 @@ double expression()
 }
 
 //------------------------------------------------------------------------------
+void calculate(){
+    while (cin) {
+        cout << prompt;
+        Token t = ts.get();
+        while (t.kind == prin){
+            t = ts.get();
+        }
+        if (t.kind == quit) {return;} // 'x' for quit
+            ts.putback(t);
+            cout << result << expression() << '\n';
+    }
+    return;
+}
 
 int main(){
     cout << "Welcome to our simple calculator. \n Please enter expressions using floating−point numbers.\n";
-    cout << "You can use Brackets, Operators +-*/%, = to get an output and x to terminate the program.\n";
+    cout << "You can use Brackets, Operators +-*/%, ; to get an output and q to terminate the program.\n";
     try{
-        while (cin) {
-            cout << "> "; //prints prompt
-            Token t = ts.get();
-            while (t.kind == '='){
-                t = ts.get();
-            }
-            if (t.kind == 'x') {return 0;} // 'x' for quit
-                ts.putback(t);
-                cout << "=" << expression() << '\n';
-            }
+        calculate();
         return 0;
-        }
+    }
     catch (exception& e) {
         cerr << "error: " << e.what() << '\n';
         keep_window_open();
