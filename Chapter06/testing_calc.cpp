@@ -79,9 +79,10 @@ public:
     //Token_stream();   // make a Token_stream that reads from cin
     Token get();      // get a Token (get() is defined elsewhere)
     void putback(Token t);    // put a Token back
+    void ignore(char c);       //discards characters up to and including a c
 private:
-    bool full{false};        // is there a Token in the buffer?
-    Token buffer = {'0'};     // here is where we keep a Token put back using putback()
+    bool full = false;        // is there a Token in the buffer?
+    Token buffer = 0;     // here is where we keep a Token put back using putback()
 };
 
 //------------------------------------------------------------------------------
@@ -92,6 +93,24 @@ void Token_stream::putback(Token t)
     if (full) error("putback() into a full buffer");
     buffer = t;       // copy t to buffer
     full = true;      // buffer is now full
+}
+
+//------------------------------------------------------------------------------
+
+void Token_stream::ignore(char c){
+    //c represents the kind of Token
+    if(full && c ==buffer.kind){
+        full = false;
+        return;
+    }
+
+    //now search input:
+    char ch = 0;
+    while (cin >> ch){
+        if(ch ==c){
+            return;
+        }
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -240,6 +259,11 @@ void calculate(){
             cout << result << expression() << '\n';
     }
     return;
+}
+
+//This Function purges all tokens from current calculation of Token_Stream
+void clean_up_mess(){
+    ts.ignore(prin);
 }
 
 int main(){
