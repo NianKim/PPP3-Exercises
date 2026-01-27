@@ -389,6 +389,7 @@ double define_name(string var, double val){
 int main(){
     cout << "Welcome to our simple calculator. \n Please enter expressions using floating−point numbers.\n";
     cout << "You can use Brackets, Operators +-*/%, ; to get an output and q to terminate the program.\n";
+    cout << "Variables can be declared using let name = value; \n";
     try{
         calculate();
         return 0;

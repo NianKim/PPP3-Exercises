@@ -103,6 +103,7 @@ void Token_stream::ignore(char c){
         full = false;
         return;
     }
+    full = false;
 
     //now search input:
     char ch = 0;
