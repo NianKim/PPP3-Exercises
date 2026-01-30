@@ -39,7 +39,10 @@ A function declaration consists of:
 	name
 	list of parameters in parentheses (formal arguments)
 
-[8] What is the suffix return type notation, and why might you use it?
+[8] What is the suffix return type notation, and why might you use it? (trailing notation)
+sometimes it's more legible, especially when return names become longer
+instead of 	type-identifier function-identifier (parameter-list) 
+we write:	auto function-identifier (parameter-list) -> type-identifier
 
 [9] What good does indentation do?
 Makes nesting apparent
@@ -54,7 +57,7 @@ Makes nesting apparent
 
 [11] What kinds of scope are there? Give an example of each.
 There are:
-global scope		area of text outside of any other scope
+global scope		area of text outside of any other scope 
 module scope		area of text within a module
 namespace scope		a named scope nexted in the global scope or in another namespace
 class scope		area of text within a class
@@ -67,6 +70,9 @@ The class scope is a local scope within the class constructor, creating a nested
 [13] Why should a programmer minimize the number of global variables?
 in order to keep the number and scope of all named entities manageable, one must adhere to locality. Otherwise the declarations clash
 Another problem is that we don't know which functions modify our global variables
+(variables initalized in this manner exist until the porgram terminates so its memory is always occupied)
+global variables that aren't initialized as a constant expression are a major pitfall
+static local variables: initializes the first time its read, it can be expensive for the compiler to construct a global function: const Date& today(){static const=... return..}
 
 [14] What is the difference between pass-by-value and pass-by-reference?
 functions usually need arguments and often return a result
@@ -76,39 +82,80 @@ The way these arguments are specified and passed:
 -pass by reference: &name
 	gives the function the address/reference of the object in memory to be modified
 	can be aconvenient shorthand for some object
+A general rule of thumb
+1. Use pass-by-value for very small objects (e.g. two doubles)
+2. Use pass-by-const-reference to pass large objects you don't need to modify
+3. return a result rather than modifying an object through a reference argument
+4. Use pass-by-reference only when you have to
 
 [15] What is the difference between pass-by-reference and pass-by-const-reference?
 -pass-by-const-reference:
 	stops the function from modifying its argument by accident (e.g. we only want to write a print() or my_find() function, because copies are unnecessary)
-	
+	This can be used if we only want to read the value and not write to it's address
+	when calling the function foo(x,y,z) and y is pass by reference, it must be a variable, while pass by reference const can be a literal value when calling
+
 [16] What is a swap()?
+A standard library function that exchanges the value of two variables. This is done in in a pass-by-reference manner. A temporary variable is necessary for the exchange to work (otherwise we'd delete data during the swap)
 
 [17] Would you ever define a function with a vector<double> as a by-value parameter?
+yes, for example if we want to modify the data in the entire vector and we need to iter ate over its elements (manipulating containers, functions that change several objects)
+
 
 [18] Give an example of undefined order of evaluation. Why can undefined order of evaluation be a problem?
+a thread of execution reaches statements and proceeds through them according to the language rules
+example definition of a variable: constructed (memory set aside and object initalized)
+when the variable goes out of scope the object it refers to is in principle removed and the compiler can use its memory for something else
+As a rule of thumb, to avoid complicated expressions: if we change the value of a variable in an expression, we don't read or write the variable twice in that same expression
+The order of the calling function (if its not commutative like matrix multiplication) will fail or provide different results
 
 [19] What do x&&y and x||y, respectively, mean?
-&& logical AND
+&& logical AND 
 || logical OR
+short circuit evaluation: 
+((left-hand of && false -> return false))
+((right-hand of || true -> return true))
 
 [20] Which of the following is standard-conforming C++: functions within functions, functions within classes, classes within classes, classes within functions?
 side note: local functions are not legal in C++, use lambdas instead
 member classes are most common and useful in complicated classes
 
-
-
-
 [21] What goes into an activation record?
+when a function is called, this data structure is set aside with a copy of all its parameters and local variables
+varies from implementation
+information that the function needs to return to its caller and and to return a value
+it's a stack to tell the compiler what we need to set aside memory for
+every call of a function gets its own activation record
+Every time we enter a block the variables in its local scope are constructed and by the end of the scope (say a loop) destroyed in *reverse* order of construction. The compiler will have astack frame for the variables that will be reused repeatedly
 
 [22] What is a call stack and why do we need one?
+whenever we call a function the stack of activation records grows by one record LIFO principle, just like chain links in YuGiOh
+A constexpr function  behaves just like an ordinary fuction until you use it where a constant is needed
+Then it is calculated at compile time and its arguemnts must be constant expressions (or it returns an error) it cannot have side effects (it cannot change the value of objects outside its local scope) (because they don't exist at compile time)
+if a function should only be evaluated at compile-time, declare as consteval
 
 [23] What is the purpose of a namespace?
+organizing named identifier for parts of our program without defining a type, it helps the names not interfering with each other between namespaces
 
 [24] How does a namespace differ from a class?
+if someone was to use both libraries (classes) of the same global namespace they would be clashing if they had the same name for certain functions A namespace/class is combined with '::' and is called a fully qualified name
 
 [25] What is a using declaration?
+instead of reffering to ecery function by its fully qualified name, we can make "shorthands" with the using directive
 
 [26] Why should you avoid using directives in a header?
+because one can lose track which names come from where
 
 [27] What is namespace std?
+The C++ standard library directive 
 
+Modules and Headers:
+header: an established mechanism for composing programs out of files #include simply copies the declarations from the header file (preprocessing). Therefore it should only contain declarations that can be duplicated (function declarations, class definitions and numeric constants)
+module:	modern language mechanism for directly expressing modularity, to compile and use them the specific C++ implementation must be known (https://www.stroustrup.com/module_use.html) but implementation is faster than its alternatives
+module example;
+
+//implementation details
+import std;	//a module can import the modules it needs
+export class { 	//available for users that import the module
+public:
+};
+void x{}
