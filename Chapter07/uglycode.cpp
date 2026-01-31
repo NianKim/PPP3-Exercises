@@ -30,4 +30,4 @@ void main() {
     X a;    //X not constructing
     a.f(2);
 }
-//};
+//}; historicalfalling through the bottom of main() is equivalent to returning the value 0
