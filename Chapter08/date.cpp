@@ -13,3 +13,38 @@ Test each version with at least one invalid date (e.g., 2004, 13, -5).
 */
 
 #include<iostream>
+using namespace std;
+
+class Date{
+    public:
+        //Date(int y, int m, int d); //check for valid date and initialize 
+        Date(int yy, int mm, int dd) //constructor
+            :y{yy}, m{mm}, d{dd}            //note: member initializers
+            {}
+        int month() {return Date::m;}
+        int day() {return Date::d;}
+        int year() {return Date::y;}
+    private:
+        int y, m, d; //year, month, day
+};
+
+//help from Stroustrup
+ostream& operator<<(ostream& os, Date d)
+    {
+            return os << d.year() << '/' << d.month() << '/' << d.day();
+    }
+
+
+void init_day(Date& dd, int y, int m, int d){
+    //check that (y,m,d) is a valid date. If it is, use it to init dd
+}
+
+void add_day(Date& dd, int n){
+    //increase dd by n days
+}
+int main(){
+    Date today{2025, 2, 4};
+
+    cout << "Today is: " << today << '\n';
+    return 0;
+}
