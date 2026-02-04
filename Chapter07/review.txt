@@ -18,7 +18,7 @@ A function declaration would be a function without its body
 
 [3] How do we syntactically distinguish between a variable declaration and a variable definition?
 A variable declaration would be without assigning the variables value. So in the form:
-type name; instead of type name = value;
+type name; instead of type name = value; AND you need to use the keyword extern int a;
 
 [4] Why can’t you use the functions in the calculator program from Chapter 5 without declaring one or more of them first?
 	Because these functions haven't been declared yet. 
@@ -65,7 +65,23 @@ local scope		between {...} braces of a block or in a function argument list
 statement scope		e.g. in a for-statement
 
 [12] What is the difference between a class scope and local scope?
-The class scope is a local scope within the class constructor, creating a nested (local) scope
+The class scope is a local scope within the class body, creating a nested (local) scope
+access: a private variable is still in class scope meaning all member functions (public or prvate) can see and use it
+
+class MyClass { // <--- Class Scope starts here
+    int m_a;    // Defined in Class Scope (visible to everything below)
+
+public:
+    MyClass() { // <--- Constructor (Local Scope starts)
+        m_a = 5; // Valid: m_a is in Class Scope, so Constructor can see it
+        int x = 0; // x is in Constructor's Local Scope
+    } // <--- Constructor Scope ends (x dies here)
+
+    void print() {
+        // m_a is STILL visible here because it's in Class Scope
+        // x is NOT visible here
+    }
+}; // <--- Class Scope ends here
 
 [13] Why should a programmer minimize the number of global variables?
 in order to keep the number and scope of all named entities manageable, one must adhere to locality. Otherwise the declarations clash
@@ -138,9 +154,13 @@ organizing named identifier for parts of our program without defining a type, it
 
 [24] How does a namespace differ from a class?
 if someone was to use both libraries (classes) of the same global namespace they would be clashing if they had the same name for certain functions A namespace/class is combined with '::' and is called a fully qualified name
+Class defines a 	TYPE - can create objects of that type
+namespace defines a	SCOPE - named bucket for names, not an object
 
 [25] What is a using declaration?
 instead of reffering to ecery function by its fully qualified name, we can make "shorthands" with the using directive
+using namespace std; 	using directive (directs compiler:: look at the whole namespace)
+using std::string;	using declaration (declares this one specific name valid here)
 
 [26] Why should you avoid using directives in a header?
 because one can lose track which names come from where

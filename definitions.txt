@@ -36,13 +36,15 @@ Chapter 2:
 ================================================
 object:				region of memory that holds a value with a given type
 type				specifies set of possible values and operations in an object
-variable			named object
+variable			named object, value unknown at compile time
 prompt				output/message that encourages user to take action
 definition			a statement that introduces a new name and sets aside memory for an object
 declaration			statement that gives a name and type to an object.
 name				needed to access an object in memory, case sensitive. must start with a letter, consist of letters, digits or underscores, never write a _name starting with an underscore (reserved for implementation and system entities)
 values				bits in memory interpreted according to type
-initializer			the value after {=} in a definition, always initialize to ensure type safety. Default initialization is guaranteed for string and vector
+initializer			the value after {=} in a definition, always initialize to ensure type safety. Default initialization is guaranteed for string and vector. Can be initialized in 4 notations: '=', 
+'{}', '={}', error when narrowing
+'()' reserved for special cases like list initialization
 types				property that restricts permitted operations of name or expression (cppreference)
 int				standard integer type, at least 2 bytes, generally 32 bits (4 bytes)
 char				1 Byte in width can be signed or unsigned (implementation specific)
@@ -77,4 +79,44 @@ conventional use of CAPITALS	reserved for macros
 
 type safety			objects used only in accordance to their type rules. generally complete type safety is the ideal.
 static type safety		NEVER use language features that cannot be proven type-safe before the program starts executing
+conversions			when needed in expressions, types are converted. ints become doubles and chars become ints (ASCII)
+conversion types		widening (preserves information char -> int)
+			narrowing(may lose information 	int  -> char)
+auto				use then the type is obvious from the initializer and we don't want any conversion, used for longer type names and generic programming 
+literal				Do not refer to variables, but the values themselves, can exist for strings or integers
+string literal			a sequence of s-chars
 
+Chapter 3:
+abstration			hide details we don't need to use a facility (implementaion) behind a convenient and general interface
+range-for-statement
+push_back()
+for-statement
+function
+repetition
+computation
+if-statement			chooses between two alternatives, if it's conditions are met it chooses x, else y
+rvalue				right hand side of an assignment or initialization "The value of the object named X"
+conditionals statement
+increment
+selection			
+delcaration
+input				Often called arguments, in a finite state maschine they are used to synthesize outputs based on the program and previous data structures (states)
+size()
+definition
+iteration
+sort()
+divide-and-conquer		Subdividing a complex problem into several more manageable ones
+loop
+statement			language construct is a expression followed by a semicolon. (used to clarify punctuation for the compiler) careful of empty statements for example if (x == 5); //the compiler will check but not follow up on the statement, then proceed to the next line.
+y =3;
+else/statement
+lvalue				left hand size of an assignment or initialization "the object named X"
+switch-statement
+while-statement
+member function
+vector
+expression			computes a value from a number of operands (literals), names 
+output				a synthesized result after a programs runtime. Defined by its inputs and the functions applied to it
+constexpr			symbolic constant (a named object that cannot be changed)
+
+truncation			logic error, happens with narrowing conversions (for example chops everything off after the decimal point.)

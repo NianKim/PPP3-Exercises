@@ -9,6 +9,8 @@ now we need to try and break the program
 because in main we have: 
 if(t.kind='=')//instantly calls expression()
 we should test for x AFTER testing for '='
+assignment vs comparator
+silent killer: always returns true if assignment
 
 [3] Why did we choose to make a constant character called number?
 makes the magic constant '8' a legible character that indicates it's purpose: a number identifier
@@ -23,6 +25,7 @@ structure is more directly reflected in code and easier to understand.
 
 [6] What is the purpose of commenting?
 it helps remind the author or reader the purpose of the code
+always check on rereading if: comments are still valid, adequate for a reader, not distracting
 
 [7] What is the use of symbolic constants?
 it helps the definition of the value make sense every time in the context it is calles
@@ -32,24 +35,43 @@ it helps prevent bugs and makes it harder for them to hide in plain sight
 
 [9] How do we handle % (remainder) of floating-point numbers?
 x%y==x−y*int(x/y) or fmod()
+0 for y would return an error for division by zero
 
 [10] What does is_declared() do and how does it work?
+checks names vector iteratively 
 
 [11] The input representation for let is more than one character. How is it accepted as a single token in the modified code?
+let is a name followed by an expression -> store it in var_table
+'L' is the representation of the "let" token, with "let" as our keyword, which we compare to s in const string declkey
+we need to do lookahead
 
 [12] What are the rules for what names can and cannot be in a calculator program?
+check whether there already is a Variable called var in var_table
+add (var,val) to var_table
+c++ naming convention applies.
 
 [13] Why is it a good idea to build a program incrementally?
+Because it follows the Divide and conquer strathegy
 
 [14] When do you start to test?
+You should start testing as soon as a functional program exists (iterate)
 
 [15] When do you retest?
+Every time a new functionality is implemented (compiles, outputs and handles errors)
 
 [16] How do you decide what should be a separate function?
+a function should return one output for given parameters
 
 [17] How do you choose names for variables and functions? List possible reasons.
+Make them relate to their sematic purpose, so they are legible in code:
+void circumference(int radius)
+principle of least astonishment: should be 
 
 [18] What should be in comments and what should not?
+they are for things that code expresses poorly. 
+-Intent
+-grammar (epxressions and tokens) ->documentation
 
 [19] When do we consider a program finished?
+when the initial design goals have been met, bugs are resonable handled and it is possible to return to this project and build onto it in the future.
 

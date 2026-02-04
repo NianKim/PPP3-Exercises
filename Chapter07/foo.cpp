@@ -1,5 +1,5 @@
 #include "foo.h"
-#include<iostream>
+#include <iostream>
 
 int foo = 0;
 

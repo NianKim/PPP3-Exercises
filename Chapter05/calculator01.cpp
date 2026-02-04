@@ -115,15 +115,15 @@ Token Token_stream::get()
 Token_stream ts;      // provides get() and putback()
 
 //------------------------------------------------------------------------------
-double expression();    //forward Declaration (A promise)
+double expression(Token_stream& ts);    //forward Declaration (A promise)
 
-double primary()     // read and evaluate a Primary
+double primary(Token_stream& ts)     // read and evaluate a Primary
 {
     Token t = ts.get();
     switch (t.kind) {
     case '(':    // handle '(' expression ')'
         {    
-            double d = expression();
+            double d = expression(ts);
             t = ts.get();
             if (t.kind != ')') error("')' expected");
             return d;
@@ -135,20 +135,20 @@ double primary()     // read and evaluate a Primary
     }
 }
 //------------------------------------------------------------------------------
-double term()
+double term(Token_stream& ts)
 {
-    double left = primary();
+    double left = primary(ts);
     Token t = ts.get();     // get the next token
 
     while(true) {
         switch (t.kind) {
         case '*':
-            left *= primary();
+            left *= primary(ts);
             t = ts.get();
             break;
         case '/':
             {    
-                double d = primary();
+                double d = primary(ts);
                 if (d == 0) error("divide by zero");
                 left /= d; 
                 t = ts.get();
@@ -162,18 +162,18 @@ double term()
 }
 
 //------------------------------------------------------------------------------
-double expression() // read and evaluate a Expression
+double expression(Token_stream& ts) // read and evaluate a Expression
 {
-    double left = term();      // read and evaluate a Term
+    double left = term(ts);      // read and evaluate a Term
     Token t = ts.get();        // get the next token
     while(true) {    
         switch(t.kind) {
         case '+':
-            left += term();    // evaluate Term and add
+            left += term(ts);    // evaluate Term and add
             t = ts.get();
             break;
         case '-':
-            left -= term();    // evaluate Term and subtract
+            left -= term(ts);    // evaluate Term and subtract
             t = ts.get();
             break;
         default:
@@ -200,7 +200,7 @@ int main(){
             }else{
                 ts.putback(t);
             }
-            val = expression();
+            val = expression(ts);
         }
         //keep_window_open("~0");
     }

@@ -218,6 +218,7 @@ int main(){
     try{
         double val = 0;
         while (cin) {
+            cout << "> "; //prints prompt
             Token t = ts.get();
 
             if (t.kind == 'x') {break;} // 'x' for quit
