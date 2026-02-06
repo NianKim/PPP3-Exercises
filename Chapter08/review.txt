@@ -1,25 +1,67 @@
 [1] What are the two parts of a class, as described in the chapter?
+1. Implementation
+2. Interface
 
 [2] What is the difference between the interface and the implementation in a class?
+interface: 	users can access directly (public)
+implementation:	private part of class declaration accessible indirectly via interface
+		used by class members only, usually data or (class members by default)
 
 [3] What are the limitations and problems of the struct Date from §8.4.1?
+//a struct is a class where members are public by default
+By implementing the date object as three ints (day month year) we add in complication with error-prone assignment (what if we accidentally assign the month value to the day?)
+And helper functions (like checking if the date is valid is also difficult)
+	=> Which operations would we like for this type
+	A public struct cannot enforce an invariant
 
 [4] Why is a constructor used for the Date type instead of an init_day() function?
+constructor: a member function with the same name as its class (used for initialization)
+The compiler can catch it if we forget to initialize and object of a class if the CONSTRUCTOR requires an argument (it will catch illegal dates)
+circular depedency or mutual recursion must be solved with forwqard declaration
 
 [5] What is an invariant? Give examples.
+invariant:	a rule for what constitute as a valid state/value
+example: roman, Mayan, chinese calendar 
+minutes must range from 0 to 59
 
 [6] When should functions be put in the class definition, and when should they be defined outside the class? Why?
+notation for outside of class: class_name::member_name
+by default the class declaration gets messier if the member functions are defined inside
+long and potentially confusing declarations go outside, simple ones go inside 
+writing it within has three effects:
+	1.	inline: compiler generates code for the function every point of call (ra	ther than using function call intstuctions to use common code
+	2.	all uses are recompiled whenever a change is made to the body of inlined function. in contrast, outside only recompiles when class declaration changes
+	3.	class definition larger, harder to find the members among definitions
 
 [7] What is a default constructor and when do we need one?
+implicitly providing objects of a classs the desired initialization
+Deafult means "no arguments"
 
 [8] What is a default member initializer?
+An initializer for a class member specified as part of the member declaration is called a default member initializer or an in-class initializer.
 
 [9] When should operator overloading be used in a program? Give a list of operators that you might want to overload (each with a reason). Which ones can you define in C++?
+when we have a set of possible values in an enum class and we want to "wrap around" when we reach the boudary. (e.g. when we have a modulo-n counter)
+an overloaded operator must have at least one user-defined type as operand, this can only be done with existing c++ operators like +, − *, /, %, [ ], ( ), ˆ, !, &, <, <=, >, and >=.
+the most interesting are =, ==, <, ->, [], ()
 
 [10] Why should the public interface to a class be as small as possible?
+Because the other programmers will mostly be interested in the public interface.
+it is easier to learn, but it must be complete.
+less prone to bugs, we want problems to appear at compile time instead of runtime becuase then tests and error-handling code aren't required
 
 [11] What does adding const to a member function do?
+immutable values
+We want to fundamentally classify operations on a class as modifying or nonmodifying
+the compiler will hold us accountable once we define a member function as const 
 
 [12] Why are “helper functions” best placed outside the class definition?
+a function that can be used as a free-standing function should be implemented that way, beacuse that way a bug with said function will not corrupt any data of the class object
+this makes bugfixing way easier because the range of failed functions is smaller
 
 [13] How does an enum class differ from a “plain” enum?
+enum:	user defined type that specifies a set of values as symbolic constants.
+we can make sure the enumerations are in scope
+enum starts 0-indexed unless the first element is specified otherwise
+
+enum class stops implicit int conversion!

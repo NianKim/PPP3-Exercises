@@ -16,6 +16,7 @@ Test each version with at least one invalid date (e.g., 2004, 13, -5).
 #include<vector>
 using namespace std;
 
+
 //types first
 enum class Month {
          jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
@@ -38,13 +39,14 @@ ostream& operator<<(ostream& os, Month m){
     return os << month_tbl[to_int(m)];
 }
 
+
 //helper functions
 
 class Date{
     public:
         class Invalid{}; //exception
         //check for valid date and initialize 
-        Date(int yy, int mm, int dd) //constructor
+        Date(int yy, Month mm, int dd) //constructor
             :y{yy}, m{mm}, d{dd}            //note: member initializers
             {
                 if(!is_valid()){
@@ -60,8 +62,9 @@ class Date{
         void add_day(int n);
 
     private:
-        int y, d; //year, day
-        Month m; //month
+        int y; // year
+        Month m;
+        int d; //day
 };
 
 //help from Stroustrup
@@ -71,16 +74,39 @@ ostream& operator<<(ostream& os, Date d)
             return os << d.year() << '/' << d.month() << '/' << d.day();
     }
 
-/*
-void init_day(Date& dd, int y, int m, int d){
-    //check that (y,m,d) is a valid date. If it is, use it to init dd
-}
-*/
-
 //ignoring leap years and different month lengths
 bool Date::is_valid(){
-    if(d<1||d>31)return false;
-    return true;}
+    //NEW: tried implementing day checks for the different months (ignoring leap years)
+    
+    //if(d<1||d>31){return false;}
+    switch (to_int(m))
+    {
+    case 1: //Jan, Mar, May, Jul, Aug,oct, dec can have 31 days
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        if(d >0 && d < 32){return true;}
+        else{return false;}
+        break;
+    case 4: // apr, jun sep nov can have 30 days
+    case 6:
+    case 9:
+    case 11:
+        if(d>0&&d<31){return true;}
+        else{return false;}
+        break;
+    case 2: //feb can have up to 28 days
+        if(d>0&& d <29){return true;}
+        else{return false;}
+        break;
+    default:
+        return false;
+        break;
+    }
+}
 
 void Date::add_day(int n){
     d+=n;
@@ -95,20 +121,9 @@ void error(string s){
     throw runtime_error{s};
 }
 
-void f(int x, int y){
-    try{
-        Date dxy {2025,x,y};
-        cout << dxy << '\n';
-        dxy.add_day(2);
-    }catch(Date::Invalid){
-        error("f(): invalid date");
-    }
-}
-
-
 int main(){
     try{
-        Date today{2025, 2, 4};
+        Date today{2025, Month::feb, 4};
         cout << "Today is: " << today << '\n'; 
 
         Date tomorrow = today;
