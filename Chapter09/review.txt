@@ -1,0 +1,110 @@
+Review Chapter 09
+
+[1] Why is I/O tricky for a programmer?
+Due to the added layer of abstraction of Device drivers doing the heavy lifting, we:
+	1. set up I/O streams from data sources to destinations
+	2. read and write from those streams of bytes/characters
+
+[2] What does the notation << hex do?
+
+The istream does this from the other operation
+in the library <fstream> << is a function for type streams and essentially:
+- name the output file
+- open the output file for writing or create a new file of that name
+- write out our objects
+- close it 
+
+[3] What are hexadecimal numbers used for in computer science? Why?
+
+[4] Name some of the options you may want to implement for formatting integer output.
+
+[5] What is a manipulator?
+
+[6] What is the default output format for floating-point values?
+scientific notation
+
+[7] Explain what setprecision() and setw() do.
+
+[8] Which of the following manipulators do not “stick”: hex, scientific, setprecision(), setw()?
+
+[9] In format(), how do you specify where an argument is placed on output?
+
+[10] Give two examples where a stringstream can be useful.
+
+[11] When would you prefer line-oriented input to type-specific input?
+
+[12] What does isalnum(c) do?
+
+[13] When dealing with input and output, how is the variety of devices dealt with in most modern computers?
+
+[14] What, fundamentally, does an istream do?
+The istream:
+	- recieves those sequences via buffer (delay) data structure from a source
+	- turns character sequences into values of various types
+
+[15] What, fundamentally, does an ostream do?
+The ostream:
+	- turns values of various types into character sequences
+	- sends those sequences via buffer (delay) data structure to a destination
+
+[16] What, fundamentally, is a file?
+
+[17] What is a file format?
+
+[18] Name four different types of devices that can require I/O for a program.
+
+
+[19] What are the four steps for reading a file?
+	[1] Know its name
+	[2] Open it (for reading)
+	[3] Read in the characters
+	[4] Close it (though that is typically done implicitly)
+
+[20] What are the four steps for writing a file?
+	[1] Name it
+	[2] Open it (for writing) or create a new file of that name
+	[3] Write out our objects
+	[4] Close it (though that is typically done implicitly)
+
+[21] Name and define the four stream states.
+good()	the operations have succeeded
+eof()	hit the end of input ("end-of-file")
+fail()	something unexpected happened (e.g. type error) may be able to recover
+bad()	something unexpected and serious happened (e.g. a disk read error) cant recover
+
+[22] Discuss how the following input problems can be resolved:
+	The user typing an out-of-range value
+	Getting no value (end-of-file)	
+	The user typing something of the wrong type
+	There are three options, while the first one should be reserved for small programs we do not intend to share or use for more than 2 hours. we can:
+	- ignore the problem
+	-throw an exception or handle the problem in the code doing the read
+	usually when the input needs to be validated, throwing an exception is the way to go, because iostream is not have any underlying logic within it
+	if we reach end of file, there really isn't an elegant solution between the latter two, so we need to ask ourselves, what we need from the program in that context specifically
+		
+[23] In what way is input usually harder than output?
+we need to deal with the following three problems:
+	-The user typing an out-of-range value
+	-getting to no value (end-of-file)
+	-the user typing something of the wrong type
+
+[24] In what way is output usually harder than input?
+you need to account for the different possible types
+
+[25] Why do we (often) want to separate input and output from computation?
+	Reading values
+	Prompting the user for input
+	Writing error messages
+	Skipping past “bad” input characters
+	Testing the input against a range
+[26] What are the two most common uses of the istream member function clear()?
+turns the state of cin to cin.good() (sets state flag bits mentioned and clears others)
+e.g. ios::failbit or ios::badbit
+
+[27] What are the usual function declarations for << and >> for a user-defined type X?
+
+[28] How do you specify where an argument is inserted into a format string in format()?
+
+[29] What is the notation for bases of decimal values in format()?
+
+[30] How do you specify the precision of floating-point values in format()?
