@@ -4,8 +4,11 @@ Review Chapter 09
 Due to the added layer of abstraction of Device drivers doing the heavy lifting, we:
 	1. set up I/O streams from data sources to destinations
 	2. read and write from those streams of bytes/characters
+external constraints make I/O messy (like padding names with leading zeros)
+conventions used by humans for centuries are not deigned to be used in computers, so a good interface is necessary
 
 [2] What does the notation << hex do?
+it takes an ostream as its first argument and eturns it again as its return value so you can chain the operations
 
 The istream does this from the other operation
 in the library <fstream> << is a function for type streams and essentially:
@@ -15,27 +18,58 @@ in the library <fstream> << is a function for type streams and essentially:
 - close it 
 
 [3] What are hexadecimal numbers used for in computer science? Why?
+1 hex digit: 4 bits
+2 hex digit: 1 byte (8 bits)
+
+it aligns perfectly with memory adresses and binary data
+
 
 [4] Name some of the options you may want to implement for formatting integer output.
+ The integer formatting alternatives are
+x: hexadecimal
+o: octal
+d: decimal
+b: binary
+none: d
+
 
 [5] What is a manipulator?
+e.g.<< dec or << hex or << oct manipulates the state of the stream and informs the stream all further values shoould be displayed in the new base
+it can also regard the width of the next item or precision
+
+//will print d at width 12, then in fixed point precision 8, width 12, then 30 width (20e precision)
+    cout << format("− {:12} − {:12.8f} − {:30.20e} −\n", d, d, d);
+
 
 [6] What is the default output format for floating-point values?
-scientific notation
+scientific notation or fixed point
+hex float is exceptional
+what is default-float as a manipulator
 
 [7] Explain what setprecision() and setw() do.
+setprecision: default:numerofdigits, scientific/fixed:numberaafterdecimalpoint
+setw: specifies the width of the field written into
 
 [8] Which of the following manipulators do not “stick”: hex, scientific, setprecision(), setw()?
+setw doesn't stick
 
 [9] In format(), how do you specify where an argument is placed on output?
+the simplest format is the empty string {}
+string s = format("Hello, {}!\n", val);
 
 [10] Give two examples where a stringstream can be useful.
+formatting (number into string), parsing (getline first, then extract different symbols from that line)
 
 [11] When would you prefer line-oriented input to type-specific input?
+using getline() we decide how to format it late: ONLY if you can do something you couldn't do by sticking to type-specific >>
 
 [12] What does isalnum(c) do?
+its a character classification when we analyze char i/o
+it tells us if c is a letter or decimal digit
 
 [13] When dealing with input and output, how is the variety of devices dealt with in most modern computers?
+device drivers of the OS and c++ std library handle the heavy lifting
+
 
 [14] What, fundamentally, does an istream do?
 The istream:
@@ -48,11 +82,14 @@ The ostream:
 	- sends those sequences via buffer (delay) data structure to a destination
 
 [16] What, fundamentally, is a file?
+sequence of bytes stored on a permanent storage device (like a disk). it exists independently of your program running.
 
 [17] What is a file format?
+a way a file is strucutred. this doesn't need to be an established hierarchical strucure like html, xml, json etc.
 
 [18] Name four different types of devices that can require I/O for a program.
-
+sensor, screen, keyboard, graphics card
+they must move data in or out of the cpu/memory system
 
 [19] What are the four steps for reading a file?
 	[1] Know its name
@@ -89,7 +126,7 @@ we need to deal with the following three problems:
 	-the user typing something of the wrong type
 
 [24] In what way is output usually harder than input?
-you need to account for the different possible types
+must satisfy the human requirements (so output is ledgible)
 
 [25] Why do we (often) want to separate input and output from computation?
 	Reading values
@@ -102,9 +139,15 @@ turns the state of cin to cin.good() (sets state flag bits mentioned and clears 
 e.g. ios::failbit or ios::badbit
 
 [27] What are the usual function declarations for << and >> for a user-defined type X?
+to make them work, a specific function must be declared fist for an object
 
 [28] How do you specify where an argument is inserted into a format string in format()?
+{}
 
 [29] What is the notation for bases of decimal values in format()?
+format({:a/e/f/g}, d)
 
 [30] How do you specify the precision of floating-point values in format()?
+format("{:12.7f}", d) //7f is the precision
+
+if you need your own iostreams or tune them, look up steambufs
