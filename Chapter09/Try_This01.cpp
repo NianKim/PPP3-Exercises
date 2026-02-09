@@ -14,6 +14,6 @@ const int current_year = 2026;
 
 //output birth year in different forms and formatted
 int main(){
-    cout << birthyear << " - " << hex << birthyear << " - " << oct << birthyear << '\n';
+    cout << birthyear << " - " << hex << setw(4) << birthyear << " - " << oct << birthyear << '\n';
     cout << "You will be: " << dec << (current_year - birthyear) << " years old in " << (current_year) << '\n';
 }
