@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<stdexcept>
+#include<string>
 #include<fstream>
 
 using namespace std;
