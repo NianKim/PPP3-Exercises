@@ -75,9 +75,6 @@ int main() {
     
     for (int i = 0; i < 7; ++i) {
         double x, y;
-        // Simple prompt logic (or you can use the operator>> we made)
-        // Let's use cin >> point if we made a default constructor, 
-        // but since we didn't, let's read doubles directly for simplicity here.
         char ch1, comma, ch2;
         cin >> ch1 >> x >> comma >> y >> ch2; // Reads ( 1 , 2 )
         original_points.push_back(Point(x,y));
@@ -95,9 +92,9 @@ int main() {
     if (!ost) error("Could not open file for writing");
     
     for (const auto& p : original_points) {
-        ost << p << endl; // Uses our operator<<
+        ost << p << endl; 
     }
-    ost.close(); // Good practice to close explicitly
+    ost.close(); // closing ostream
 
     // --- Step 15: Read from file ---
     vector<Point> processed_points;
@@ -106,7 +103,7 @@ int main() {
     
     Point p(0,0); // Temp variable
     while (ist >> p) { // Uses our operator>> 
-        processed_points.push_back(p);
+        processed_points.push_back(p); //could be emplace
     }
 
     // --- Step 16: Print both ---
@@ -134,3 +131,5 @@ int main() {
 
     return 0;
 }
+
+//todo: clear up ost.close()
