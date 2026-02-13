@@ -1,0 +1,47 @@
+Review
+
+[1] Why do we use graphics?
+	- graphics are useful (e.g. graphing data points)
+
+[2] When do we try not to use graphics?
+when we want to save time/resources and the implementation of a ascii-based program is sufficient for our problem
+
+[3] Why is graphics interesting for a programmer?
+	- effective pieces of code are immediately obvious, hence rewarding and fun
+	- exposure to/reading well-written code is the first step to writing it
+	- design examples (patterns, decisions and techniques)
+	- object oriented programming design introduction
+	- nontrivial and therefore useful to be guided through with a book
+goal: to view the direct correspondence between the objects in memory and the images on screen
+
+[4] What is a window?
+a window object representing our physical screen is drawn to the screen by a GUI library, with all it's attached graphics objects like lines and circles
+
+[5] In which namespace do we keep our graphics interface classes (our graphics library)?
+Graph_lib
+
+[6] What header files do you need to do basic graphics using our graphics library?
+
+[7] What is the simplest window to use?
+
+[8] What is the minimal window?
+
+[9] What’s a window label?
+
+[10] How do you label a window?
+
+[11] How do screen coordinates work? Window coordinates? Mathematical coordinates?
+
+[12] What are examples of simple “shapes” that we can display?
+
+[13] What command attaches a shape to a window?
+
+[14] Which basic shape would you use to draw a hexagon?
+
+[15] How do you write text somewhere in a window?
+
+[16] How would you put a photo of your best friend in a window (using a program you wrote yourself)?
+
+[17] You made a Window object, but nothing appears on your screen. What are some possible reasons for that?
+
+[18] What library do we use to implement our graphics/GUI interface library? Why don’t we use the operating system directly?
