@@ -292,6 +292,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   ".qt/info_plist/Programming_Qt/Info.plist"
   "CMakeFiles/Programming_Qt_autogen.dir/AutogenInfo.json"
   "CMakeFiles/example01_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/example02_autogen.dir/AutogenInfo.json"
   ".qt/QtDeploySupport.cmake"
   ".qt/QtDeployTargets.cmake"
   "Programming_Qt.app/Contents/MacOS"
@@ -304,8 +305,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Programming_Qt.dir/DependInfo.cmake"
   "CMakeFiles/example01.dir/DependInfo.cmake"
+  "CMakeFiles/example02.dir/DependInfo.cmake"
   "CMakeFiles/Programming_Qt_autogen_timestamp_deps.dir/DependInfo.cmake"
   "CMakeFiles/Programming_Qt_autogen.dir/DependInfo.cmake"
   "CMakeFiles/example01_autogen_timestamp_deps.dir/DependInfo.cmake"
   "CMakeFiles/example01_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/example02_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/example02_autogen.dir/DependInfo.cmake"
   )

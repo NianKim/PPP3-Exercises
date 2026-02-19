@@ -143,6 +143,19 @@ example01/fast:
 .PHONY : example01/fast
 
 #=============================================================================
+# Target rules for targets named example02
+
+# Build rule for target.
+example02: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example02
+.PHONY : example02
+
+# fast build rule for target.
+example02/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/build
+.PHONY : example02/fast
+
+#=============================================================================
 # Target rules for targets named Programming_Qt_autogen_timestamp_deps
 
 # Build rule for target.
@@ -194,6 +207,32 @@ example01_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01_autogen.dir/build.make CMakeFiles/example01_autogen.dir/build
 .PHONY : example01_autogen/fast
 
+#=============================================================================
+# Target rules for targets named example02_autogen_timestamp_deps
+
+# Build rule for target.
+example02_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example02_autogen_timestamp_deps
+.PHONY : example02_autogen_timestamp_deps
+
+# fast build rule for target.
+example02_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02_autogen_timestamp_deps.dir/build.make CMakeFiles/example02_autogen_timestamp_deps.dir/build
+.PHONY : example02_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named example02_autogen
+
+# Build rule for target.
+example02_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example02_autogen
+.PHONY : example02_autogen
+
+# fast build rule for target.
+example02_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02_autogen.dir/build.make CMakeFiles/example02_autogen.dir/build
+.PHONY : example02_autogen/fast
+
 Colormap.o: Colormap.cpp.o
 .PHONY : Colormap.o
 
@@ -201,6 +240,7 @@ Colormap.o: Colormap.cpp.o
 Colormap.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Colormap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.o
 .PHONY : Colormap.cpp.o
 
 Colormap.i: Colormap.cpp.i
@@ -210,6 +250,7 @@ Colormap.i: Colormap.cpp.i
 Colormap.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Colormap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.i
 .PHONY : Colormap.cpp.i
 
 Colormap.s: Colormap.cpp.s
@@ -219,6 +260,7 @@ Colormap.s: Colormap.cpp.s
 Colormap.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Colormap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.s
 .PHONY : Colormap.cpp.s
 
 GUI.o: GUI.cpp.o
@@ -228,6 +270,7 @@ GUI.o: GUI.cpp.o
 GUI.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/GUI.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.o
 .PHONY : GUI.cpp.o
 
 GUI.i: GUI.cpp.i
@@ -237,6 +280,7 @@ GUI.i: GUI.cpp.i
 GUI.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/GUI.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.i
 .PHONY : GUI.cpp.i
 
 GUI.s: GUI.cpp.s
@@ -246,6 +290,7 @@ GUI.s: GUI.cpp.s
 GUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/GUI.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.s
 .PHONY : GUI.cpp.s
 
 Graph.o: Graph.cpp.o
@@ -255,6 +300,7 @@ Graph.o: Graph.cpp.o
 Graph.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Graph.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.o
 .PHONY : Graph.cpp.o
 
 Graph.i: Graph.cpp.i
@@ -264,6 +310,7 @@ Graph.i: Graph.cpp.i
 Graph.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Graph.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.i
 .PHONY : Graph.cpp.i
 
 Graph.s: Graph.cpp.s
@@ -273,6 +320,7 @@ Graph.s: Graph.cpp.s
 Graph.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Graph.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.s
 .PHONY : Graph.cpp.s
 
 Programming_Qt_autogen/mocs_compilation.o: Programming_Qt_autogen/mocs_compilation.cpp.o
@@ -306,6 +354,7 @@ Simple_window.o: Simple_window.cpp.o
 Simple_window.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Simple_window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.o
 .PHONY : Simple_window.cpp.o
 
 Simple_window.i: Simple_window.cpp.i
@@ -315,6 +364,7 @@ Simple_window.i: Simple_window.cpp.i
 Simple_window.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Simple_window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.i
 .PHONY : Simple_window.cpp.i
 
 Simple_window.s: Simple_window.cpp.s
@@ -324,6 +374,7 @@ Simple_window.s: Simple_window.cpp.s
 Simple_window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Simple_window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.s
 .PHONY : Simple_window.cpp.s
 
 Window.o: Window.cpp.o
@@ -333,6 +384,7 @@ Window.o: Window.cpp.o
 Window.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.o
 .PHONY : Window.cpp.o
 
 Window.i: Window.cpp.i
@@ -342,6 +394,7 @@ Window.i: Window.cpp.i
 Window.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.i
 .PHONY : Window.cpp.i
 
 Window.s: Window.cpp.s
@@ -351,6 +404,7 @@ Window.s: Window.cpp.s
 Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Programming_Qt.dir/build.make CMakeFiles/Programming_Qt.dir/Window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.s
 .PHONY : Window.cpp.s
 
 example01.o: example01.cpp.o
@@ -401,6 +455,54 @@ example01_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/example01_autogen/mocs_compilation.cpp.s
 .PHONY : example01_autogen/mocs_compilation.cpp.s
 
+example02.o: example02.cpp.o
+.PHONY : example02.o
+
+# target to build an object file
+example02.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02.cpp.o
+.PHONY : example02.cpp.o
+
+example02.i: example02.cpp.i
+.PHONY : example02.i
+
+# target to preprocess a source file
+example02.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02.cpp.i
+.PHONY : example02.cpp.i
+
+example02.s: example02.cpp.s
+.PHONY : example02.s
+
+# target to generate assembly for a file
+example02.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02.cpp.s
+.PHONY : example02.cpp.s
+
+example02_autogen/mocs_compilation.o: example02_autogen/mocs_compilation.cpp.o
+.PHONY : example02_autogen/mocs_compilation.o
+
+# target to build an object file
+example02_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02_autogen/mocs_compilation.cpp.o
+.PHONY : example02_autogen/mocs_compilation.cpp.o
+
+example02_autogen/mocs_compilation.i: example02_autogen/mocs_compilation.cpp.i
+.PHONY : example02_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+example02_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02_autogen/mocs_compilation.cpp.i
+.PHONY : example02_autogen/mocs_compilation.cpp.i
+
+example02_autogen/mocs_compilation.s: example02_autogen/mocs_compilation.cpp.s
+.PHONY : example02_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+example02_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/example02_autogen/mocs_compilation.cpp.s
+.PHONY : example02_autogen/mocs_compilation.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -437,8 +539,11 @@ help:
 	@echo "... Programming_Qt_autogen_timestamp_deps"
 	@echo "... example01_autogen"
 	@echo "... example01_autogen_timestamp_deps"
+	@echo "... example02_autogen"
+	@echo "... example02_autogen_timestamp_deps"
 	@echo "... Programming_Qt"
 	@echo "... example01"
+	@echo "... example02"
 	@echo "... Colormap.o"
 	@echo "... Colormap.i"
 	@echo "... Colormap.s"
@@ -463,6 +568,12 @@ help:
 	@echo "... example01_autogen/mocs_compilation.o"
 	@echo "... example01_autogen/mocs_compilation.i"
 	@echo "... example01_autogen/mocs_compilation.s"
+	@echo "... example02.o"
+	@echo "... example02.i"
+	@echo "... example02.s"
+	@echo "... example02_autogen/mocs_compilation.o"
+	@echo "... example02_autogen/mocs_compilation.i"
+	@echo "... example02_autogen/mocs_compilation.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

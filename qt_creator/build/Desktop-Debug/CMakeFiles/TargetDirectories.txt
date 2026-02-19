@@ -1,8 +1,11 @@
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/Programming_Qt.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example01.dir
+/Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example02.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/edit_cache.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/Programming_Qt_autogen_timestamp_deps.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/Programming_Qt_autogen.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example01_autogen_timestamp_deps.dir
 /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example01_autogen.dir
+/Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example02_autogen_timestamp_deps.dir
+/Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/CMakeFiles/example02_autogen.dir

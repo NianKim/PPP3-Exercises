@@ -11,12 +11,15 @@ int main()
 
     Simple_window win {tl,600,400,"Canvas"};        // make a simple window
 
-    Polygon poly;                                                        // make a shape (a polygon)
-    poly.add(Point{300,200});                                     // add a point
-    poly.add(Point{350,100});                                     // add another point
-    poly.add(Point{400,200});                                     // add a third point
-    poly.set_color(Color::white);                                   // adjust properties of poly
-    win.attach (poly);                                                   // connect poly to the window
-
+    Axis xa {Axis::x, Point{20,300}, 280, 10, "x axis"};
+    win.attach(xa);                                                 //
+    win.set_label("X axis");                                        //relabeling the axis
     win.wait_for_button();                                           // give control to the display engine
+
+    Axis ya {Axis::y, Point{20,300}, 280, 10, "y axis"};
+    ya.set_color(Color::cyan);                         // choose a color for the y axis
+    ya.label.set_color(Color::dark_red);        // choose a color for the text
+    win.attach(ya);
+    win.set_label("Y axis");
+    win.wait_for_button();
 }

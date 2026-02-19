@@ -22,22 +22,22 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "example01_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "Programming_Qt_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "example01_autogen::@6890427a1f51a3e7e1df",
+	"id" : "Programming_Qt_autogen::@6890427a1f51a3e7e1df",
 	"isGeneratorProvided" : true,
-	"name" : "example01_autogen",
+	"name" : "Programming_Qt_autogen",
 	"orderDependencies" : 
 	[
-		{
-			"id" : "Qt6::uic::@6890427a1f51a3e7e1df"
-		},
 		{
 			"id" : "Qt6::moc::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "example01_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "Qt6::uic::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Programming_Qt_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"paths" : 
@@ -68,19 +68,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop-Debug/CMakeFiles/example01_autogen",
+			"path" : "build/Desktop-Debug/CMakeFiles/Programming_Qt_autogen",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop-Debug/CMakeFiles/example01_autogen.rule",
+			"path" : "build/Desktop-Debug/CMakeFiles/Programming_Qt_autogen.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop-Debug/example01_autogen/timestamp.rule",
+			"path" : "build/Desktop-Debug/Programming_Qt_autogen/timestamp.rule",
 			"sourceGroupIndex" : 1
 		}
 	],
