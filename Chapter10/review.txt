@@ -21,27 +21,48 @@ a window object representing our physical screen is drawn to the screen by a GUI
 Graph_lib
 
 [6] What header files do you need to do basic graphics using our graphics library?
+	Simple_window.h
+	Graph.h
 
 [7] What is the simplest window to use?
-
+	plain "window" instead of simple_window
 [8] What is the minimal window?
+i don't know I assume its when there's nothing to display and no size defined
 
 [9] What’s a window label?
-
+	The frame of the window (top bar) has a title liek "Canvas"
 [10] How do you label a window?
+win.set_label("LABEL");
 
 [11] How do screen coordinates work? Window coordinates? Mathematical coordinates?
+screen coordinates start in the top left corner of the display and span to the right in the x-axis and down as the y-axis
+A window is a rectangular region of the screen devoted to some specific purpose (addressed exactly the same as a screen)
 
 [12] What are examples of simple “shapes” that we can display?
+polygons, rectangles, 
 
 [13] What command attaches a shape to a window?
+	win.attach(shape_name);
 
 [14] Which basic shape would you use to draw a hexagon?
+Using the coordinates of 6 points, you can create a hexagon using Polygon
 
 [15] How do you write text somewhere in a window?
+using the text class
 
 [16] How would you put a photo of your best friend in a window (using a program you wrote yourself)?
+Image friend {Point{100,50},"friend.jpg"};
+win.attach(friend);
+win.set_label("My buddy");
+win.wait_for_button();
 
 [17] You made a Window object, but nothing appears on your screen. What are some possible reasons for that?
+There are no objects attached to the window to display, the windows size is undefined
 
 [18] What library do we use to implement our graphics/GUI interface library? Why don’t we use the operating system directly?
+it used to be FTLK, now its QT lib
+-program code 
+-interface library
+-qt library
+-c++ std lib
+
