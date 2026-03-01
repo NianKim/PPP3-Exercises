@@ -19,8 +19,23 @@ struct D2 : D1{
 };
 
 struct B2 {
+public:
     virtual void pvf() const =0;
 };
+
+struct D21 : B2{
+    string data_member = "some string ";
+    virtual void pvf() const override { cout << data_member; }
+};
+
+struct D22 : B2{
+    int some_int = 782434;
+    virtual void pvf() const override { cout << some_int; }
+};
+
+void f(B2& arg){
+    arg.pvf();
+}
 
 int main()
 {
@@ -32,4 +47,9 @@ int main()
     B1& b1_ref = d2;
     b1_ref.vf();        //polymorphism
     b1_ref.f();         //not virtual in base class
+
+    D21 d21;
+    D22 d22;
+    f(d21);
+    f(d22);
 }
