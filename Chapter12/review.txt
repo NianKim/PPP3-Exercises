@@ -1,0 +1,84 @@
+[1] What is an application domain?
+example use case: graphics
+a set of concepts/classes/object used to describe and maniuplate data for a certain usecase
+
+[2] What are ideals for naming?
+represent conceptss of the application domain directly in code and vice versa
+
+[3] What can we name?
+I'm not usre, but basically
+
+[4] What services does a Shape offer?
+provides the connection to the operating system and the physical screen.
+deals with color and style used to draw lines
+holds a sequence of points and has a notion of how to draw them
+
+[5] How does an abstract class differ from a class that is not abstract?
+it can only be used as a base class (therefore it has no direct notion of the objects
+
+[6] How can you make a class abstract?
+if we are describing an abstract notion of a group of objects we want to collect under the collective term of the abstract base class, we "nest" members inside it
+
+[7] What is controlled by access control?
+you can make a class private, public or protected
+
+[8] What good can it do to make a data member private?
+it prevents direct access of other objects accessing implementation details of another class (encapsulation)
+
+[9] What is a virtual function and how does it differ from a non-virtual function?
+a function of a base class (superclass) that has the same name and type in a derived class.
+These calls are referred to as run-time polymorphism, dynamic dispatch or run-time dispatch
+one must use the virtual keyword to declare a function within its class declaration
+
+[10] What is a base class?
+A class that has classes derived from it and its constructor can only be used directly by classes derived from the base class
+beware of accidentally making a private base class when you need it (the vtbl functions are inacessible to the subclass)
+
+[11] What makes a class derived?
+using the :base_class_Name notation you can construct derived classes (also called subclass)
+its a way of building a class from another, so the new class can be used in place of the original (it inherits all of the members of its base) 
+
+[12] What do we mean by object layout?
+to handle virtual function calls, we use a diagramm which represents the virtual tables vtbl and virtual pointers (vptr) of different related classes.
+we find the vptr, then the appropriate associated vtbl and call the right function name there
+
+[13] What can you do to make a class easier to test?
+
+
+[14] What is an inheritance diagram?
+class hierarchy which shows the relationships of derived classes and their respective base
+
+[15] What is the difference between a protected member and a private one?
+protected members can be accessed by members of classes derived by that but private members can only be accessed by members declared alongside it in their own class declaration
+
+[16] What members of a class can be accessed from a class derived from it?
+the protected and public ones
+
+[17] How does a pure virtual function differ from other virtual functions?
+they are initialized with "virtual void f() = 0;" and must be overridden by some derived classes (likely a pure interfaces, no data => no constructors needed)
+
+[18] Why would you make a member function virtual?
+
+[19] Why would you not make a member function virtual?
+if we want all 
+
+[20] Why would you make a virtual member function pure?
+
+[21] What does overriding mean?
+overriding is the definition of a virtual function with the exact same name as a virtual function of the base class so that the derived functions class is put into the vtbl instead of the base
+
+if we make a function not virtual it can't be overrode
+const can be used by members to override
+
+
+[22] Why should you always suppress copy operations for a class in a class hierarchy?
+because if the members derived classes call these operations recursively, we create many copies of the same thing, which is very inefficient
+base class should have their copy constructor disabled with "=delete"
+
+[23] How does interface inheritance differ from implementation inheritance?
+a function expecting a reference argument to a superclass can accept subclasses which it can "see through and use"
+implementation inheritance: we can use the facilities of parent objects within member objects
+
+[24] What is object-oriented programming?
+four things:
+classes encapsulation inheritance and runtime polymorphism

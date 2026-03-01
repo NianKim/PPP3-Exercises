@@ -169,6 +169,19 @@ Chapter11_Drill/fast:
 .PHONY : Chapter11_Drill/fast
 
 #=============================================================================
+# Target rules for targets named Chapter12_Drill
+
+# Build rule for target.
+Chapter12_Drill: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Chapter12_Drill
+.PHONY : Chapter12_Drill
+
+# fast build rule for target.
+Chapter12_Drill/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/build
+.PHONY : Chapter12_Drill/fast
+
+#=============================================================================
 # Target rules for targets named Programming_Qt_autogen_timestamp_deps
 
 # Build rule for target.
@@ -272,6 +285,32 @@ Chapter11_Drill_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill_autogen.dir/build.make CMakeFiles/Chapter11_Drill_autogen.dir/build
 .PHONY : Chapter11_Drill_autogen/fast
 
+#=============================================================================
+# Target rules for targets named Chapter12_Drill_autogen_timestamp_deps
+
+# Build rule for target.
+Chapter12_Drill_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Chapter12_Drill_autogen_timestamp_deps
+.PHONY : Chapter12_Drill_autogen_timestamp_deps
+
+# fast build rule for target.
+Chapter12_Drill_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill_autogen_timestamp_deps.dir/build.make CMakeFiles/Chapter12_Drill_autogen_timestamp_deps.dir/build
+.PHONY : Chapter12_Drill_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named Chapter12_Drill_autogen
+
+# Build rule for target.
+Chapter12_Drill_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Chapter12_Drill_autogen
+.PHONY : Chapter12_Drill_autogen
+
+# fast build rule for target.
+Chapter12_Drill_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill_autogen.dir/build.make CMakeFiles/Chapter12_Drill_autogen.dir/build
+.PHONY : Chapter12_Drill_autogen/fast
+
 Chapter11_Drill.o: Chapter11_Drill.cpp.o
 .PHONY : Chapter11_Drill.o
 
@@ -320,6 +359,54 @@ Chapter11_Drill_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Chapter11_Drill_autogen/mocs_compilation.cpp.s
 .PHONY : Chapter11_Drill_autogen/mocs_compilation.cpp.s
 
+Chapter12_Drill.o: Chapter12_Drill.cpp.o
+.PHONY : Chapter12_Drill.o
+
+# target to build an object file
+Chapter12_Drill.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill.cpp.o
+.PHONY : Chapter12_Drill.cpp.o
+
+Chapter12_Drill.i: Chapter12_Drill.cpp.i
+.PHONY : Chapter12_Drill.i
+
+# target to preprocess a source file
+Chapter12_Drill.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill.cpp.i
+.PHONY : Chapter12_Drill.cpp.i
+
+Chapter12_Drill.s: Chapter12_Drill.cpp.s
+.PHONY : Chapter12_Drill.s
+
+# target to generate assembly for a file
+Chapter12_Drill.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill.cpp.s
+.PHONY : Chapter12_Drill.cpp.s
+
+Chapter12_Drill_autogen/mocs_compilation.o: Chapter12_Drill_autogen/mocs_compilation.cpp.o
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.o
+
+# target to build an object file
+Chapter12_Drill_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill_autogen/mocs_compilation.cpp.o
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.cpp.o
+
+Chapter12_Drill_autogen/mocs_compilation.i: Chapter12_Drill_autogen/mocs_compilation.cpp.i
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+Chapter12_Drill_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill_autogen/mocs_compilation.cpp.i
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.cpp.i
+
+Chapter12_Drill_autogen/mocs_compilation.s: Chapter12_Drill_autogen/mocs_compilation.cpp.s
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+Chapter12_Drill_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Chapter12_Drill_autogen/mocs_compilation.cpp.s
+.PHONY : Chapter12_Drill_autogen/mocs_compilation.cpp.s
+
 Colormap.o: Colormap.cpp.o
 .PHONY : Colormap.o
 
@@ -329,6 +416,7 @@ Colormap.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Colormap.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Colormap.cpp.o
 .PHONY : Colormap.cpp.o
 
 Colormap.i: Colormap.cpp.i
@@ -340,6 +428,7 @@ Colormap.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Colormap.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Colormap.cpp.i
 .PHONY : Colormap.cpp.i
 
 Colormap.s: Colormap.cpp.s
@@ -351,6 +440,7 @@ Colormap.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Colormap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Colormap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Colormap.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Colormap.cpp.s
 .PHONY : Colormap.cpp.s
 
 GUI.o: GUI.cpp.o
@@ -362,6 +452,7 @@ GUI.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/GUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/GUI.cpp.o
 .PHONY : GUI.cpp.o
 
 GUI.i: GUI.cpp.i
@@ -373,6 +464,7 @@ GUI.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/GUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/GUI.cpp.i
 .PHONY : GUI.cpp.i
 
 GUI.s: GUI.cpp.s
@@ -384,6 +476,7 @@ GUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/GUI.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/GUI.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/GUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/GUI.cpp.s
 .PHONY : GUI.cpp.s
 
 Graph.o: Graph.cpp.o
@@ -395,6 +488,7 @@ Graph.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Graph.cpp.o
 .PHONY : Graph.cpp.o
 
 Graph.i: Graph.cpp.i
@@ -406,6 +500,7 @@ Graph.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Graph.cpp.i
 .PHONY : Graph.cpp.i
 
 Graph.s: Graph.cpp.s
@@ -417,6 +512,7 @@ Graph.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Graph.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Graph.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Graph.cpp.s
 .PHONY : Graph.cpp.s
 
 Programming_Qt_autogen/mocs_compilation.o: Programming_Qt_autogen/mocs_compilation.cpp.o
@@ -452,6 +548,7 @@ Simple_window.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Simple_window.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Simple_window.cpp.o
 .PHONY : Simple_window.cpp.o
 
 Simple_window.i: Simple_window.cpp.i
@@ -463,6 +560,7 @@ Simple_window.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Simple_window.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Simple_window.cpp.i
 .PHONY : Simple_window.cpp.i
 
 Simple_window.s: Simple_window.cpp.s
@@ -474,6 +572,7 @@ Simple_window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Simple_window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Simple_window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Simple_window.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Simple_window.cpp.s
 .PHONY : Simple_window.cpp.s
 
 Window.o: Window.cpp.o
@@ -485,6 +584,7 @@ Window.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Window.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Window.cpp.o
 .PHONY : Window.cpp.o
 
 Window.i: Window.cpp.i
@@ -496,6 +596,7 @@ Window.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Window.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Window.cpp.i
 .PHONY : Window.cpp.i
 
 Window.s: Window.cpp.s
@@ -507,6 +608,7 @@ Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/Window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example02.dir/build.make CMakeFiles/example02.dir/Window.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter11_Drill.dir/build.make CMakeFiles/Chapter11_Drill.dir/Window.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Chapter12_Drill.dir/build.make CMakeFiles/Chapter12_Drill.dir/Window.cpp.s
 .PHONY : Window.cpp.s
 
 example01.o: example01.cpp.o
@@ -639,6 +741,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Chapter11_Drill_autogen"
 	@echo "... Chapter11_Drill_autogen_timestamp_deps"
+	@echo "... Chapter12_Drill_autogen"
+	@echo "... Chapter12_Drill_autogen_timestamp_deps"
 	@echo "... Programming_Qt_autogen"
 	@echo "... Programming_Qt_autogen_timestamp_deps"
 	@echo "... example01_autogen"
@@ -646,6 +750,7 @@ help:
 	@echo "... example02_autogen"
 	@echo "... example02_autogen_timestamp_deps"
 	@echo "... Chapter11_Drill"
+	@echo "... Chapter12_Drill"
 	@echo "... Programming_Qt"
 	@echo "... example01"
 	@echo "... example02"
@@ -655,6 +760,12 @@ help:
 	@echo "... Chapter11_Drill_autogen/mocs_compilation.o"
 	@echo "... Chapter11_Drill_autogen/mocs_compilation.i"
 	@echo "... Chapter11_Drill_autogen/mocs_compilation.s"
+	@echo "... Chapter12_Drill.o"
+	@echo "... Chapter12_Drill.i"
+	@echo "... Chapter12_Drill.s"
+	@echo "... Chapter12_Drill_autogen/mocs_compilation.o"
+	@echo "... Chapter12_Drill_autogen/mocs_compilation.i"
+	@echo "... Chapter12_Drill_autogen/mocs_compilation.s"
 	@echo "... Colormap.o"
 	@echo "... Colormap.i"
 	@echo "... Colormap.s"

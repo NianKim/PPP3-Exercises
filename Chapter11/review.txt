@@ -1,0 +1,81 @@
+[1] Why don’t we “just” use a commercial or open-source graphics library directly?
+	Reduce the "shock" by the complexity of a full-blown graphics/GUI library
+
+[2] About how many classes from our graphics interface library do you need to do simple graphics output?
+	Appliction - start qt
+	simple_window
+	a graph class
+
+[3] What are the header files needed to use the graphics interface library?
+	Simple/window.h
+	Graph.h
+
+[4] What classes define closed shapes?
+	rectangle, polygon, circle, ellipse
+	not closed polyline (doesn't have a well defined inside or outside)
+
+[5] Why don’t we just use Line for every shape?
+	Because a Line is implemented using 2 points, connecting them. moddeling a curve would be terrible
+
+[6] What do the arguments to Point indicate?
+	x and y are the point on the canvas
+
+[7] What are the components of Line_style?
+	type (solid, dash dot dashdot, dashdotdot)
+	width
+
+[8] What are the components of Color?
+	color type, transparency (visible/invisible)
+
+[9] What is RGB?
+	a hexadecimal encoding standard for colors (tuple of three values), each representing the part and intensity of said color
+
+[10] What are the differences between two Lines and a Lines containing two lines?
+	they can be manipulated together (like colors), can manipulate the whole shape
+[11] What properties can you set for every Shape?
+	
+[12] How many sides does a Closed_polyline defined by five Points have?
+5
+
+[13] What do you see if you define a Shape but don’t attach it to a Window?
+nothing, only the canvas
+
+[14] How does a Rectangle differ from a Polygon with four Points (corners)?
+it's a closed shape by default
+
+[15] How does a Polygon differ from a Closed_polyline?
+closed_polyline is derived from a polyline with the first and last point connected
+in polygon the lines cannot cross 
+
+[16] What’s on top: fill or outline?
+outline
+
+[17] Why didn’t we bother defining a Triangle class (after all, we did define Rectangle)?
+because the most common shape on a screen is a rectangle
+determining the pixel inside a rectrange is easier than with any other shape
+
+[18] How do you move a Shape to another place in a Window?
+using the point{} argument
+
+[19] How do you label a Shape with a line of text?
+set_label
+
+[20] What properties can you set for a text string in a Text?
+color, size, starting point, font type
+
+[21] What is a font and why do we care?
+it changes the typeset of the text
+
+[22] What is Vector_ref for and how do we use it?
+a vector with an interface that makes it convenient for holding unnamed elements
+
+[23] What is the difference between a Circle and an Ellipse?
+defined with a minor and major axis
+
+[24] What happens if you try to display an Image given a file name that doesn’t refer to a file containing an image?
+
+[25] How do you display part of an Image?
+using set_mask
+
+[26] How do you scale an Image?
+using the scale function

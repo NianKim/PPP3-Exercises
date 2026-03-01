@@ -44,10 +44,16 @@ qt_add_executable(example02
         MANUAL_FINALIZATION
         example02.cpp
         ${COMMON_GRAPH_SOURCES}
+
     )
 qt_add_executable(Chapter11_Drill
         MANUAL_FINALIZATION
         Chapter11_Drill.cpp
+        ${COMMON_GRAPH_SOURCES}
+    )
+qt_add_executable(Chapter12_Drill
+        MANUAL_FINALIZATION
+        Chapter12_Drill.cpp
         ${COMMON_GRAPH_SOURCES}
     )
 endif()
@@ -56,11 +62,13 @@ target_link_libraries(Programming_Qt PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(example01 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(example02 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(Chapter11_Drill PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Chapter12_Drill PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 target_include_directories(Programming_Qt PRIVATE . ./PPP)
 target_include_directories(example01 PRIVATE . ./PPP)
 target_include_directories(example02 PRIVATE . ./PPP)
 target_include_directories(Chapter11_Drill PRIVATE . ./PPP)
+target_include_directories(Chapter12_Drill PRIVATE . ./PPP)
 
 set_target_properties(Programming_Qt PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -76,4 +84,5 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(example01)
     qt_finalize_executable(example02)
     qt_finalize_executable(Chapter11_Drill)
+    qt_finalize_executable(Chapter12_Drill)
 endif()
