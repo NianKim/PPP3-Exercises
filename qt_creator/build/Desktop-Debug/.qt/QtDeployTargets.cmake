@@ -8,3 +8,5 @@ set(__QT_DEPLOY_TARGET_Chapter11_Drill_FILE /Users/niankim/Documents/Coding/PPP3
 set(__QT_DEPLOY_TARGET_Chapter11_Drill_TYPE EXECUTABLE)
 set(__QT_DEPLOY_TARGET_Chapter12_Drill_FILE /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/Chapter12_Drill)
 set(__QT_DEPLOY_TARGET_Chapter12_Drill_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_Chapter13_FILE /Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug/Chapter13)
+set(__QT_DEPLOY_TARGET_Chapter13_TYPE EXECUTABLE)

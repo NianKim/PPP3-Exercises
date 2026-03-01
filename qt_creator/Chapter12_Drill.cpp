@@ -50,6 +50,6 @@ int main()
 
     D21 d21;
     D22 d22;
-    f(d21);
+    f(d21);     //f can handle both, behaves differently depending on the actual argument type.
     f(d22);
 }

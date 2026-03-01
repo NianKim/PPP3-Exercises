@@ -295,6 +295,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/example02_autogen.dir/AutogenInfo.json"
   "CMakeFiles/Chapter11_Drill_autogen.dir/AutogenInfo.json"
   "CMakeFiles/Chapter12_Drill_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/Chapter13_autogen.dir/AutogenInfo.json"
   ".qt/QtDeploySupport.cmake"
   ".qt/QtDeployTargets.cmake"
   "Programming_Qt.app/Contents/MacOS"
@@ -310,6 +311,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/example02.dir/DependInfo.cmake"
   "CMakeFiles/Chapter11_Drill.dir/DependInfo.cmake"
   "CMakeFiles/Chapter12_Drill.dir/DependInfo.cmake"
+  "CMakeFiles/Chapter13.dir/DependInfo.cmake"
   "CMakeFiles/Programming_Qt_autogen_timestamp_deps.dir/DependInfo.cmake"
   "CMakeFiles/Programming_Qt_autogen.dir/DependInfo.cmake"
   "CMakeFiles/example01_autogen_timestamp_deps.dir/DependInfo.cmake"
@@ -320,4 +322,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Chapter11_Drill_autogen.dir/DependInfo.cmake"
   "CMakeFiles/Chapter12_Drill_autogen_timestamp_deps.dir/DependInfo.cmake"
   "CMakeFiles/Chapter12_Drill_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/Chapter13_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/Chapter13_autogen.dir/DependInfo.cmake"
   )
