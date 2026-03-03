@@ -1,0 +1,41 @@
+[1] What is a function of one argument?
+a function that takes one input variable to computate its output
+
+[2] When would you use a (continuous) line to represent data? When do you use (discrete) points?
+In vector graphics you can describe shapes/data with mathematical expressions. Discrete points is useful when handling a finite-dimensional array (like photoshop handles pixels)
+
+[3] What function (mathematical formula) defines a slope?
+0.5*x = linear function with megative slope of 1/2
+
+[4] What is a parabola?
+parabola is a x*x equation 
+
+[5] How do you make an x axis? A y axis?
+Axis x {Axis::x,Point{20,y_orig}, xlength, xlength/x_scale, "one notch == 1"};
+   Axis y {Axis::y,Point{x_orig, ylength+20}, ylength, ylength/y_scale, "one notch == 1"};
+
+[6] What is a default argument and when would you use one?
+A default argument is provided in a constructor to default to if no argument is provided. this is useful if you expect an input in a certain range or want the function to keep returning something even if no argument is provided in the function call
+
+[7] How do you add functions together?
+
+
+[8] How do you color and label a graphed function?
+   object.set_color(Color::red); //change color
+   Text ts {Point{100,y_orig-40},"some label"}; //creates some label at Point (..)
+
+[9] What do we mean when we say that a series approximates a function?
+An infinite taylor series for approximating sin, cos and e^x which becomes moer accurate for every additional computation completed to get closer to the actual function
+It is useful but quickly reaches storage limits (of float or double) with floating point arithmetic being unreliable in the first place due to design choices made when representing numbers in a binary system.
+
+[10] Why would you sketch out the layout of a graph before writing the code to draw it?
+If we have a underlying mathematical model of what we want to graph, it makes writing the code for it significantly easier than when we would try to sketch the graph discreetly through trial and error
+
+[11] How would you scale your graph so that the input will fit?
+
+[12] How would you scale the input without trial and error?
+
+[13] Why would you format your input rather than just having the file contain “the numbers”?
+
+[14] How do you plan the general layout of a graph? How do you reflect that layout in your code?
+
