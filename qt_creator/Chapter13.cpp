@@ -10,7 +10,7 @@ double square(double x) { return x*x; }
 double one(double) { return 1; }
 double dcos(double d) { return cos(d); }          // dcos() chooses cos(double)
 double sloping_cos(double x) { return cos(x)+slope(x); }
-int fac(int n)               // factorial(n); n!
+double fac(int n)               // factorial(n); n!
 {
     int r = 1;
     while (n>1) {
@@ -34,7 +34,7 @@ int main()
 
     Application app;                                                    // start a Graphics/GUI application
    constexpr int xmax = 600;                         // window size
-   constexpr int ymax = 400;
+   constexpr int ymax = 600;
 
    constexpr int x_orig = xmax/2;                 // position of (0,0) is center of window
    constexpr int y_orig = ymax/2;
@@ -48,7 +48,7 @@ int main()
    constexpr int x_scale = 30;                       // scaling factors
    constexpr int y_scale = 30;
 
-   Simple_window win {Point{100,100},xmax,ymax,"Three functions"};
+   Simple_window win {Point{100,100},xmax,ymax,"Function Graphs"};
 
    //plots
    /*
@@ -74,27 +74,41 @@ int main()
    win.wait_for_button();
    */
 
+
    //axis
    constexpr int xlength = xmax-40; // make the axis a bit smaller than the window
    constexpr int ylength = ymax-40;
 
 
-   Axis x {Axis::x,Point{20,y_orig}, xlength, xlength/x_scale, "one notch == 1"};
-   Axis y {Axis::y,Point{x_orig, ylength+20}, ylength, ylength/y_scale, "one notch == 1"};
-   x.set_color(Color::white);
-   y.set_color(Color::white);
+   Axis x {Axis::x,Point{20,y_orig}, xlength, xlength/x_scale, "1 == 20 pixels"};
+   Axis y {Axis::y,Point{x_orig, ylength+20}, ylength, ylength/y_scale, "1 == 20 pixels"};
+   x.set_color(Color::red);
+   y.set_color(Color::red);
    win.attach(x);
    win.attach(y);
    win.wait_for_button();
 
+   //plot graph
+   Function line_one {one, r_min, r_max, orig, 400, 20, 20};
+   win.attach(line_one);
+      win.wait_for_button();
+
+   Function line_slope{slope, r_min, r_max, orig, 400, 20, 20};
+    win.attach(line_slope);
+   win.wait_for_button();
+
+    Function line_square {square, r_min, r_max, orig, 400, 20,20};
+   win.attach(line_square);
+    win.wait_for_button();
+
    //cosine
-   /*
+
    Function s4 {dcos,r_min,r_max,orig,400,30,30};
    s4.set_color(Color::blue);
 
    Function s5 {sloping_cos, r_min,r_max,orig,400,30,30};
    s5.set_color(Color::green);
-
+/*
    x.label.move(-160,0);
    x.notches.set_color(Color::dark_red);
 
@@ -108,6 +122,7 @@ int main()
    //[] lambda introducer (used to give access to local variables)
    //(argument list) -> return type (suffix notation)
    //{function body}
+   /*
 
    for (int n = 0; n<50; ++n) {
        ostringstream ss;
@@ -123,5 +138,5 @@ int main()
        //this starts breaking for n == 15 and completely breaks after n== 19 crashes after n== 50
    }
 
-
+    */
 }
