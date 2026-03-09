@@ -1,0 +1,68 @@
+[1] Why do we need data structures with varying numbers of elements?
+
+[2] What four kinds of storage do we have for a typical program?
+
+[3] What is the free store? What other name is commonly used for it? What operators support it?
+
+[4] What is a pointer?
+
+[5] What is a dereference operator and why do we need one?
+
+[6] What is an address? How are memory addresses manipulated in C++?
+
+[7] What information about a pointed-to object does a pointer have? What useful information does it lack?
+
+[8] What can a pointer point to?
+
+[9] What is a leak?
+
+[10] What is a resource?
+
+[11] What is another term for “free store”?
+
+[12] How can we initialize a pointer?
+
+[13] What is a null pointer? When do we need to use one?
+
+[14] When do we need a pointer (instead of a reference or a named object)?
+
+[15] What is a destructor? When do we want one?
+
+[16] When do we want a virtual destructor?
+
+[17] How are destructors for members called?
+
+[18] How do we access a member of a class through a pointer?
+
+[19] What is a doubly-linked list?
+
+[20] What is this and when do we need to use it?
+
+
+Term 	|	 Meaning
+address	|	
+destructor	|	
+nullptr	|	
+address of: &	|	
+free store	|	
+pointer	|	
+allocation	|	
+Link	|	
+array	|	
+list	|	
+resource leak	|	
+dereference: *	|	
+vector	|	
+container	|	
+member access: −>	|	
+subscript: []	|	
+deallocation	|	
+memory	|	
+this	|	
+memory corruption	|	
+delete	|	
+memory leak	|	
+null pointer	|	
+delete[]	|	
+new	|	
+virtual	|	
