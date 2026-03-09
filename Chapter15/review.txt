@@ -3,10 +3,19 @@
 [2] What four kinds of storage do we have for a typical program?
 
 [3] What is the free store? What other name is commonly used for it? What operators support it?
+The free store (AKA heap) is available through the operator new. It is any memory not in the other three categories of memory and therefore potentially "free":
+
+code or text storage	|	memory set aside by compiler for the code on program start
+static storage	|	memory set aside by compiler for the global variables on program start
+stack or automatic storage	|	memory set aside by compiler on function calls, containing arguments and local variables
 
 [4] What is a pointer?
+A pointer value is the address of the first byte of the memory.
+A pointer points to an object of a specified type.
+A pointer does not know how many elements it points to
 
 [5] What is a dereference operator and why do we need one?
+
 
 [6] What is an address? How are memory addresses manipulated in C++?
 
@@ -48,7 +57,7 @@ free store	|
 pointer	|	An object that holds and address value (notated "*obj")
 allocation	|	
 Link	|	
-array	|	
+array	|	a contigous sequence of elements of a given type
 list	|	
 resource leak	|	
 dereference: *	|	a "contents of"-operator, can be used on left-hand side of assignment
@@ -57,12 +66,13 @@ container	|
 member access: −>	|	
 subscript: []	|	
 deallocation	|	
-memory	|	
+memory	|	in abstraction: A resource utilized by a program to store values. Can be referenced using adresses. Usually measured in bytes
 this	|	
-memory corruption	|	
+memory corruption	|	When values of too large a size are written into memory and overwrite other parts of memory, corrupting their initial data in the process.
 delete	|	
 memory leak	|	
 null pointer	|	
 delete[]	|	
-new	|	
+new	|	operator: the request to allocate memory on the free store or heap
 virtual	|	
+
