@@ -40,18 +40,18 @@
 
 
 Term 	|	 Meaning
-address	|	
+address	|	A number that indicates a location in memory
 destructor	|	
 nullptr	|	
 address of: &	|	
 free store	|	
-pointer	|	
+pointer	|	An object that holds and address value (notated "*obj")
 allocation	|	
 Link	|	
 array	|	
 list	|	
 resource leak	|	
-dereference: *	|	
+dereference: *	|	a "contents of"-operator, can be used on left-hand side of assignment
 vector	|	
 container	|	
 member access: −>	|	

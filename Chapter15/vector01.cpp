@@ -18,4 +18,19 @@ int main() {
 
     std::cout << "pi == " << pi << "; contents of pi == " << *pi << "\n";
     std::cout << "pd == " << pd << "; contents of pd == " << *pd << "\n";
+
+    *pi = 27;            // OK: you can assign 27 to the int pointed to by pi
+    std::cout << "pi == " << pi << "; contents of pi == " << *pi << "\n";
+    std::cout << "pd == " << pd << "; contents of pd == " << *pd << "\n";
+    
+    *pd = 3.14159;       // OK: you can assign 3.14159 to the double pointed to by pd
+    std::cout << "pi == " << pi << "; contents of pi == " << *pi << "\n";
+    std::cout << "pd == " << pd << "; contents of pd == " << *pd << "\n";
+    
+    *pd = *pi;           // OK: you can assign an int (*pi) to a double (*pd)
+    std::cout << "pi == " << pi << "; contents of pi == " << *pi << "\n";
+    std::cout << "pd == " << pd << "; contents of pd == " << *pd << "\n";
+
+    //careful with assigning pointers of different types to each other: 
+    //their memory is almost never the same size and leads to memory corruption
 }
