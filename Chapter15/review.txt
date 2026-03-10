@@ -4,6 +4,7 @@
 
 [3] What is the free store? What other name is commonly used for it? What operators support it?
 The free store (AKA heap) is available through the operator new. It is any memory not in the other three categories of memory and therefore potentially "free":
+After using it, make it available for new allocations because cache size is limited
 
 code or text storage	|	memory set aside by compiler for the code on program start
 static storage	|	memory set aside by compiler for the global variables on program start
@@ -15,11 +16,12 @@ A pointer points to an object of a specified type.
 A pointer does not know how many elements it points to
 
 [5] What is a dereference operator and why do we need one?
-
+In order to access class members through a pointer we can use the * operator 
 
 [6] What is an address? How are memory addresses manipulated in C++?
 
 [7] What information about a pointed-to object does a pointer have? What useful information does it lack?
+
 
 [8] What can a pointer point to?
 
@@ -28,6 +30,7 @@ A pointer does not know how many elements it points to
 [10] What is a resource?
 
 [11] What is another term for “free store”?
+heap or dynamic memory
 
 [12] How can we initialize a pointer?
 
@@ -36,10 +39,17 @@ A pointer does not know how many elements it points to
 [14] When do we need a pointer (instead of a reference or a named object)?
 
 [15] What is a destructor? When do we want one?
+designing classes to implicitly return elements to the free store before it is destroyed
+the inverse of the constructor (complement operator)
+every class taht owns a resource (like buffers (space), files, etc.) needs a destructor
 
 [16] When do we want a virtual destructor?
+virtual call mechanism -> derived virtual class
+delete will only look at the objects type it is called with. 
+the keyword virtual delete will call the base class destructor and properly destroy the virtual class (how is the complement operator (tilde) used in syntax here?)
 
 [17] How are destructors for members called?
+default destructors are implicitly called by the compiler for derived class destructors when an object is destroyed (going out of scope, by delete, etc.)
 
 [18] How do we access a member of a class through a pointer?
 
@@ -69,10 +79,11 @@ deallocation	|
 memory	|	in abstraction: A resource utilized by a program to store values. Can be referenced using adresses. Usually measured in bytes
 this	|	
 memory corruption	|	When values of too large a size are written into memory and overwrite other parts of memory, corrupting their initial data in the process.
-delete	|	
-memory leak	|	
-null pointer	|	
-delete[]	|	
+delete	|	Return object		
+memory leak	|	forgetting to delete and object created by new (on the heap)
+null pointer	|	used to initialize a pointer as a default (enables checking where it is valid and will prevent range access fails) if(p0) //p0!=nullptr
+delete[]	|	Return array to free store
 new	|	operator: the request to allocate memory on the free store or heap
 virtual	|	
 
+always initialize your variables AND POINTERS, you could run into out of range access 

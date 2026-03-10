@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 int main() {
@@ -16,7 +17,12 @@ int main() {
     double z = p[2];                             // read the 3rd object pointed to by p
 
     cout << "A small heap test: \n";
-    cout << "*p: " << x << '\n';
+    cout << "*p: " << x << '\n'; // is the same as p[0]
     cout << "p[0]: " << y << '\n';
     cout << "p[2]: " << z << '\n';  
+
+    //accessing a class member through a pointer
+    vector<int>* vecp = new vector<int>{7,8,9};
+    cout << vecp->size(); //access using ->
+    cout << (*vecp).size();  //access using .
 }
