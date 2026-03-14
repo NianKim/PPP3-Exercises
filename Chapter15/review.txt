@@ -85,5 +85,6 @@ null pointer	|	used to initialize a pointer as a default (enables checking where
 delete[]	|	Return array to free store
 new	|	operator: the request to allocate memory on the free store or heap
 virtual	|	
+smart pointer	|	resource management pointer will
 
 always initialize your variables AND POINTERS, you could run into out of range access 
