@@ -31,8 +31,8 @@ Link* add(Link* p, Link* n)  // insert n after p; return n
     if (p==nullptr)
         return n;
     n->prev = p;                                  // p comes before n
-    if (p->prev)
-        p->prev->succ = n;
+    if (p->succ)
+        p->succ->prev = n;                  //if p already has a successor, that succesor's new pres is in n
     n->succ = p->succ;                       // p’s predecessor becomes n’s predecessor
     p->succ = n;                            // n becomes p’s successor
     return n;
@@ -63,10 +63,9 @@ Link* advance(Link* p, int n){ //move n positions in list; return nullptr for "n
     if(p == nullptr)
         return nullptr;
     while(0<n){
-        --n;
-        if (p->succ)
+        if (p->succ == nullptr) return nullptr;
             p = p->succ;
-        return nullptr;
+        --n;
     }
     while(n<0){
         ++n;
