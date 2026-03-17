@@ -14,7 +14,7 @@ class base {
     base(){
         std::cout << "Default constructor base is called. \n";
     };
-    virtual ~base(){ //entry in the v-table
+    virtual ~base(){ //entry in the v-table (one per class)
         std::cout << "Default destructor base is called. \n";
     }
 };
@@ -32,8 +32,6 @@ class derived : public base {
 };
 
 int main() {
-    //base b;
-    //derived d; //line 2 and 3 are constructed (base first, then the next layer)
-    base* ptr = new derived();
-    delete ptr;
+    base b;
+    derived d; //line 2 and 3 are constructed (base first, then the next layer)
 }
