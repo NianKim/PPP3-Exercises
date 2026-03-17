@@ -6,26 +6,43 @@ struct Link {
     //p is the predecessor, s is the successor
     Link(const string& v, Link* p = nullptr, Link* s = nullptr) : value{v}, prev{p}, succ{s} { }
     string value;
-    Link* prev;
-    Link* succ;
+    
+    Link* insert(Link* n);
+    Link* add(Link* n);
+    Link* erase();
+
+    Link* find(const string& s);
+    const Link* find(const string& s) const;
+
+    Link* advance(int n) const;
+    Link* next() const{ return succ; }
+    Link* previous() const { return prev; }
+
+
+
+    private:
+        Link* prev;
+        Link* succ;
 };
 
-Link* insert(Link* p, Link* n)  // insert n before p; return n
+Link* Link::insert(Link* n)  // insert n before p; return n
 {
+    //we don't need this to access a member
     if (n==nullptr)
-        return p;
-    if (p==nullptr)
+        return this;
+    if (this==nullptr)
         return n;
-    n->succ = p;                                  // p comes after n
-    if (p->prev)
-        p->prev->succ = n;
-    n->prev = p->prev;                       // p’s predecessor becomes n’s predecessor
-    p->prev = n;                            // n becomes p’s predecessor
+    n->succ = this;                                  // p comes after n
+    if (prev)
+        prev->succ = n;
+    n->prev = prev;                       // p’s predecessor becomes n’s predecessor
+    prev = n;                            // n becomes p’s predecessor
     return n;
 }
 
-Link* add(Link* p, Link* n)  // insert n after p; return n
+Link* Link::add( Link* n)  // insert n after p; return n
 {
+    Link* p = this;
     if (n==nullptr)
         return p;
     if (p==nullptr)
@@ -40,6 +57,7 @@ Link* add(Link* p, Link* n)  // insert n after p; return n
 
 Link* erase(Link* p) //remove *p from list; return p's successor
 {
+    Link* p = this;
     if (p == nullptr)
         return nullptr;
     if(p->succ)

@@ -1,10 +1,11 @@
 [1] Why do we need data structures with varying numbers of elements?
+Because we often don't know howm uch data will be processed at compile-time
 
 [2] What four kinds of storage do we have for a typical program?
 
 [3] What is the free store? What other name is commonly used for it? What operators support it?
 The free store (AKA heap) is available through the operator new. It is any memory not in the other three categories of memory and therefore potentially "free":
-After using it, make it available for new allocations because cache size is limited
+After using it, make it available for new allocations (using delete) to preven memory leaks
 
 code or text storage	|	memory set aside by compiler for the code on program start
 static storage	|	memory set aside by compiler for the global variables on program start
@@ -16,18 +17,28 @@ A pointer points to an object of a specified type.
 A pointer does not know how many elements it points to
 
 [5] What is a dereference operator and why do we need one?
-In order to access class members through a pointer we can use the * operator 
+In order to get the value of the object the pointer points to
+//In order to access class members through a pointer we can use the ->my_member operator 
 
 [6] What is an address? How are memory addresses manipulated in C++?
+& is the (address of) operator, can be manipulated using pointer arithmetic (p + 1 moves to the next element)
 
 [7] What information about a pointed-to object does a pointer have? What useful information does it lack?
+a pointer knows the LOCATION and TYPE
+it DOESN'T know where it points to a single object or an array and it does not know if the memory it points to is still valid
 
 
 [8] What can a pointer point to?
+object in memory, a function or nullptr
 
 [9] What is a leak?
+allocate memory with new on the heap
+lose pointer to it before calling delete
+memory is trapped
 
 [10] What is a resource?
+anything acquired from the OS that must be returned
+(heap memory, network sockets)
 
 [11] What is another term for “free store”?
 heap or dynamic memory
@@ -37,6 +48,9 @@ heap or dynamic memory
 [13] What is a null pointer? When do we need to use one?
 
 [14] When do we need a pointer (instead of a reference or a named object)?
+when we need to dynamically allocate memory on the heap
+when we need to buld dynamic data strucures
+//when we want to pass a massive object (though reference do this safer)
 
 [15] What is a destructor? When do we want one?
 designing classes to implicitly return elements to the free store before it is destroyed
@@ -45,35 +59,41 @@ every class taht owns a resource (like buffers (space), files, etc.) needs a des
 
 [16] When do we want a virtual destructor?
 virtual call mechanism -> derived virtual class
-delete will only look at the objects type it is called with. 
-the keyword virtual delete will call the base class destructor and properly destroy the virtual class (how is the complement operator (tilde) used in syntax here?)
+virtual ~Base() is to delete a dericed object through a base class pointer
 
 [17] How are destructors for members called?
-default destructors are implicitly called by the compiler for derived class destructors when an object is destroyed (going out of scope, by delete, etc.)
+exactly in REVERSE order of construction
+default destructors are implicitly (automatically) called by the compiler for derived class destructors when an object is destroyed (going out of scope, by delete, etc.)
 
 [18] How do we access a member of a class through a pointer?
+if we call a derived class through a pointer to the base class and use the virtual base functions(?)
 
 [19] What is a doubly-linked list?
+given a link, we can find both the predecessor and the successor
+in single linked lists we can only find the successor
 
 [20] What is this and when do we need to use it?
+this is a hidden pointer 
+passed into every non-static member function.
+it points to the speciic object that called the (member) function
 
 
 Term 	|	 Meaning
 address	|	A number that indicates a location in memory
-destructor	|	
-nullptr	|	
-address of: &	|	
+destructor	|	function that cleans up a class's resources when it is destroyed	
+nullptr	|	a pointer that points to absolutely nothing
+address of: &	|	operator returns physical memory location of an object
 free store	|	
 pointer	|	An object that holds and address value (notated "*obj")
-allocation	|	
+allocation	|	requesting memory from the OS (usually via new)
 Link	|	
 array	|	a contigous sequence of elements of a given type
 list	|	
-resource leak	|	
+resource leak	|	failinf to release any resource (e.g. leaving a file open)
 dereference: *	|	a "contents of"-operator, can be used on left-hand side of assignment
-vector	|	
-container	|	
-member access: −>	|	
+vector	|	a dynamically sizing contigous array from the c++ std library
+container	|	object that holds a collection of other objects
+member access: −>	|	operator used to access a class/struct member when you only have a pointer to the object
 subscript: []	|	
 deallocation	|	
 memory	|	in abstraction: A resource utilized by a program to store values. Can be referenced using adresses. Usually measured in bytes
