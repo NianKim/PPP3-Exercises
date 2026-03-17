@@ -10,15 +10,14 @@ struct Link {
     Link* insert(Link* n);
     Link* add(Link* n);
     Link* erase();
-
     Link* find(const string& s);
-    const Link* find(const string& s) const;
+    Link* advance(int n);
 
-    Link* advance(int n) const;
     Link* next() const{ return succ; }
-    Link* previous() const { return prev; }
+    Link* previous() const {return prev; }
 
-
+    void print_all() const;
+    void free_all();
 
     private:
         Link* prev;
@@ -27,13 +26,12 @@ struct Link {
 
 Link* Link::insert(Link* n)  // insert n before p; return n
 {
-    //we don't need this to access a member
     if (n==nullptr)
         return this;
     if (this==nullptr)
         return n;
     n->succ = this;                                  // p comes after n
-    if (prev)
+    if (this->prev)
         prev->succ = n;
     n->prev = prev;                       // p’s predecessor becomes n’s predecessor
     prev = n;                            // n becomes p’s predecessor
@@ -42,106 +40,114 @@ Link* Link::insert(Link* n)  // insert n before p; return n
 
 Link* Link::add( Link* n)  // insert n after p; return n
 {
-    Link* p = this;
+
     if (n==nullptr)
-        return p;
-    if (p==nullptr)
+        return this;
+    if (this==nullptr)
         return n;
-    n->prev = p;                                  // p comes before n
-    if (p->succ)
-        p->succ->prev = n;                  //if p already has a successor, that succesor's new pres is in n
-    n->succ = p->succ;                       // p’s predecessor becomes n’s predecessor
-    p->succ = n;                            // n becomes p’s successor
+    n->prev = this;                                  // p comes before n
+    if (this->succ)
+        succ->prev = n;                  //if p already has a successor, that succesor's new pres is in n
+    n->succ = succ;                       // p’s predecessor becomes n’s predecessor
+    succ = n;                            // n becomes p’s successor
     return n;
 }
 
-Link* erase(Link* p) //remove *p from list; return p's successor
+Link* Link::erase() //remove *p from list; return p's successor
 {
-    Link* p = this;
-    if (p == nullptr)
-        return nullptr;
-    if(p->succ)
-        p->succ->prev = p->prev;
-    if(p->prev)
-        p->prev->succ = p->succ;
-    return p->succ;
+    if(this->succ)
+        this->succ->prev = this->prev;
+    if(this->prev)
+        this->prev->succ = this->succ;
+    return this->succ;
 }
 
-Link* find(Link* p, const string& s)   //find s in list; return nullptr for "not found"
+Link* Link::find(const string& s)   //find s in list; return nullptr for "not found"
 {
-    while(p) {
-        if (p->value == s)
-            return p;
-        p = p->succ;
+    Link* current_object = this;
+    while(current_object != nullptr) {
+        if (current_object->value == s)
+            return current_object;
+        current_object = current_object->succ; //move one object further
     }
     return nullptr;
 }
 
-Link* advance(Link* p, int n){ //move n positions in list; return nullptr for "not found"
-    if(p == nullptr)
-        return nullptr;
+Link* Link::advance( int n ){ //move n positions in list; return nullptr for "not found"
+    Link* current_object = this;
     while(0<n){
-        if (p->succ == nullptr) return nullptr;
-            p = p->succ;
+        if (current_object->succ == nullptr) return nullptr;
+        current_object = current_object -> succ;
         --n;
     }
     while(n<0){
+        if(current_object->prev == nullptr) return nullptr;
+        current_object = current_object -> prev;
         ++n;
-        if(p->prev)
-            p = p->prev;
-        return nullptr;
     }
-    return p;
+    return current_object;
 }
 //nullptr usage here is more error prone than std library list
 
-void print_all(Link* p)
+void Link::print_all() const
 {
+    const Link* current_object = this;
         cout << "{ ";
-        while (p) {
-                 cout << p->value;
-                 if ((p=p->succ))   //using assignment as a condition
+        while (current_object) {
+                cout << current_object->value;
+                current_object = current_object->succ;
+                if (current_object)   //using assignment as a condition
                          cout << ", ";
          }
          cout << " }";
 }
 
-int main() {
-    /*
-    Link* norse_gods = new Link{"Thor",nullptr,nullptr};
-    norse_gods = new Link{"Odin",nullptr,norse_gods};
-    norse_gods->succ->prev = norse_gods;
-    norse_gods = new Link {"freja",nullptr,norse_gods};
-    norse_gods->succ->prev = norse_gods;
-    */
+void Link::free_all () {
+    Link* current_object = this;
+    while( current_object ) {
+        Link* next_node = current_object -> succ;
+        delete current_object;
+        current_object = next_node;
+    }
+}
 
-    Link* norse_gods = new Link{"Thor"};
-    norse_gods = insert(norse_gods,new Link{"Odin"});
-    norse_gods = insert(norse_gods,new Link{"Freja"});
+int main() {
+
+    Link* norse_gods = new Link{"Thor"};;
+    norse_gods = norse_gods -> insert(new Link{"Odin"});
+    norse_gods = norse_gods -> insert(new Link{"Freja"});
 
     Link* greek_gods = new Link{"Hera"};
-    greek_gods = insert(greek_gods,new Link{"Athena"});
-    greek_gods = insert(greek_gods,new Link{"Mars"});
-    greek_gods = insert(greek_gods,new Link{"Poseidon"});
+    greek_gods = greek_gods -> insert(new Link{"Athena"});
+    greek_gods = greek_gods -> insert(new Link{"Mars"});
+    greek_gods = greek_gods -> insert(new Link{"Poseidon"});
+    //dot operator won't work because greek_gods is a pointer
 
-    Link* p = find(greek_gods, "Mars");
+    Link* p = greek_gods->find("Mars");
     if (p){
         p->value = "Ares";
     }
     
-    Link* g = find(norse_gods,"Zeus");
+    Link* g = norse_gods -> find("Zeus");
     if (g) {
         //making sure that the erased() Link isn't pointed to by norse_gods
         if(g==norse_gods)
-            norse_gods = g->succ;
-        erase(g);
+            norse_gods = g->next();
+        g = g -> erase();
         //when inserting Zeus BEFORE the first greek god, make greek_gods point to Zeus Link
-        greek_gods = insert(greek_gods,g);
+        greek_gods = greek_gods -> insert(g);
     }
-    print_all(norse_gods);
+    norse_gods -> print_all();
     cout << '\n';
 
-    print_all(greek_gods);
+    greek_gods -> print_all();
     cout << '\n';
     
+    //clear up free memory
+    norse_gods -> free_all();
+    norse_gods = nullptr; //remove dangling pointer
+    greek_gods -> free_all();
+    greek_gods = nullptr;
+
+    return 0;
 }
