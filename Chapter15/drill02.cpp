@@ -1,4 +1,5 @@
 #include<iostream>
+#include <vector>
 using namespace std;
 
 int main(){
@@ -26,23 +27,46 @@ int main(){
 
     //[8] Print out the values of p1 and p2 and of what they point to.
     std::cout << "Address of p1: " << p1 << '\n';
-    std::cout << "value of p1: " << *p1 << '\n';
+    std::cout << "value of p1: {";
+    for ( int i = 0; i < 7 ; ++i){
+        if(i < 6){
+            std::cout << p1[i] << ", ";
+        }else{
+            std::cout << p1[i];
+        }
+    }
+    std::cout << "}\n";
     
     std::cout << "Adress of p2: " << p2 << '\n';
-    std::cout << "value of p2: " << *p2;
+    std::cout << "value of p2: {";
+    for ( int i = 0; i < 7 ; ++i){
+        if(i < 6){
+            std::cout << p2[i] << ", ";
+        }else{
+            std::cout << p2[i];
+        }
+    }
+    std::cout << "}\n";
 
     //[9] Deallocate all the memory you allocated from the free store.
     delete p1;
     delete[] p3;
-    //all are pointing to p1
+    //p1 points to int{7}
+    //p2 and p3 point to int[7] array
 
-    /*
-[10] Allocate an array of ten ints; initialize it to 1, 2, 4, 8, etc.; and assign its address to p1.
+    
+//[10] Allocate an array of ten ints; initialize it to 1, 2, 4, 8, etc.; and assign its address to p1.
+    p1 = new int [10] {1, 2, 4, 8, 16, 32, 64, 128, 256, 512};
 
-[11] Allocate an array of ten ints, and assign its address to a variable p2.
+//[11] Allocate an array of ten ints, and assign its address to a variable p2.
+    p2 = new int [10];
 
-[12] Copy the values from the array pointed to by p1 into the array pointed to by p2.
-
-[13] Repeat 10–12 using a vector rather than an array.
-*/
+//[12] Copy the values from the array pointed to by p1 into the array pointed to by p2.
+    for(int i = 0; i < 10; ++i){
+        p2[i] = p1[i];
+    }
+//[13] Repeat 10–12 using a vector rather than an array.
+    vector<int> v1 = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512};
+    vector<int> v2(10);
+    v2 = v1;
 }
