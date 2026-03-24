@@ -1,0 +1,43 @@
+Review
+
+[1] Why would you want a graphical user interface?
+if we want the user-program interaction to be based on the metaphor of manipulating objecrs on the screen
+
+[2] When would you want a non-graphical user interface?
+If the input is simple and textual, consisting of commands and short data items
+
+[3] What is a software layer?
+
+[4] Why would you want to layer software?
+
+[5] What is a callback?
+
+[6] What is a widget?
+
+[7] Is Qt an acronym?
+
+[8] How do you pronounce Qt?
+
+[9] What other GUI toolkits have you heard of?
+
+[10] Which systems use the term widget and which prefer control?
+
+[11] What are examples of widgets?
+
+[12] When would you use an inbox?
+
+[13] What is the type of the value stored in an inbox?
+
+[14] When would you use a button?
+
+[15] When would you use a menu?
+
+[16] What is control inversion?
+
+[17] What is the basic strategy for debugging a GUI program?
+
+[18] Why is debugging a GUI program harder than debugging an “ordinary program using streams for I/O”?
+
+[19] How do you animate a widget?
+
+

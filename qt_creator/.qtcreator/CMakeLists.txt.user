@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 18.0.2, 2026-02-16T20:09:29. -->
+<!-- Written by QtCreator 18.0.2, 2026-03-18T12:13:29. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -99,20 +99,20 @@
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{6eab61d3-0ae0-43a1-8f84-76b01ff95f11}</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
-   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">3</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="QString" key="CMake.Build.Type">Debug</value>
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
--DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 -DCMAKE_BUILD_TYPE:STRING=Debug
--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}
+-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
 -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
--DCMAKE_GENERATOR:STRING=Unix Makefiles
+-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
+-DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
+-DCMAKE_GENERATOR:STRING=Unix Makefiles
 CMAKE_MAKE_PROGRAM:FILEPATH=/opt/homebrew/bin/ninja</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/Users/niankim/Documents/Coding/PPP3-Exercises/qt_creator/build/Desktop-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -157,7 +157,7 @@ CMAKE_MAKE_PROGRAM:FILEPATH=/opt/homebrew/bin/ninja</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Debug</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeBuildConfiguration</value>
     <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
-    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
+    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">3</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
       <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">0</value>
@@ -231,7 +231,107 @@ CMAKE_MAKE_PROGRAM:FILEPATH=/opt/homebrew/bin/ninja</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
      <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
     </valuemap>
-    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
+    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
+     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+     <valuelist type="QVariantList" key="CustomOutputParsers"/>
+     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">example01</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+    </valuemap>
+    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
+     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+     <valuelist type="QVariantList" key="CustomOutputParsers"/>
+     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">example02</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+    </valuemap>
+    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.3">
+     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+     <valuelist type="QVariantList" key="CustomOutputParsers"/>
+     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter11_Drill</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+    </valuemap>
+    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.4">
+     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+     <valuelist type="QVariantList" key="CustomOutputParsers"/>
+     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter12_Drill</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+    </valuemap>
+    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.5">
+     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+     <valuelist type="QVariantList" key="CustomOutputParsers"/>
+     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter13</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+    </valuemap>
+    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">6</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.BuildConfigurationCount">1</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.0">
@@ -302,7 +402,107 @@ CMAKE_MAKE_PROGRAM:FILEPATH=/opt/homebrew/bin/ninja</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">example01</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">example02</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.3">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter11_Drill</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.4">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter12_Drill</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.5">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">Chapter13</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.UniqueId"></value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">%{RunConfig:Executable:Path}</value>
+   </valuemap>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">6</value>
   </valuemap>
  </data>
  <data>

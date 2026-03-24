@@ -1,0 +1,63 @@
+
+Review
+
+[1] What does “Caveat emptor!” mean?
+
+[2] What is an array?
+can be on the heap, the stack and in static memory
+contigous sequence
+
+[3] How do you copy an array?
+
+[4] How do you initialize an array?
+
+[5] When should you prefer a pointer argument over a reference argument? Why?
+
+[6] When should you prefer a span over a pointer? Why?
+
+[7] How does std::array differ from a built-in array?
+
+[8] What good is range checking?
+
+[9] What information do you need to do range checking?
+
+[10] What good can a not_null do?
+
+[11] What is a C-style string?
+
+[12] What is a palindrome?
+
+
+_______________________
+
+Terms:
+
+array:			
+pointer:		
+palindrome:		
+pointer arithmetic:	moving pointers around with +,-,+=,-= (while ensureing we stay in range)
+span:			
+array:			
+not_null:		
+C-style string:		
+*			
+&			
+->			
+subscripting		
+[]			subscript notation to indicate array, usually vector<T> is beeter for representing a cintigous sequence
+strlen()		
+range error		
+nullptr dereference
+span:			
+array:			
+not_null:		
+C-style string:		
+*			
+&			
+->			
+subscripting		
+[]			
+strlen()		
+range error		
+nullptr dereference	
+
