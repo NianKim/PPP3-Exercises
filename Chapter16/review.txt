@@ -17,6 +17,8 @@ when we want to change the value of the object referenced and not the address va
 
 
 [6] When should you prefer a span over a pointer? Why?
+A span points to an array and "remembers" its number of elements
+In regular pointers assignment, copy and sizeof applies to the pointer rather than what it points to.
 
 [7] How does std::array differ from a built-in array?
 
@@ -27,9 +29,10 @@ when we want to change the value of the object referenced and not the address va
 [10] What good can a not_null do?
 
 [11] What is a C-style string?
+Character strings represented in memory as a zero-terminated array of characters and accesed through pointers.
 
 [12] What is a palindrome?
-
+a sequence which is identical to the original when read in reverse
 
 _______________________
 
@@ -39,28 +42,22 @@ array:
 pointer:		
 palindrome:		
 pointer arithmetic:	moving pointers around with +,-,+=,-= (while ensureing we stay in range)
-span:			
-array:			
-not_null:		
-C-style string:		
-*			
-&			
-->			
 subscripting		
 []			subscript notation to indicate array, usually vector<T> is beeter for representing a cintigous sequence
 strlen()		
 range error		
 nullptr dereference
-span:			
+span:			contigous sequence of elements which keeps track of the number of elements it points to	
 array:			
 not_null:		
-C-style string:		
+C-style string:		null-terminated array of characters accessible by a pointer
 *			
 &			
 ->			
 subscripting		
 []			
-strlen()		
+strlen()		gets the number of character in a c-style string, doesn't count the terminating 0
 range error		
 nullptr dereference	
-
+malloc()		allocates memory on the free store
+free()			gives memory back to the free store allocated by malloc
