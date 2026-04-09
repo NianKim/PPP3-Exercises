@@ -10,8 +10,11 @@ contigous sequence
 [3] How do you copy an array?
 
 [4] How do you initialize an array?
+using the keyword new
 
 [5] When should you prefer a pointer argument over a reference argument? Why?
+when we want to change the value of the object referenced and not the address value
+
 
 [6] When should you prefer a span over a pointer? Why?
 
