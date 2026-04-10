@@ -27,6 +27,7 @@ In regular pointers assignment, copy and sizeof applies to the pointer rather th
 [9] What information do you need to do range checking?
 
 [10] What good can a not_null do?
+Due to the segmentation faults that can be caused by nullpointers, the check can throw a not_null_error (a pointer) and can make us safely use dated functions like strlen()
 
 [11] What is a C-style string?
 Character strings represented in memory as a zero-terminated array of characters and accesed through pointers.
@@ -48,7 +49,7 @@ strlen()
 range error		
 nullptr dereference
 span:			contigous sequence of elements which keeps track of the number of elements it points to	
-array:			
+array:			only uses the memory (stack or static) in which you create it
 not_null:		
 C-style string:		null-terminated array of characters accessible by a pointer
 *			
