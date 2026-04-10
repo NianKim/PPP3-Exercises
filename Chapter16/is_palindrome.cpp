@@ -24,5 +24,6 @@ int main ()
         if ( !is_palindrome(s) )
             std::cout << " not";
         std::cout << " a palindrome\n";
+        //break out of loop by using control + c
     }
 }
