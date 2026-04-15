@@ -9,6 +9,7 @@ contigous sequence
 
 [3] How do you copy an array?
 
+
 [4] How do you initialize an array?
 using the keyword new
 
