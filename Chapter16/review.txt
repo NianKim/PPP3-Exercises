@@ -2,16 +2,19 @@
 Review
 
 [1] What does “Caveat emptor!” mean?
+latin for "buyer beware"
+it's supposed to emphasize the risks of using pointers over standard library functions if one doesn't understand what one is doing.
 
 [2] What is an array?
 can be on the heap, the stack and in static memory
-contigous sequence
+contigous sequence, which is immutable in size (cannot append more elements)
 
 [3] How do you copy an array?
-
+by creating a new array and assigning individual entries to the copies index.
+in comparison to vector, this is tedious, due to the ability of just assigning the vector to a new variable, instantly making a copy.
 
 [4] How do you initialize an array?
-using the keyword new
+using the keyword new type name[size] = {elements, seperated, by, commas}
 
 [5] When should you prefer a pointer argument over a reference argument? Why?
 when we want to change the value of the object referenced and not the address value
@@ -22,10 +25,13 @@ A span points to an array and "remembers" its number of elements
 In regular pointers assignment, copy and sizeof applies to the pointer rather than what it points to.
 
 [7] How does std::array differ from a built-in array?
+std::array has its size embedded into its type
 
 [8] What good is range checking?
+in the case of there being no elements in a vector or if we try to access a nonexistent index, we are (in hardware) trying to access and potentially write to a neighboring address in memory, it has no rights to. The OS, which wants to avoid memory corruption terminates the process attempting the illegal access.
 
 [9] What information do you need to do range checking?
+the size of our contigous array/vector/data type
 
 [10] What good can a not_null do?
 Due to the segmentation faults that can be caused by nullpointers, the check can throw a not_null_error (a pointer) and can make us safely use dated functions like strlen()
