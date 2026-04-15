@@ -5,7 +5,8 @@ public:
     int size() const { return sz; }
     double get(int n) const {return elem[n];}
     void set(int n, double v) {elem[n]=v;}
-    double operator[](int n) { return elem[n]; } // requires an lvalue, will not be able to write, only read.
+    double& operator[](int n) { return elem[n]; } // return a reference
+    const double& operator[] (int n) const { return elem[n]; }  //return a const& for a const
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
@@ -21,12 +22,10 @@ Vector::Vector(int s)           //constructor
 #include<iostream>
 
 int main(){
-    Vector v(5);
+
     Vector v(10);
-    double x = v[2];                // fine
-    v[3] = x; 
-for (int i=0; i<v.size(); ++i) {
-        v.set(i,1.1*i);
-        std::cout << "v[" << i << "]==" << v.get(i) << '\n';
-}
+    for (int i=0; i<v.size(); ++i) {
+        v[i] = i;             // returns a reference
+        std::cout << v[i];
+    }
 }

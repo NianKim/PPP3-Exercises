@@ -1,0 +1,82 @@
+
+Review
+
+[1] What is the default meaning of copying for class objects?
+
+[2] When is the default meaning of copying of class objects appropriate? Inappropriate?
+
+[3] What is a copy constructor?
+
+[4] What is a copy assignment?
+
+[5] What is a move constructor?
+
+[6] What is a move assignment?
+
+[7] What is a default constructor?
+
+[8] What is the difference between a copy constructor and a move constructor?
+
+[9] What is the difference between a copy constructor and a copy assignment?
+
+[10] What is shallow copy? What is deep copy?
+
+[11] How does the copy of a vector compare to its source?
+
+[12] What is the point of copy elision?
+
+[13] What are the essential operations for a class?
+
+[14] What is an explicit constructor?
+
+[15] When would you prefer a constructor not to be explicit?
+
+[16] How do you define traversal for a container?
+
+[17] What operations may be invoked implicitly for a class object?
+
+[18] What operators are often user-defined?
+
+[19] What is the rule of zero?
+
+[20] What is the rule of all?
+
+[21] Why don’t we just always define a vector with a large enough size for all eventualities?
+
+[22] Which vector operations can change the size of a vector after construction?
+
+[23] What is the difference between reserve() and resize()?
+
+[24] How much spare space do we allocate for a new vector?
+
+[25] When must we copy vector elements to a new location?
+
+[26] What is the value of a vector after a copy?
+
+
+Terms
+
+reserve()
+deep copy
+shallow copy
+move assignment
+capacity
+default constructor
+move construction
+list initialization
+copy assignment
+essential operations
+begin()
+end()
+copy constructor
+explicit constructor
+&&
+push_back()
+resize()
+size
+comparison
+traversal
+rule of zero
+rule of all
+== and !=
+
