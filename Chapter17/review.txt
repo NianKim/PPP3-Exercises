@@ -8,6 +8,9 @@ Review
 [3] What is a copy constructor?
 
 [4] What is a copy assignment?
+if we wish to (memberwise) copy objects from another source object by assignment.
+The old elements from the target must be freed.
+Then let the element pointer is set to the new elements.
 
 [5] What is a move constructor?
 
@@ -68,7 +71,7 @@ copy assignment
 essential operations
 begin()
 end()
-copy constructor
+copy constructor		a constructoe which copies an object
 explicit constructor
 &&
 push_back()
@@ -79,4 +82,5 @@ traversal
 rule of zero
 rule of all
 == and !=
-
+shallow copy		copies only a pointer so that two pointers refer to the same object
+Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object
