@@ -23,7 +23,12 @@ public:
     const double& operator[] (int n) const { return elem[n]; }  //return a const& for a const
 
     Vector (const Vector&);          //copy constructor: define copy
-    Vector& operator=(const Vector&);
+
+    Vector& operator=(const Vector&);//assingment
+
+    Vector(Vector&& arg);              //move constructor
+    Vector& operator=(Vector&& arg); //move assignment
+
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
@@ -44,9 +49,25 @@ private:
         sz = a.sz;
         return *this;                           //return a self-reference
     }
-    Vector& Vector::operator=(Vector&& arg)            //move assignment;
-    {
 
+    Vector::Vector(Vector&& arg)                //move constructor
+        :sz{arg.sz}, elem{arg.elem}             //copy arg's elem and sz
+    {
+        arg.sz = 0;                             //make arg the empty vector
+        arg.elem = nullptr;
+    }
+
+    Vector& Vector::operator=(Vector&& arg)     //move arg to this Vector 
+    {
+        if ( this != &arg)                      // protect against self-assignment
+        {
+            delete[] elem;                      // deallocate old space
+            elem = arg.elem;                    // copy arg's elem and sz  
+            sz = arg.sz;                        
+            arg.elem = nullptr;                 // make arg the empty vector
+            arg.sz = 0;
+        } 
+        return *this;                           //return a self-reference
     }
 
 #include<iostream>
