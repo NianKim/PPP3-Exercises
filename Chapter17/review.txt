@@ -73,7 +73,7 @@ begin()
 end()
 copy constructor		a constructoe which copies an object
 explicit constructor
-&&
+&&				rvalue reference, used to define move operations
 push_back()
 resize()
 size
@@ -82,5 +82,5 @@ traversal
 rule of zero
 rule of all
 == and !=
-shallow copy		copies only a pointer so that two pointers refer to the same object
-Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object
+shallow copy		copies only a pointer so that two pointers refer to the same object - have reference semantics (they copy addresses)
+Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object - have value semantics (they copy the values pointed tp)

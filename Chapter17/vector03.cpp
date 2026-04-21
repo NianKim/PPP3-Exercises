@@ -44,6 +44,10 @@ private:
         sz = a.sz;
         return *this;                           //return a self-reference
     }
+    Vector& Vector::operator=(Vector&& arg)            //move assignment;
+    {
+
+    }
 
 #include<iostream>
 
