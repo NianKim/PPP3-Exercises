@@ -17,12 +17,12 @@ struct X {
     int val;
     void out(const std::string& s, int nv) { std::cout << this << "->" << s << ": " << val << " (" << nv << ")\n"; }
 
-       X(){ out("X()",0); val=0; }                                                           // default constructor
+       X(){ out("X()",0); val=0; }                                               // default constructor
        X(int x) { out( "X(int)",x); val=x; }
        X(const X& x){out("X(X&) ",x.val); val=x.val; }                          // copy constructor
-       X(X&& x){ out("X(X&&) ",x.val); val=x.val; x.val=0; }                // move constructor
+       //X(X&& x){ out("X(X&&) ",x.val); val=x.val; x.val=0; }                // move constructor
        X& operator=(const X& x) { out("X copy assignment",x.val); val=x.val; return *this; }
-       X& operator=(X&& x) { out("X move assignment",x.val); val=x.val; x.val=0; return *this; }
+       //X& operator=(X&& x) { out("X move assignment",x.val); val=x.val; x.val=0; return *this; }
        ~X() { out("~X()",0); } 
 };
 
@@ -44,7 +44,7 @@ int main()
         loc2 = copy(loc);             // call by value and return
         loc2 = copy2(loc);
         X loc3 {6};
-        X& r = ref_to(loc);      // call by reference and return
+        [[maybe_unused]] X& r = ref_to(loc);      // call by reference and return
         delete make(7);
         delete make(8);
         std::vector<X> v(4);               // default values
