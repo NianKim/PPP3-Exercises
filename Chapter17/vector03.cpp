@@ -4,7 +4,7 @@
 
 class Vector {                  //very simplified vector of doubles
 public:
-    Vector(int s) :sz{s}, elem{new double[s]}  //constructor: assigns memory (s is element count)
+    explicit Vector(int s) :sz{s}, elem{new double[s]}  //constructor: assigns memory (s is element count)
     {
         for ( int i = 0; i < sz; ++i)
             elem[i] = 0.0;
@@ -29,11 +29,13 @@ public:
     Vector(Vector&& arg);              //move constructor
     Vector& operator=(Vector&& arg); //move assignment
 
-    explicit Vector(int);       //supress use of implicit constructor conversion
         
     //iteration support
-    double* Vector::begin() const { return elem; }
-    double* Vector::end() const { return elem+sz; }
+    double* begin() const { return elem; }
+    double* end() const { return elem+sz; }
+
+    //comparator
+    friend bool operator==(const Vector& v1, const Vector& v2);
 
 private:
     int sz;                     //size
@@ -76,7 +78,18 @@ private:
         return *this;                           //return a self-reference
     }
 
-#include<iostream>
+    //comparators:
+    bool operator==(const Vector& v1, const Vector& v2){
+    if (v1.size()!=v2.size())
+            return false;
+    for (int i = 0; i<v1.size(); ++i)
+            if (v1[i]!=v2[i])
+                    return false;
+    return true;
+
+    //alternatively thanks to friend we could write:
+    //return std::equal(v1.elem, v1.elem + v1.sz, v2.elem);
+}
 
 int main(){
     Vector v1 = {0,1,2};            //curly braces: element list 
@@ -93,7 +106,7 @@ int main(){
     v1[1] = 99;                             
     v2[0] = 88;                               
     std::cout << "\nv2[0]: " << v2[0] << ", v1[1]: " << v1[1] << "\n";
-    v3 = v3;
+    //v3 = v3;
     for(int i = 0; i < v3.size(); ++i){
         std::cout << "v3[" << i << "]: " << v3[i] << '\n';
     }
