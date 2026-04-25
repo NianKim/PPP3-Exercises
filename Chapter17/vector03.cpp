@@ -29,6 +29,12 @@ public:
     Vector(Vector&& arg);              //move constructor
     Vector& operator=(Vector&& arg); //move assignment
 
+    explicit Vector(int);       //supress use of implicit constructor conversion
+        
+    //iteration support
+    double* Vector::begin() const { return elem; }
+    double* Vector::end() const { return elem+sz; }
+
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
