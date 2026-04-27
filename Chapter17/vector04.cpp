@@ -48,6 +48,8 @@ public:
 
     int capacity() const { return space; }
 
+    void resize( int newsize );
+    
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
@@ -115,18 +117,29 @@ void Vector::reserve(int newalloc)
         space = newalloc;
 }
 
+void Vector::resize(int newsize) 
+    // make the vector have newsize elements
+    //initialize each new element with the default value 0.0
+{
+    if (newsize < 0) throw std::runtime_error("Negative resize"); //avoid huge memory usage (underflow)
+    reserve(newsize);
+    for ( int i = sz; i < newsize; ++i )
+        elem[i] = 0;
+    sz = newsize;
+}
+
 
 int main(){
     Vector v1 = {0,1,2};            //curly braces: element list 
-    /* equivalent to : 
-    Vector v1 {0,1,2};
-    */
     Vector v2(3);                  // three elements each with the (default) value 0.0
     Vector v3 = v1;
     for (int i=0; i<v2.size(); ++i) {
         v2[i] = i;             // returns a reference
         std::cout << v2[i];
     }
+
+    v3.resize(6);
+    //v2.resize(-99);
 
     v1[1] = 99;                             
     v2[0] = 88;                               
