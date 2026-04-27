@@ -23,6 +23,8 @@ Then let the element pointer is set to the new elements.
 [9] What is the difference between a copy constructor and a copy assignment?
 
 [10] What is shallow copy? What is deep copy?
+shallow copy		copies only a pointer so that two pointers refer to the same object - have reference semantics (they copy addresses)
+Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object - have value semantics (they copy the values pointed tp)
 
 [11] How does the copy of a vector compare to its source?
 
@@ -79,8 +81,8 @@ resize()
 size
 comparison
 traversal
-rule of zero
-rule of all
+rule of zero			If you don't need to, don't define any essential operation
+rule of all			If you need to define any essential operation, define them all. (rule of three/five, depending on if you count assignment/construction seperately)
+three: destructor, copy constructor/assignment
+five: destructor, copy(...), move
 == and !=
-shallow copy		copies only a pointer so that two pointers refer to the same object - have reference semantics (they copy addresses)
-Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object - have value semantics (they copy the values pointed tp)

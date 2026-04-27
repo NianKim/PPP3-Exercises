@@ -41,6 +41,13 @@ public:
     //comparator
     friend bool operator==(const Vector& v1, const Vector& v2);
 
+    //reserve(): add space for new elements
+    void reserve(int newalloc);
+
+    //capacity: nr of elements
+
+    int capacity() const { return space; }
+
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
@@ -107,6 +114,7 @@ void Vector::reserve(int newalloc)
         elem = p;
         space = newalloc;
 }
+
 
 int main(){
     Vector v1 = {0,1,2};            //curly braces: element list 
