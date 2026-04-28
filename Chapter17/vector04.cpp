@@ -64,13 +64,25 @@ private:
         std::copy(arg.elem,arg.elem+sz,elem);  // copy elements [0:sz) from elem.arg into elem
     }
 
-    Vector& Vector::operator=(const Vector& a)  //make assigned Vector a copy of a
-    {
+    Vector& Vector::operator=(const Vector& a){  //like copy constructor, but we must deal with old elem
+
+        if ( this == &a )
+            return *this;
+        if ( a.sz <= space ){
+            for ( int i = 0; i < a.sz; ++i )
+                elem[i] = a.elem[i];
+            sz = a.sz;
+            return *this;
+        }
+
         double* p = new double[a.sz];           //allocate new space
-        std::copy(a.elem,a.elem+a.sz,p);        //copy element [0:sz) from a.elem into p
+        for (int i = 0; i < a.sz; ++i)
+            p[i] = a.elem[i];
+        
         delete[] elem;                          //deallocate old space
+
+        space = sz = a.sz;                      //set new size
         elem = p;                               //now we can reset elem
-        sz = a.sz;
         return *this;                           //return a self-reference
     }
 
