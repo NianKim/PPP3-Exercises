@@ -49,6 +49,8 @@ public:
     int capacity() const { return space; }
 
     void resize( int newsize );
+
+    void push_back( double d );
     
 private:
     int sz;                     //size
@@ -128,6 +130,17 @@ void Vector::resize(int newsize)
     sz = newsize;
 }
 
+void Vector::push_back(double d)
+    //increase the size by one, initialize new variable with d
+{
+    if (space == 0)
+        reserve(8);     //start with size 8
+    else if( sz == space )
+        reserve(space*2);
+    
+    elem[sz] = d;
+    ++sz;
+}
 
 int main(){
     Vector v1 = {0,1,2};            //curly braces: element list 
@@ -145,6 +158,7 @@ int main(){
     v2[0] = 88;                               
     std::cout << "\nv2[0]: " << v2[0] << ", v1[1]: " << v1[1] << "\n";
     //v3 = v3;
+    v3.push_back(67.89);
     for(int i = 0; i < v3.size(); ++i){
         std::cout << "v3[" << i << "]: " << v3[i] << '\n';
     }
