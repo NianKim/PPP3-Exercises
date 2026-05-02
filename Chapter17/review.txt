@@ -2,10 +2,13 @@
 Review
 
 [1] What is the default meaning of copying for class objects?
+shallow copy, where the copy simply points to the original object
 
 [2] When is the default meaning of copying of class objects appropriate? Inappropriate?
+if we wish to only read the content of the object it's sufficient, however when modifying it, it's good practice to make a deep copy in order to prevent destructive data manipulation.-
 
 [3] What is a copy constructor?
+copy constructor assigns a new object of a certain class to the heap with the new allocation
 
 [4] What is a copy assignment?
 if we wish to (memberwise) copy objects from another source object by assignment.
@@ -13,14 +16,19 @@ The old elements from the target must be freed.
 Then let the element pointer is set to the new elements.
 
 [5] What is a move constructor?
+changes the address of the object to a new location, while changing the old pointer to a nullptr
 
 [6] What is a move assignment?
+Operator overloading = to make it possible to reallocate an objects address
 
 [7] What is a default constructor?
 
 [8] What is the difference between a copy constructor and a move constructor?
+the copy constructor creates another object based on a previously exisiting one, while the move constructor does the same, but deletes the old one
 
 [9] What is the difference between a copy constructor and a copy assignment?
+the copy constructor is an actual essential operation of an object
+the copy assignment is an operator overload of the operator '='
 
 [10] What is shallow copy? What is deep copy?
 shallow copy		copies only a pointer so that two pointers refer to the same object - have reference semantics (they copy addresses)
@@ -31,6 +39,7 @@ Deep copy		copies WHAT a pointer points to so that the two pointers now refer to
 [12] What is the point of copy elision?
 
 [13] What are the essential operations for a class?
+construction, destruction, move, assignment, copy
 
 [14] What is an explicit constructor?
 
