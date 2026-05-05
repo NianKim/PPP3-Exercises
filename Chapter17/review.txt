@@ -8,7 +8,7 @@ shallow copy, where the copy simply points to the original object
 if we wish to only read the content of the object it's sufficient, however when modifying it, it's good practice to make a deep copy in order to prevent destructive data manipulation.-
 
 [3] What is a copy constructor?
-copy constructor assigns a new object of a certain class to the heap with the new allocation
+It initializes a new object as a copy of an existing one.
 
 [4] What is a copy assignment?
 if we wish to (memberwise) copy objects from another source object by assignment.
@@ -16,15 +16,17 @@ The old elements from the target must be freed.
 Then let the element pointer is set to the new elements.
 
 [5] What is a move constructor?
-changes the address of the object to a new location, while changing the old pointer to a nullptr
+transfers the ownership of resources from a source to a target.
 
 [6] What is a move assignment?
-Operator overloading = to make it possible to reallocate an objects address
+Operator overloading = to make it possible to do [5]
+The source is left in a "valid but empty" state (nullptr)
 
 [7] What is a default constructor?
+a constructor that can be called with no arguments
 
 [8] What is the difference between a copy constructor and a move constructor?
-the copy constructor creates another object based on a previously exisiting one, while the move constructor does the same, but deletes the old one
+the copy constructor duplicates another object, while the move constructor simply copies the pointer and deletes the old one. (cheaper)
 
 [9] What is the difference between a copy constructor and a copy assignment?
 the copy constructor is an actual essential operation of an object
@@ -35,37 +37,57 @@ shallow copy		copies only a pointer so that two pointers refer to the same objec
 Deep copy		copies WHAT a pointer points to so that the two pointers now refer to DISTINCT object - have value semantics (they copy the values pointed tp)
 
 [11] How does the copy of a vector compare to its source?
+The vectors are equal in value, but independent in memory
 
 [12] What is the point of copy elision?
+optimization that avoids unnecessary copies or moves
 
 [13] What are the essential operations for a class?
 construction, destruction, move, assignment, copy
 
 [14] What is an explicit constructor?
+constructor marked by explicit keyword.
+prevents compiler from performing implicit conversions
 
 [15] When would you prefer a constructor not to be explicit?
+when the conversion is "safe" for example:
+ints being transferred to a complex number isn't problematic. 
 
 [16] How do you define traversal for a container?
+using begin() and end() pointers 
+or
+iterators
 
 [17] What operations may be invoked implicitly for a class object?
+Default constructor, destructor, copy constructor, copy assignment, move constructor, and move assignment.
 
 [18] What operators are often user-defined?
+==, !=, [], =, +, -, *, and <<
 
 [19] What is the rule of zero?
+if a class doesn't manage raw resources (like pointers), don't define any of the "big five" (default constructor, destructor, copy, move and)
 
 [20] What is the rule of all?
+If you define a destructor, you likely need to define the copy/move constructors and copy/move assignments to manage memory safely.
 
 [21] Why don’t we just always define a vector with a large enough size for all eventualities?
+it is wasteful of memory and doesn't scale dynamically
 
 [22] Which vector operations can change the size of a vector after construction?
+.resize(), push_back(), insert, erase, clear, pop_back(), assign
 
 [23] What is the difference between reserve() and resize()?
+reserve changes the capacity (memory)
+resize adds or removes elements
 
 [24] How much spare space do we allocate for a new vector?
+commonly we double the size of a vector once we reach a limit (ensures certain time complexities
 
 [25] When must we copy vector elements to a new location?
+when we increase the size beyond the capacity
 
 [26] What is the value of a vector after a copy?
+the same as the object we copied
 
 
 Terms
@@ -84,7 +106,7 @@ begin()
 end()
 copy constructor		a constructoe which copies an object
 explicit constructor
-&&				rvalue reference, used to define move operations
+&&				rvalue reference, used to define move operations (A type that "binds" to temporary objects, allowing you to trigger move semantics instead of copies.)
 push_back()
 resize()
 size
