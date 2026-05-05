@@ -41,3 +41,9 @@ bool operator==(const Vector<T>&, const Vector<T>&);
 
 template<typename T>
 bool operator!=(const Vector<T>&, const Vector<T>&);
+
+
+Vector<double> vd;
+Vector<int> vi;
+Vector<double*> vpd;
+Vector<Vector<int>> vvi;

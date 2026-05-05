@@ -1,12 +1,24 @@
 Review
 
 [1] Why would we want to have different element types for different vectors?
+because the utilities vector provides can be useful to any data types: whether we are parsing sequential data streams in text (from a survey) or numbers (like weather data), it's useful to define a general purpose container.
 
 [2] What is a template?
+mechanism to use types as parameters for a class or function
+The compiler inferrs a specific class or function when we pass certain arguments
+also known as a type generator
+
 
 [3] What is generic programming?
+simplest: using templates
+actually: writing code that works with a variety of types presented as arguments, as long as those argument types meet specific syntactic and semantic requirements
 
 [4] How does generic programming differ from object-oriented programming?
+focus is more the alogrithms than the data types they use
+the choice of function invoked when you use generic programming is determined by the compiler at compile time, whereas oop is determined at run time
+
+parametric polymorphism		relying on explicit template parameters	(compile-time resolution)
+ad hoc polymorphism		using class hierarchies and virtual functions (aka oop)	(runtime resolution)
 
 [5] What is a concept?
 
