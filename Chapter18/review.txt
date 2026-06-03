@@ -21,10 +21,16 @@ parametric polymorphism		relying on explicit template parameters	(compile-time r
 ad hoc polymorphism		using class hierarchies and virtual functions (aka oop)	(runtime resolution)
 
 [5] What is a concept?
+a set of requirements on a set of template arguments, indicted with the keyword "requires"
 
 [6] What benefits do we get from the use of concepts?
+Ind order to use the unsurpassed flexibility and performance of Templates with guarantees, we need concepts to ensure that all pre- and postconditions are met properly.
 
 [7] Name four standard-library concepts.
+range<C>(): C
+random_access_iterator<Ran>(): Ran
+random_access_range<Ran>(): range
+totally_ordered<T>():
 
 [8] How does resize() differ from reserve()?
 
@@ -45,6 +51,7 @@ ad hoc polymorphism		using class hierarchies and virtual functions (aka oop)	(ru
 
 Terms
 
+slicing			assigning a derived class to its base class results in the truncation of data which is lost during conversion
 constraint
 owner
 specialization
