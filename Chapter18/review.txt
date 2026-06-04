@@ -33,9 +33,17 @@ random_access_range<Ran>(): range
 totally_ordered<T>():
 
 [8] How does resize() differ from reserve()?
+Resize() changes the number of elements in a vector while reserve gets the memory to store those elements.
 
 [9] What is a resource? Define and give examples.
-
+something that is aquired and must be realeased (given back)
+examples are: (like using new and delete on the free-store)
+	-Memory
+	-Locks
+	-File handles
+	-Thread Handles
+	-Sockets
+	-Windows
 [10] What is a resource leak?
 
 [11] List the three resource-management guarantees.
@@ -52,10 +60,9 @@ totally_ordered<T>():
 Terms
 
 slicing			assigning a derived class to its base class results in the truncation of data which is lost during conversion
-constraint
-owner
+constraint		
+owner			object responsible for releasing a resource
 specialization
-at()
 push_back()
 strong guarantee
 basic guarantee
@@ -66,13 +73,14 @@ resize()
 template parameter
 guarantees
 resource
-handle
+handle			see owner
 re-throw
 throw;
 instantiation
 unique_ptr
 concept
-range checking
+range checking	catches out of range accesses, can be inefficient for network interfaces and HPC	
+at()		checked access operation (for invalid (out-of-range) index)
 shared_ptr
 regular
 equality_comparable
