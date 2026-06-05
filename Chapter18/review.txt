@@ -51,6 +51,9 @@ examples are: (like using new and delete on the free-store)
 [12] How can the use of a built-in pointer lead to a resource leak? Give examples.
 
 [13] What is RAII? What problem does it address?
+Resource acquisition is initialization
+The resources are acquired by constructors and released by the matching destructors.
+It adresses the "exception problem", there is no memory/resource leak.
 
 [14] What is unique_ptr good for?
 
@@ -66,7 +69,7 @@ specialization
 push_back()
 strong guarantee
 basic guarantee
-RAII
+RAII			Resource aquisition is initialization (resources are acquired by contructors and released by the matching destructors)
 template
 exception
 resize()
