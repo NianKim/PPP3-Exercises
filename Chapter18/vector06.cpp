@@ -36,7 +36,7 @@ void Vector<T, A>::reserve(int newalloc)
     if(newalloc <= r.space)
         return;
     Vector_rep<T, A> b{ r.alloc, newalloc };
-    std::ninitialized_move(r.elem,r.elem+r.sz,b.elem);
+    std::uninitialized_move(r.elem,r.elem+r.sz,b.elem);
     std::destroy(r.elem,r.elem + r.sz);
 
     using std::swap;
