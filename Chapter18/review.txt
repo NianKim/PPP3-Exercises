@@ -45,10 +45,19 @@ examples are: (like using new and delete on the free-store)
 	-Sockets
 	-Windows
 [10] What is a resource leak?
+type of resource consumption by a program where the acquired resources are not released.
 
 [11] List the three resource-management guarantees.
+basic		succeed or throw and exception without leaking resources
+strong		basic guarantee + all values not local to function (observable) remain 
+		the same after failure
+no-throw	beware of simple returns that leave required resources unreleased.
+		will not throw and is used for simple operations
 
 [12] How can the use of a built-in pointer lead to a resource leak? Give examples.
+we can forget to delete them.
+it's better to transer ownership with the move constructor
+we can return an object instead of a pointer
 
 [13] What is RAII? What problem does it address?
 Resource acquisition is initialization
@@ -56,9 +65,25 @@ The resources are acquired by constructors and released by the matching destruct
 It adresses the "exception problem", there is no memory/resource leak.
 
 [14] What is unique_ptr good for?
+it's used to indicate that the returned pointer represents ownership (must be deleted)
+they are created using std::make_unique
+when the unique_ptr is destroyed, it deletes the object it points to
+you can never have two unique pointers pointing to the same object
 
 [15] What is shared_ptr good for?
+guarantees deletion AND can be copied.
+more heavyweight implementation, ensures taht the last copy destruction also destroyed the object referred to
 
+be careful of circular references! loop must be broken using weak_ptr
+//example:
+struct Slink {
+        string name;
+        shared_ptr<Slink> next;
+};
+
+auto p = make_shared<Slink>("Friday",nullptr);
+auto q =make_shared<Slink>("viernes",p);
+p−>next = q;
 
 Terms
 
