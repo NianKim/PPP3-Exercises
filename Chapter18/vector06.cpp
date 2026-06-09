@@ -26,6 +26,7 @@ public:
     }
 
     void reserve(int newalloc);
+    void strong_assign(Vector<T>& target, const Vector<T> arg);
     // ...
     Vector& operator=(const Vector<T,A>& arg);
 }; 
@@ -47,7 +48,17 @@ void Vector<T, A>::reserve(int newalloc)
 template<typename T, typename A>
 Vector<T, A>& Vector<T, A>::operator=(const Vector<T, A>& arg)
 {
+    if (arg.size()<=size()) {                           // enough space; copy directly
+        move(arg.r.elem,arg.r.elem+arg.size(),r.elem);
+        destroy(r.elem+arg.size(),r.elem+size());       // destroy surplus elements
+    }
     Vector<T,A> tmp = arg;
     std::swap(this->r,tmp.r);        // strong guarantee
     return *this;
+}
+
+template<typename T>
+void strong_assign(Vector<T>& target, const Vector<T> arg)
+{
+        swap(target,arg);            // then swap (vector handles): strong guarantee
 }
