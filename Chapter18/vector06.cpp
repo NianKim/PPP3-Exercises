@@ -27,6 +27,7 @@ public:
 
     void reserve(int newalloc);
     // ...
+    Vector& operator=(const Vector<T,A>& arg);
 }; 
 
 // rewriting "reserve()"
@@ -41,4 +42,12 @@ void Vector<T, A>::reserve(int newalloc)
 
     using std::swap;
     swap(r, b);
+}
+
+template<typename T, typename A>
+Vector<T, A>& Vector<T, A>::operator=(const Vector<T, A>& arg)
+{
+    Vector<T,A> tmp = arg;
+    std::swap(this->r,tmp.r);        // strong guarantee
+    return *this;
 }
