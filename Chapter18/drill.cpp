@@ -36,9 +36,17 @@ int main() {
     using SString = S<std::string>;
     using SVector = S<std::vector<int>>;
 
-    S<int> a = 67;
-    S<char> b = 'v';
-    S<double> c = 3.14;
+    S<int> a = 0;
+    std::cout << "Enter a new integer: ";
+    read_val(a.non_const_access()); 
+
+    S<char> b = ' ';
+    std::cout << "Enter a new char: ";
+    read_val(b.non_const_access()); 
+
+    S<double> c = 0.0000;
+    std::cout << "Enter a new double: ";
+    read_val(c.non_const_access());  
 
     SString d{"Templates!"};
     SVector e{ { 1,2,3,4 }};
@@ -51,13 +59,6 @@ int main() {
         std::cout << x << " ";
     }
     std::cout << '\n';
-
-    std::cout << "Current integer: " << a.access() << '\n';
-    std::cout << "Enter a new integer: ";
-    
-    read_val(a.non_const_access()); 
-    
-    std::cout << "New integer value: " << a.access() << '\n';
 
     std::cout << "Successfully compiled!" << '\n';
     return 0;
