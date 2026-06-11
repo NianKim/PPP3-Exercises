@@ -4,10 +4,20 @@
 
 template<typename T> 
 struct S {
-    T value;
+    private:
+        T value;
+    
+    public:
     S(T val) : value { val } { } 
-
+    const T& access() { return value; };    //read only
 };
+
+template<typename T>
+//return a reference to val
+S<T>& access(S<T>& target)
+{
+        return(target.value);     
+}
 
 
 int main() {
@@ -22,8 +32,11 @@ int main() {
     SString d{"Templates!"};
     SVector e{ { 1,2,3,4 }};
 
-    std::cout << a.value << b.value << c.value << d.value << '\n';
-    for(int x : e.value){
+    std::cout <<    a.access() << " " <<
+                    b.access() << " " <<
+                    c.access() << " " <<
+                    d.access() << '\n';
+    for(int x : e.access()){
         std::cout << x << " ";
     }
     std::cout << '\n';
