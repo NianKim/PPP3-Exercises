@@ -25,6 +25,11 @@ S<T>& S<T>::operator=(const T& x){
     return *this;
 }
 
+template<typename T>
+void read_val(T& v) {
+    std::cin >> v;
+}
+
 
 int main() {
 
@@ -46,6 +51,13 @@ int main() {
         std::cout << x << " ";
     }
     std::cout << '\n';
+
+    std::cout << "Current integer: " << a.access() << '\n';
+    std::cout << "Enter a new integer: ";
+    
+    read_val(a.non_const_access()); 
+    
+    std::cout << "New integer value: " << a.access() << '\n';
 
     std::cout << "Successfully compiled!" << '\n';
     return 0;
