@@ -9,9 +9,11 @@ struct S {
     
     public:
     S(T val) : value { val } { } 
-    const T& access() { return value; };    //read only
+    const T& access() const { return value; };    //read only
+    T& non_const_access() {return value;};  //non-const
 
     S<T>& operator=(const T& x);
+    void read_val(T& v);                    //reads from cin into v
 };
 
 
@@ -40,7 +42,7 @@ int main() {
                     b.access() << " " <<
                     c.access() << " " <<
                     d.access() << '\n';
-    for(int x : e.access()){
+    for(int x : e.non_const_access()){
         std::cout << x << " ";
     }
     std::cout << '\n';
