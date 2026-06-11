@@ -6,6 +6,7 @@ template<typename T>
 struct S {
     T value;
     S(T val) : value { val } { } 
+
 };
 
 
@@ -21,7 +22,11 @@ int main() {
     SString d{"Templates!"};
     SVector e{ { 1,2,3,4 }};
 
-    //std::cout << a << b << c << d << e << '\n';
+    std::cout << a.value << b.value << c.value << d.value << '\n';
+    for(int x : e.value){
+        std::cout << x << " ";
+    }
+    std::cout << '\n';
 
     std::cout << "Successfully compiled!" << '\n';
     return 0;
