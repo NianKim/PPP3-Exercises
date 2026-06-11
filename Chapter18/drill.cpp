@@ -10,13 +10,17 @@ struct S {
     public:
     S(T val) : value { val } { } 
     const T& access() { return value; };    //read only
+
+    S<T>& operator=(const T& x);
 };
 
+
 template<typename T>
-//return a reference to val
-S<T>& access(S<T>& target)
-{
-        return(target.value);     
+//assignment
+S<T>& S<T>::operator=(const T& x){
+    S<T> tmp = x; 
+    std::swap(this->value, tmp.value);
+    return *this;
 }
 
 
