@@ -2,7 +2,8 @@
 
 template<typename T> 
 struct S {
-    T val;
+    T value;
+    S(T val) : value { val } { } 
 };
 
 
