@@ -5,6 +5,11 @@ public:
     int size() const { return sz; }
     double get(int n) const {return elem[n];}
     void set(int n, double v) {elem[n]=v;}
+
+    //iteration support
+    double* Vector::begin() const { return elem; }
+    double* Vector::end() const { return elem+sz; }
+
 private:
     int sz;                     //size
     double* elem;               //pointer to elements
