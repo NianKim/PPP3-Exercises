@@ -45,6 +45,11 @@ void fct(){
     if ( !jill_data.empty() ){
         jill_high = high(jill_data.data(), jill_data.data() + jill_data.size());
     }
+    
+    if (!jill_data.empty()) {
+        auto modern_jill_high = std::max_element(jill_data.begin(), jill_data.end());
+        std::cout << "Modern Jill's max: " << *modern_jill_high << "\n";
+    }
 
     if (jack_high) std::cout << "Jack's max: " << *jack_high << '\n';
     if (jill_high) std::cout << "Jill's max: " << *jill_high << '\n';
