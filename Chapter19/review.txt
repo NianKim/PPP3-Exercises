@@ -1,0 +1,87 @@
+Review
+
+[1] Why does code written by different people look different? Give examples.
+Potentially there are different data types used or expected in PRE/POST conditions-
+
+[2] What are simple questions we ask of data?
+What do we want to do with it?
+How will we parse it?
+What can we expect?
+Which edge-cases do we want to process?
+
+[3] What are a few different ways of storing data?
+different data types (chars, ints, unsigned ints, longs, floats,...)
+vectors and other std datatypes
+other custom classes like linked lists etc.
+
+[4] What basic operations can we do to a collection of data items?
+
+
+[5] What are some ideals for the way we store our data?
+
+[6] What is an STL sequence?
+
+[7] What is an STL iterator? What operations does it support?
+
+[8] How do you move an iterator to the next element?
+
+[9] How do you move an iterator to the previous element?
+
+[10] What happens if you try to move an iterator past the end of a sequence?
+
+[11] What kinds of iterators can you move to the previous element?
+
+[12] Why is it useful to separate data from algorithms?
+
+[13] What is the STL?
+
+[14] What is a linked list? How does it fundamentally differ from a vector?
+
+[15] What is a link (in a linked list)?
+
+[16] What does insert() do? What does erase() do?
+
+[17] How do you know if a sequence is empty?
+
+[18] What operations does an iterator for a list provide?
+
+[19] How do you iterate over a container using the STL?
+
+[20] When would you use a string rather than a vector?
+
+[21] When would you use a list rather than a vector?
+
+[22] What is a container?
+
+[23] What should begin() and end() do for a container?
+
+Terms
+
+algorithm
+empty sequence
+singly-linked list
+list
+array container
+end()
+size_type
+auto
+erase()
+STL
+begin()
+insert()
+traversal
+container
+iteration
+using
+contiguous
+iterator
+type alias
+doubly-linked list
+range
+linked list
+value_type
+element
+sequence
+lifting
+generalize
+
