@@ -15,29 +15,61 @@ vectors and other std datatypes
 other custom classes like linked lists etc.
 
 [4] What basic operations can we do to a collection of data items?
-
+-collecting data into containers
+-organizing data
+-retrieving data items (by index, value, properties...)
+-modify a container (sort, add, remove data)
+-perform a simple numeric operation
 
 [5] What are some ideals for the way we store our data?
+-easy to modify
+-uniform access to data
+-type-safe access to data
+-easy traversal of data
+-compact storage of data
+-fast (retrieval, addition, deletion)
+-standard versions of the most common algorithms
 
 [6] What is an STL sequence?
+also known as a range
+A collection of data
+usually half-open
 
 [7] What is an STL iterator? What operations does it support?
+indicates the beginning and end of a sequence
+
+p==q		true if and only if both point to the same element or both point to one beyond the last element
+p!=q		!(p==q)
+*p		element pointed to by p
+*p=val		writes to element pointed to by p
+val=*p		reads from element pointed to by p
+++p		makes p refer to the next element 
 
 [8] How do you move an iterator to the next element?
+using the ++ operator
 
 [9] How do you move an iterator to the previous element?
+using the -- operator
 
 [10] What happens if you try to move an iterator past the end of a sequence?
+invokes undefined behavior
 
 [11] What kinds of iterators can you move to the previous element?
+a std::forward_iterator can only move from left to right ( inability to move backwards with -- )
+std::reverse:iterator can initialize and inverse iterator adapter
 
 [12] Why is it useful to separate data from algorithms?
+by separating data from algorithms we can create generalized abstractions of said algorithms to be able to generalize over different data structures, as long as they meet certain criteria (like iterators) 
 
 [13] What is the STL?
+The standard Template Library is a collection of generic algorithms and data structures in c++
 
 [14] What is a linked list? How does it fundamentally differ from a vector?
+elements of the vector are consecutive in memory
+the STL's notion of a sequence does not require this and makes it possible to insert/delete elements without moving other elements
 
 [15] What is a link (in a linked list)?
+a pointer every node posesses to the next node
 
 [16] What does insert() do? What does erase() do?
 
@@ -84,4 +116,6 @@ element
 sequence
 lifting
 generalize
+half-open		A sequence where the first element is idenified by begin but end points to one beyond the end of the sequence
+lifting			The process of analyzing pieces of code for similarities and generalizing them into a single piece of code
 
