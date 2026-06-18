@@ -19,7 +19,7 @@ std::vector<double> get_from_jill(){
 
 template<typename Iter>
 Iter high(Iter first, Iter last) {
-    if (first == last) return last; 
+    if (first == last) return last;     //not nullptr for generic templates 
 
     Iter high_ptr = first;
     ++first; // Start comparing from the second element
@@ -36,6 +36,9 @@ void fct()
         int jack_count = 0;
         double* jack_data = get_from_jack(&jack_count);
         std::vector<double> jill_data = get_from_jill();
+
+
+        //next time I would just use std::max() from the STL
 
         auto jack_high = high(jack_data,jack_data+jack_count);
         auto jill_high = high(jill_data.begin(),jill_data.end());
