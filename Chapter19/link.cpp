@@ -34,3 +34,17 @@ template<typename T> class List {
         T& front();     //the first element
         T& back();      //the last element
 };
+
+template<typename T>
+class List<T>::iterator {
+        LinkT>* curr;                   // current link
+public:
+        iterator(Link<T>* p) :curr{p} { }
+
+        iterator& operator++() {curr = curr->succ; return *this; }                // forward
+        iterator& operator--() { curr = curr->prev; return *this; }               // backward
+        T& operator*() { return curr->val; }                                                // get value (dereference)
+
+        bool operator==(const iterator& b) const { return curr==b.curr; }
+        bool operator!= (const iterator& b) const { return curr!=b.curr; }
+};
