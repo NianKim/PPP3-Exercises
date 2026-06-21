@@ -72,8 +72,11 @@ the STL's notion of a sequence does not require this and makes it possible to in
 a pointer every node posesses to the next node
 
 [16] What does insert() do? What does erase() do?
+insert() adds a value in a vector in front of the first element
+erase()
 
 [17] How do you know if a sequence is empty?
+when first and end iterators both point to the same object
 
 [18] What operations does an iterator for a list provide?
 
