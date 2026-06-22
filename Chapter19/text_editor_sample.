@@ -1,0 +1,50 @@
+#include<algorithm>
+#include<vector>
+#include<list>
+#include<iostream>
+
+using Line = std::vector<char>;
+struct Document {
+    std::list<Line> line;
+    Document() { line.push_back(Line{}); }  //avoid empty container
+};
+
+std::istream& operator>>(std::istream& is, Document& d){
+    for (char ch; is.get(ch); ){
+        d.line.back().push_back(ch);
+        if(ch=='\n')
+            d.line.push_back(Line{});
+    }
+    if(d.line.back().size())
+        d.line.push_back(Line{});
+    return is;
+}
+
+
+class Text_iterator {
+
+    std::list<Line>::iterator ln;
+    Line::iterator pos;
+
+    public:
+        Text_iterator(std::list<Line>::iterator l1, Line::iterator pp)
+            :ln{l1}, pos{pp} { }
+
+        char& operator*() { return *pos; }
+        Text_iterator& operator++();
+        bool operator==(const Text_iterator& other) const
+            { return ln==other.ln && pos==other.pos; }
+        bool operator!=(const Text_iterator& other) const
+            { return !(*this==other); }
+};
+
+Text_iterator& Text_iterator::operator++()
+{
+    ++pos;
+    if (pos==ln->end()){
+        ++ln;
+        pos = ln->begin();
+
+    }
+    return *this;
+}
