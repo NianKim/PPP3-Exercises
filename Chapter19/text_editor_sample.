@@ -1,25 +1,10 @@
-#include<algorithm>
-#include<vector>
-#include<list>
-#include<iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <iostream>
+#include <iterator>
 
 using Line = std::vector<char>;
-struct Document {
-    std::list<Line> line;
-    Document() { line.push_back(Line{}); }  //avoid empty container
-};
-
-std::istream& operator>>(std::istream& is, Document& d){
-    for (char ch; is.get(ch); ){
-        d.line.back().push_back(ch);
-        if(ch=='\n')
-            d.line.push_back(Line{});
-    }
-    if(d.line.back().size())
-        d.line.push_back(Line{});
-    return is;
-}
-
 
 class Text_iterator {
 
@@ -47,4 +32,61 @@ Text_iterator& Text_iterator::operator++()
 
     }
     return *this;
+}
+
+struct Document {
+    std::list<Line> line;
+    Document() { line.push_back(Line{}); }  //avoid empty container
+
+    Text_iterator begin()
+        { return Text_iterator{line.begin(), line.begin()->begin()}; }
+
+    Text_iterator end()
+        { 
+            auto last = line.end();
+            --last;
+            return Text_iterator{last, (*last).end()};
+        }
+};
+
+std::istream& operator>>(std::istream& is, Document& d){
+    for (char ch; is.get(ch); ){
+        d.line.back().push_back(ch);
+        if(ch=='\n')
+            d.line.push_back(Line{});
+    }
+    if(d.line.back().size())
+        d.line.push_back(Line{});
+    return is;
+}
+
+
+template<typename Iter> //instead of concepts I use standard templates
+void advance(Iter& p, int n)
+{
+    while (0 < n) {
+        ++p;
+        --n;
+    }
+}
+
+void print(Document& d)
+{
+    for ( auto p : d )
+        std::cout << p;
+}
+
+void erase_line(Document& d, int n)
+{
+    if (!(0 <= n && n < d.line.size()))
+        return;
+    auto p = d.line.begin();
+    std::advance(p, n); 
+    d.line.erase(p);
+}
+
+int main() 
+{
+    std::cout << "It works!\n";
+    return 0;
 }
