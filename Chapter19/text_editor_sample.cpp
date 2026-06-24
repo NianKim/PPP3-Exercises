@@ -105,6 +105,28 @@ void erase_line(Document& d, int n)
     d.line.erase(p);
 }
 
+// PPP3-header custom function
+bool match(Text_iterator first, Text_iterator last, const std::string& s)
+{
+    for (char ch : s) {
+        if (first == last || *first != ch) 
+            return false;
+        ++first;
+    }
+    return true;
+}
+
+Text_iterator find_txt(Text_iterator first, Text_iterator last, const std::string& s)
+{
+    if (s.size() == 0) 
+        return last;
+    char first_char = s[0];
+
+    auto p = last;
+    for (p = std::find(first, last, first_char); !(p == last || match(p, last, s)); ++p); //do nothing
+    return p;
+}
+
 int main() 
 {
     std::cout << "It works!\n";

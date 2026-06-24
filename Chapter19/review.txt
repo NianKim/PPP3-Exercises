@@ -1,13 +1,17 @@
-Review
+R:call delete("/Users/niankim/.local/state/nvim/swap/%Users%niankim%Documents%Coding%PPP3-Exercises%Chapter19%review.txt.swp")evief
 
 [1] Why does code written by different people look different? Give examples.
 Potentially there are different data types used or expected in PRE/POST conditions-
+Programmers have different programming styles, goals and backgrounds
+(ex. using iterators vs using iterators)
 
 [2] What are simple questions we ask of data?
 What do we want to do with it?
 How will we parse it?
 What can we expect?
 Which edge-cases do we want to process?
+on top of that it's interesting to know whether: data is 
+ordered, traversible , how to find elements and how to remove/add stuff
 
 [3] What are a few different ways of storing data?
 different data types (chars, ints, unsigned ints, longs, floats,...)
@@ -31,9 +35,8 @@ other custom classes like linked lists etc.
 -standard versions of the most common algorithms
 
 [6] What is an STL sequence?
-also known as a range
-A collection of data
-usually half-open
+also known as a range, collection of elements that can be traversed from beginning to end
+usually half-open [begin:end)
 
 [7] What is an STL iterator? What operations does it support?
 indicates the beginning and end of a sequence
@@ -55,8 +58,8 @@ using the -- operator
 invokes undefined behavior
 
 [11] What kinds of iterators can you move to the previous element?
-a std::forward_iterator can only move from left to right ( inability to move backwards with -- )
-std::reverse:iterator can initialize and inverse iterator adapter
+You can only move backwards using bidirectional Iterators and Random-Acces Iterators
+A std::forward_iterator cannot move backward
 
 [12] Why is it useful to separate data from algorithms?
 by separating data from algorithms we can create generalized abstractions of said algorithms to be able to generalize over different data structures, as long as they meet certain criteria (like iterators) 
@@ -65,40 +68,61 @@ by separating data from algorithms we can create generalized abstractions of sai
 The standard Template Library is a collection of generic algorithms and data structures in c++
 
 [14] What is a linked list? How does it fundamentally differ from a vector?
-elements of the vector are consecutive in memory
+elements of the vector are consecutive in memory (inserting/deleting causes elements to shift O(n) but lookup is instant O(1))
 the STL's notion of a sequence does not require this and makes it possible to insert/delete elements without moving other elements
+So a linked list is a collection of nodes where each node contains a value and a pointer to other nodes.
+inserting/deleting is instant O(1)
+traversing requires O(n)
+
 
 [15] What is a link (in a linked list)?
-a pointer every node posesses to the next node
+A link is a node structure that holds the data element alongside one or more pointers (next and/or prev) to adjacent nodes in the sequence
 
 [16] What does insert() do? What does erase() do?
-insert() adds a value in a vector in front of the first element
-erase()
+insert(p, value) adds a value in a vector immediately in front of the position pointed to by iterator p
+erase(p) deletes the element pointed to by iterator p
 
 [17] How do you know if a sequence is empty?
 when first and end iterators both point to the same object
 
 [18] What operations does an iterator for a list provide?
+bidirectional iterator:
+++
+--
+==
+!=
+*(dereference)
+DOES NOT SUPPORT OFFSET MATH LIKE p + 5
 
 [19] How do you iterate over a container using the STL?
+by using std::iterator
+or (for it : object)
 
 [20] When would you use a string rather than a vector?
+Use std::string when data explicitly represents text
+Due to text-specific manipulations like concatenation (+), string searching, substring extraction and I/O parsing
 
 [21] When would you use a list rather than a vector?
+Use lists when you need to frequently insert or delete elements in the middle of the container or when you need a guarantee taht inserting/deleting elements will not invalidate existing iterators or references to other element or when you need a guarantee taht inserting/deleting elements will not invalidate existing iterators or references to other elementss
 
 [22] What is a container?
+An STL container is an object taht holds a collection of other objects (elements) and manages the storage space for those elements, providing lifecycle functions like begin(), end(), size() and clear()
+
 
 [23] What should begin() and end() do for a container?
+begin() points to first element
+end() points to one element after the last
+
 
 Terms
 
 algorithm
 empty sequence
-singly-linked list
+singly-linked list		A linked list where each node points only to the next_node. Moving backwards is impossible
 list
 array container
 end()
-size_type
+size_type		Standardized inner typename. unsigned integer type (counts elements)
 auto
 erase()
 STL
@@ -108,13 +132,13 @@ traversal
 container
 iteration
 using
-contiguous
+contiguous		Storage where items are positioned next to each other sequentially in physical computer memory. allowes O(1) index calculations
 iterator
-type alias
-doubly-linked list
+type alias		Standardized inner typename. defined using a using statement "type alias"
+doubly-linked list	A linked list where each node points to both the next node an dthe previous. allows bidirectional movement
 range
 linked list
-value_type
+value_type		Standardized inner typename. Type of the element sotred
 element
 sequence
 lifting
