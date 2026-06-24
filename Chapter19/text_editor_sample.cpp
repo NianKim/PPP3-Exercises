@@ -17,6 +17,7 @@ class Text_iterator {
 
         char& operator*() { return *pos; }
         Text_iterator& operator++();
+        Text_iterator& operator--();
         bool operator==(const Text_iterator& other) const
             { return ln==other.ln && pos==other.pos; }
         bool operator!=(const Text_iterator& other) const
@@ -31,6 +32,16 @@ Text_iterator& Text_iterator::operator++()
         pos = ln->begin();
 
     }
+    return *this;
+}
+
+Text_iterator& Text_iterator::operator--()
+{
+    if (pos==ln->begin()){
+        --ln;
+        pos = ln->end();
+    }
+    --pos;      //needs to be here, because in ++ end() points to one element after the last 
     return *this;
 }
 
@@ -64,9 +75,18 @@ std::istream& operator>>(std::istream& is, Document& d){
 template<typename Iter> //instead of concepts I use standard templates
 void advance(Iter& p, int n)
 {
+    /*
+    Try This:
+        Rewrite advance() so that it will “go backward” 
+        when you give it a negative argument.
+    */
     while (0 < n) {
         ++p;
         --n;
+    }
+    while(0 > n) {
+        --p;
+        ++n;
     }
 }
 
