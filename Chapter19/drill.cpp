@@ -4,7 +4,7 @@
 #include<list>
 #include<span>
 
-//custom std::copy function using ranges
+//custom copy function using ranges
 /*
 template <typename Src, typename Dest>
 void custom_copy(Src&& source, Dest&& destination) {
@@ -18,7 +18,17 @@ void custom_copy(Src&& source, Dest&& destination) {
     }
 }
 */
-
+//custom copy function using iterators
+template<typename Iter1, typename Iter2>
+Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2) {
+    //(f: first), (e: end)
+    while(f1 != e1) {
+        *f2 = *f1;
+        ++f1;
+        ++f2;
+    }
+    return f2;
+}
 
 int main(){
     int my_array[10] = {0,1,2,3,4,5,6,7,8,9}; // [1] Define an array of ints 
@@ -33,9 +43,7 @@ int main(){
         my_array_copy[i] = my_array[i];
     }
 
-    //[5] Increase the value of each element in the
-    //array by 2; increase the value of each element in the 
-    //vector by 3; increase the value of each element in the list by 5.
+    //step 5
     for (int& x : my_array_copy) {
         x += 2;
     }
@@ -46,8 +54,12 @@ int main(){
         x += 5;
     }
 
-    std::cout << "Array copy element 0 (should be 2): " << my_array_copy[0] << "\n";
-    std::cout << "Vector copy element 0 (should be 3): " << my_vector_copy[0] << "\n";
+    //step 7:
+    my_copy(std::begin(my_array_copy), std::end(my_array_copy), std::begin(my_vector_copy));
+    my_copy(std::begin(my_list_copy), std::end(my_list_copy), std::begin(my_array_copy));
+
+    std::cout << "Array copy element 0 (should be 5): " << my_array_copy[0] << "\n";
+    std::cout << "Vector copy element 0 (should be 2): " << my_vector_copy[0] << "\n";
     std::cout << "List copy element 0 (should be 5): " << my_list_copy.front() << "\n";
     return 0;
 }
