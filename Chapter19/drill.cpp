@@ -33,6 +33,21 @@ int main(){
         my_array_copy[i] = my_array[i];
     }
 
-    std::cout << "Custom copy: Element 5 is : " << my_array_copy[5] << '\n';
+    //[5] Increase the value of each element in the
+    //array by 2; increase the value of each element in the 
+    //vector by 3; increase the value of each element in the list by 5.
+    for (int& x : my_array_copy) {
+        x += 2;
+    }
+    for (int& x : my_vector_copy) {
+        x += 3;
+    }
+    for (int& x : my_list_copy) {
+        x += 5;
+    }
+
+    std::cout << "Array copy element 0 (should be 2): " << my_array_copy[0] << "\n";
+    std::cout << "Vector copy element 0 (should be 3): " << my_vector_copy[0] << "\n";
+    std::cout << "List copy element 0 (should be 5): " << my_list_copy.front() << "\n";
     return 0;
 }
