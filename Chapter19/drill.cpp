@@ -61,5 +61,22 @@ int main(){
     std::cout << "Array copy element 0 (should be 5): " << my_array_copy[0] << "\n";
     std::cout << "Vector copy element 0 (should be 2): " << my_vector_copy[0] << "\n";
     std::cout << "List copy element 0 (should be 5): " << my_list_copy.front() << "\n";
+
+    //step 8
+    auto vec_it = std::find(my_vector_copy.begin(), my_vector_copy.end(), 3);
+    if (vec_it != my_vector_copy.end()) {
+        auto position = std::distance(my_vector_copy.begin(), vec_it);
+        std::cout << "Vector contains 3 at position: " << position << "\n";
+    } else {
+        std::cout << "Vector does not contain 3\n";
+    }
+    auto list_it = std::find(my_list_copy.begin(), my_list_copy.end(), 27);
+    if (list_it != my_list_copy.end()) {
+        auto position = std::distance(my_list_copy.begin(), list_it);
+        std::cout << "List contains 27 at position: " << position << "\n";
+    } else {
+        std::cout << "List does not contain 27\n";
+    }
+
     return 0;
 }
