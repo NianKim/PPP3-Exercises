@@ -1,0 +1,72 @@
+Review
+
+[1] What is a container?
+
+[2] What containers does the STL provide?
+
+[3] What is an associative container? Give at least three examples.
+
+[4] Is list an associative container? Why not?
+
+[5] What is a hash function?
+
+[6] What is the basic ordering property of binary tree?
+
+[7] What (roughly) does it mean for a tree to be balanced?
+
+[8] How much space per element does a map take up?
+
+[9] How much space per element does a vector take up?
+
+[10] Why would anyone use an unordered_map when an (ordered) map is available?
+
+[11] What is a big-O measure?
+
+[12] How does a set differ from a map?
+
+[13] How does a multimap differ from a map?
+
+[14] How does an associative container differ from other containers?
+
+[15] Why is an array not a container?
+
+[16] Why bother to time code?
+
+[17] How do you time a piece of code?
+
+[18] When does structured binding clarify code? When does it obscure it?
+
+[19] What containers does the STL offer?
+
+[20] What is an iterator category?
+
+[21] What kinds of iterators does the STL offer? Mention at least eight.
+
+[22] What operations are provided by a random-access iterator, but not a bidirectional iterator?
+
+Terms
+
+associative container
+map
+associative array
+structured binding
+balanced tree
+unordered_map
+big-O
+duration
+now()
+time_point
+clock
+date
+set
+container
+almost container
+array
+istream_iterator
+ostream_iterator
+range
+iterator category
+random-access iterator
+output range
+hash function
+ranges::
