@@ -1,12 +1,17 @@
 Review
 
 [1] What is a container?
+class templates in the STL that store and manage collections of elements
 
 [2] What containers does the STL provide?
+Array, vector, Deque, List, Forward List
 
 [3] What is an associative container? Give at least three examples.
+Set, Map, Multiset, Multimap
 
 [4] Is list an associative container? Why not?
+No it isn't because associative containers can store data in a sorted manner and
+more importantly can look up values based on keys
 
 [5] What is a hash function?
 
