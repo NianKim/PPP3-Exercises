@@ -10,4 +10,7 @@ int main() {
         ++words[s];
     for (const std::pair<const std::string, int>& p : words)
         std::cout << p.first << ": " << p.second << '\n';
+
+    //for (const auto& [key,value] : words)
+    //    std::cout << key << ": " << value << '\n';
 }

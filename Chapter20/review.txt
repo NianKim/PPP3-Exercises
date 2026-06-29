@@ -14,14 +14,27 @@ No it isn't because associative containers can store data in a sorted manner and
 more importantly can look up values based on keys
 
 [5] What is a hash function?
+Takes a given input and scrambles it using a certain algorithm like SHA-256
+The output will be deterministic and ideally irreversible, this is useful
+to prevent the same input generating the same output
 
 [6] What is the basic ordering property of binary tree?
+every node has exactly 2 children or none and is considered a leaf
+The nodes can be red or black
 
 [7] What (roughly) does it mean for a tree to be balanced?
+When each subtree has approximately as many nodes as every other subtree that's equally far from the root
 
 [8] How much space per element does a map take up?
+- The data (std::pair<key, value>
+- Parent pointer (8 bytes)
+- Left Child pointer (8 bytes)
+- Right Child pointer (8 bytes)
+- Color bit (typically 1-8 bytes)
 
 [9] How much space per element does a vector take up?
+a std::vector<std::pair<int,int>> takes up 8 bytes for key+value per element.
+The total overhead of vector is 24 bytes
 
 [10] Why would anyone use an unordered_map when an (ordered) map is available?
 
