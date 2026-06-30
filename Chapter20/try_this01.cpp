@@ -4,7 +4,7 @@
 
 //up to date according to slickcharts.com 29. Jun, 2026
 
-std::map<std::string,double> dow_price = {  // Dow Jones Industrial index (symbol,price);
+std::unordered_map<std::string,double> dow_price = {  // Dow Jones Industrial index (symbol,price);
                                                 
         {"MMM",164.01},
         {"AAPL",283.78},
@@ -12,13 +12,13 @@ std::map<std::string,double> dow_price = {  // Dow Jones Industrial index (symbo
         {"KO", 82.63}
         // ...
 };
-std::map<std::string,double> dow_weight = {          // Dow (symbol,weight)
+std::unordered_map<std::string,double> dow_weight = {          // Dow (symbol,weight)
         {"MMM", 1.95},
         {"AAPL",3.37},
         {"MSFT",4.43},
         {"KO", 0.98}
 };
-std::map<std::string,std::string> dow_name = {   // Dow (symbol,name)
+std::unordered_map<std::string,std::string> dow_name = {   // Dow (symbol,name)
        {"MMM","3M Co"},
        {"AAPL","Apple"},
        {"MSFT","Microsoft"},
