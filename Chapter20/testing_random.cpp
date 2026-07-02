@@ -65,5 +65,11 @@ int main() {
     auto t3 = std::chrono::system_clock::now();
     std::cout << "map[]: " << vm << '\n';
     std::cout << std::chrono::duration_cast<std::chrono::microseconds>(t3-t2).count() << "us\n\n";
+
+    auto t22 = std::chrono::system_clock::now();
+    auto pm = std::ranges::find_if(m, [&x](const auto& s) { return s.first == x; });      // linear search
+    auto t32 = std::chrono::system_clock::now();
+    std::cout << "map find_if: " << pm->second << '\n';
+    std::cout << duration_cast<std::chrono::microseconds>(t32-t22).count() << "us\n";
     return 0;
 }
