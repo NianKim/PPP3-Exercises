@@ -37,30 +37,76 @@ a std::vector<std::pair<int,int>> takes up 8 bytes for key+value per element.
 The total overhead of vector is 24 bytes
 
 [10] Why would anyone use an unordered_map when an (ordered) map is available?
+The ordered map is a balanced binary tree, unordered map is implemented using a hash table and hash function.
+The cost of lookup is near constant thanks to the hash table providing a clear lookup position
+unordered_map is 
 
 [11] What is a big-O measure?
+big-O is the cost of an operatrion to take place on a container of n items
 
 [12] How does a set differ from a map?
+A set can only contain one of every element 
 
 [13] How does a multimap differ from a map?
+multiple copies of a key are possible
 
 [14] How does an associative container differ from other containers?
 
 [15] Why is an array not a container?
+an array of fixed size does not have the issues of standard arrays
+an array does not know its own size, can't be copied by assignment and implicitly converts pointers.
+the upside is: they model physical memory almost perfectly.
 
 [16] Why bother to time code?
+in order to gauge how efficient code is.
 
 [17] How do you time a piece of code?
+using the std::chrono::system_clock
+It lets us get timestamps of the line of code at the time of execution.
+By finding the delta in two points of the program, we can clearly find out how long
+the code took to run.
 
 [18] When does structured binding clarify code? When does it obscure it?
 
+
 [19] What containers does the STL offer?
+Vector			A contigously allocated sequence of elements; 
+			use it as default container
+List			a doubly-linked list; 
+			use when you need to insert and delete elements without moving existing ones
+Forward_list		a singly-linked list; 
+			use for lists that are mostly empty
+deque			a cross between a list and a vector; 
+			don't use until you have expert-level knowledge of algorithms and machine architecture
+map			a balanced ordered tree;
+			use when you need to access elements by value
+multimap		a balanced ordered tree where there can be multiple copies of a key;
+			use it when you need to access elements by value
+unordered_map		a hash table; an optimized version of map;
+			use for large maps when you need high performance and can devise a good hash function
+unordered_multimap	a hash table where there can be multiple copies of a key; an optimized version of multimap; 
+			use for large maps when you need high performance and can devise a good hash function
+set			a balanced ordered tree;
+			use it when you need to keep track of individual values
+multiset		a balanced ordered tree where there can be multiple copies of a key; 
+			use it when you need to keep track of individual values
+unordered_set		like unordered_map;
+			but just with values, not (key,value) pairs
+unordered_multiset	like unordered_multimap, but just with values, not (key,value) pairs
 
 [20] What is an iterator category?
 
 [21] What kinds of iterators does the STL offer? Mention at least eight.
+iterator 			provides ++ * != ==
+const iterator
+bidirectional iterator		provides additionally --
+random-access iterator		provides additionally -- [] + -
+
 
 [22] What operations are provided by a random-access iterator, but not a bidirectional iterator?
+subscripting []
+(insert(), erase(), front(), back(), push_back(), pop_back(), size(), swap())
+comparison operators	== != < <= > >=
 
 Terms
 
@@ -70,13 +116,14 @@ associative array
 structured binding
 balanced tree
 unordered_map
-big-O
-duration
+big-O				Calculates efficiency of running algorithms on data sets with n elements
+duration			
 now()
 time_point
 clock
-date
-set
+date				floor<days>(now) gives us the day of the week
+set				does not have a value type and cannot be subscripted. 
+				Must use list operations like insert() and erase()
 container
 almost container
 array
