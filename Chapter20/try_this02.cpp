@@ -115,6 +115,10 @@ int main() {
         magintude faster than map find_if is because:
 
         - map uses binary tree search O(logn)
+        - vector and map find_if are using linear search
 
+        The reason map find_if is slower than std::vector is the cache locality of 
+        vector (data layout is contigous)
+        map is allocates dynamically to the heap and this causes cache misses
     */
 }
