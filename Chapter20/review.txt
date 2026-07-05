@@ -95,12 +95,16 @@ unordered_set		like unordered_map;
 unordered_multiset	like unordered_multimap, but just with values, not (key,value) pairs
 
 [20] What is an iterator category?
+an advanced type of iterator with special operations listed below
 
 [21] What kinds of iterators does the STL offer? Mention at least eight.
 iterator 			provides ++ * != ==
 const iterator
 bidirectional iterator		provides additionally --
-random-access iterator		provides additionally -- [] + -
+random-access iterator		provides additionally -- [] + - (+=n,-=n)
+input iterators (istream)	++ (forward) * (read element values)
+output iterators (ostream)	++ (forward) * (write element values)
+forward iterator (forward_list)	iterate and repeatedly read from or write to an element
 
 
 [22] What operations are provided by a random-access iterator, but not a bidirectional iterator?
