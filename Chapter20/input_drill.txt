@@ -1,0 +1,10 @@
+Car 101 25000.00
+Cat 102 150.00
+Bat 103 45.50
+Glass 104 5.99
+Glasses 105 120.00
+Letters 106 2.50
+Shoes 107 85.00
+Chair 108 45.00
+Cushion 109 19.99
+Sink 110 135.50
