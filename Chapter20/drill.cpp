@@ -25,8 +25,19 @@ ostream& operator<<(ostream& os, const Item& item) {
     return os;
 }
 
-bool operator<(const Item& a, const Item& b) {
-    return a.name < b.name; // Sorting alphabetically by name, for example
+// Sort by Name (Alphabetical)
+bool sortByName(const Item& a, const Item& b) {
+    return a.name < b.name;
+}
+
+// Sort by ID (Numerical ascending)
+bool sortById(const Item& a, const Item& b) {
+    return a.iid < b.iid;
+}
+
+// Sort by Value (Price ascending)
+bool sortByValue(const Item& a, const Item& b) {
+    return a.value < b.value;
 }
 
 int main() {
@@ -47,7 +58,7 @@ int main() {
     }
 
     // Sort the vector using the operator< we defined above
-    sort(vi.begin(), vi.end()); 
+    sort(vi.begin(), vi.end(), sortById); 
 
     // Copy sorted items back out to the target file
     copy(vi.begin(), vi.end(), oo);
