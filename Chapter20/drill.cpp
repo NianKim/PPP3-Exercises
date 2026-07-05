@@ -36,8 +36,11 @@ bool sortById(const Item& a, const Item& b) {
 }
 
 // Sort by Value (Price ascending)
-bool sortByValue(const Item& a, const Item& b) {
+bool sortByValueAscend(const Item& a, const Item& b) {
     return a.value < b.value;
+}
+bool sortByValueDescend(const Item& a, const Item& b) {
+    return a.value > b.value;
 }
 
 int main() {
@@ -58,7 +61,7 @@ int main() {
     }
 
     // Sort the vector using the operator< we defined above
-    sort(vi.begin(), vi.end(), sortById); 
+    sort(vi.begin(), vi.end(), sortByValueDescend); 
 
     // Copy sorted items back out to the target file
     copy(vi.begin(), vi.end(), oo);
