@@ -71,12 +71,20 @@ int main() {
         }
     }
 
+    for (auto it = vi.begin(); it != vi.end(); ) {
+        if (it->iid == 108 || it->iid == 106) {
+            it = vi.erase(it); // erase() removes the element and moves 'it' to the next one
+        } else {
+            ++it; // Only move forward manually if we DIDN'T erase anything
+        }
+    } 
+
 
     // Sort the vector using the operator< we defined above
-    sort(vi.begin(), vi.end(), sortByValueDescend); 
+    std::sort(vi.begin(), vi.end(), sortByValueDescend); 
 
     // Copy sorted items back out to the target file
-    copy(vi.begin(), vi.end(), oo);
+    std::copy(vi.begin(), vi.end(), oo);
 
     return 0;
 }
