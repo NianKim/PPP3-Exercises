@@ -60,6 +60,18 @@ int main() {
         ++ii;
     }
 
+    vi.push_back(Item{"horse shoe", 99, 12.34});
+    vi.push_back(Item{"Canon S400", 9988, 499.95});
+
+    for (auto it = vi.begin(); it != vi.end(); ) {
+        if (it->name == "Cat" || it->name == "Shoes") {
+            it = vi.erase(it); // erase() removes the element and moves 'it' to the next one
+        } else {
+            ++it; // Only move forward manually if we DIDN'T erase anything
+        }
+    }
+
+
     // Sort the vector using the operator< we defined above
     sort(vi.begin(), vi.end(), sortByValueDescend); 
 
