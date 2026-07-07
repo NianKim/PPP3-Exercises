@@ -1,0 +1,77 @@
+Review
+
+[1] What are examples of useful STL algorithms?
+p=find(b,e,v)			p points to the first occurrence of v in [b:e).
+p=find_if(b,e,p)		p points to the first element x in [b:e) so that p(x) is true.
+x=count(b,e,v)			x is the number of occurrences of v in [b:e).
+x=count_if(b,e,p)		x is the number of elements in [b:e) so that p(x) is true.
+sort(b,e)			Sort [b:e) using <.
+sort(b,e,p)			Sort [b:e) using p.
+x=is_sorted(b,e)		If [b:e) is sorted x is true.
+b2=copy(b,e,b2)			Copy [b:e)to[b2:b2+(e−b)); there had better be enough elements after b2 to hold [b:e).
+b2=move(b,e,b2)			move [b:e) to [b2:b2+(e−b)); there had better be enough elements after b2 to hold [b:e).
+b2=uninitialized_copy(b,e,b2)	Copy [b:e) to an uninitialized [b2:b2+(e−b)); there had better be enough elements after b2 to hold [b:e).
+b2=unique_copy(b,e,b2)		Copy [b:e)to[b2:b2+(e−b)); don’t copy adjacent duplicates.
+e2=merge(b,e,b2,e2,r)		Merge two sorted sequences [b:e) and [b2:e2) into [r:r+(e−b)+(e2−b2)).
+[p,q]=equal_range(b,e,v)[p:q) 	is the subsequence of the sorted range [b:e) with the value v, basically, a binary search for v.
+equal(b,e,b2)			Do all elements of [b:e) and [b2:b2+(e−b)) compare equal? The sequences must be sorted.
+x=accumulate(b,e,i)		x is the sum of i and the elements of [b:e).
+r=max(x,y)			r is a reference to the larger of x and y.
+p=max_element(b,e)		p points to the largest element in [b:e).
+iota(b,e,i)			[b:e) becomes the sequence i, i+i, i+2, ...
+
+[2] What does find() do? Give at least five examples.
+
+[3] What does count_if() do?
+
+[4] What does sort(b,e) use as its sorting criterion?
+
+[5] How does an STL algorithm take a container as an input argument?
+
+[6] How does an STL algorithm take a container as an output argument?
+
+[7] How does an STL algorithm usually indicate “not found” or “failure”?
+
+[8] What is a function object?
+
+[9] In which ways does a function object differ from a function?
+
+[10] What is a predicate?
+
+[11] Why would you use a function or function object rather than a lambda as an argument?
+
+[12] What does accumulate() do?
+
+[13] What does inner_product() do?
+
+[14] Why use a copy() algorithm when we could “just write a simple loop”?
+
+[15] What is a binary search?
+
+Terms
+
+accumulate()
+find_if()
+searching
+algorithm
+function object
+sequence
+application: ()
+generic
+set
+sort()
+iota()
+find()
+inner_product()
+sorting
+binary_search()
+upper_bound()
+lambda
+copy()
+lower_bound()
+predicate
+unique_copy()
+copy_if()
+equal_range()
+invocable
+
