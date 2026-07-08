@@ -21,6 +21,11 @@ p=max_element(b,e)		p points to the largest element in [b:e).
 iota(b,e,i)			[b:e) becomes the sequence i, i+i, i+2, ...
 
 [2] What does find() do? Give at least five examples.
+1.	finds an elements with a given value in a sequence defined by a pair of iterators
+2.	any STL-style sequence that can be read from (list, vector)
+3.	any element type (that can be compared to the iterator's value type) 
+find_if	when the elements meets some criteria (using a predicate) 
+
 
 [3] What does count_if() do?
 
@@ -69,7 +74,7 @@ upper_bound()
 lambda
 copy()
 lower_bound()
-predicate
+predicate		A function which returns true or false
 unique_copy()
 copy_if()
 equal_range()
