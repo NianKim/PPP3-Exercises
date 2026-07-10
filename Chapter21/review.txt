@@ -44,20 +44,35 @@ By outputting the iterator of the element behind the last (since the containers 
 
 [8] What is a function object?
 	an object which can behave like a function. It can store data and posesses member functions.
+	They are efficient. Usually passing a small function object by value to a template function typically leads to optimal performance. (for small operators)
 
 [9] In which ways does a function object differ from a function?
+A function can be viewed as an operation performed on an input to produce an output.
+The function object can be viewed as a state maschine, which has multiple states we can access. Compilers can use this preserved type information to generate optimal code which runs faster for small operations than regular functions. 
 
 [10] What is a predicate?
 
+
 [11] Why would you use a function or function object rather than a lambda as an argument?
+If you needed to pass an operation as an argument and that operation needed to carry data with it
 
-[12] What does accumulate() do?
+[12] What does accumulate(b,e,i) do?
+Add a sequence of values; e.g., for {a,b,c,d} produce i+a+b+c+d. The type of the result x is the type of the initial value i.
 
-[13] What does inner_product() do?
+[13] What does inner_product(b,e,b2,i) do?
+Multiply pairs of values from two sequences and sum the results; e.g., for {a,b,c,d} and {e,f,g,h} produce i+a*e+b*f+c*g+d*h. The type of the result x is the type of the initial value i.
 
 [14] Why use a copy() algorithm when we could “just write a simple loop”?
+std::copy() provides a wide range of safety guarantees for STL containers and works nearly optimally on similarly implemented "homemade" containers.
 
 [15] What is a binary search?
+
+
+Note on Lambda Captures: [&] [] (there are more, not covered in this book)
+[]:	Lambda is just like an ordinary function (can access arguments, own local variables and names in the global namespace scope)
+[&]:	Lambda can use names from the scope in which it is defined, its enclosing scope. Now it acts like a local function
+[=]:	Can access copies of variables in the enclosing scope
+
 
 Terms
 
