@@ -24,6 +24,7 @@ void f(const std::vector<Record>& vr)
 }
 
 int main() {
+    /*
     std::vector<Record> records;
     Record rec1 = {243.4554, 43};
     Record rec2 = {666.6, 934};
@@ -34,6 +35,14 @@ int main() {
     records.push_back(rec2);
     records.push_back(rec3); 
     records.push_back(rec4);
+    */
+    
+    std::vector<Record> records = {
+        {243.4554, 43},
+        {666.6, 934},
+        {4382.444, 1},
+        {3.333, 28493}
+    };
 
     //computing total price:
     f(records);
