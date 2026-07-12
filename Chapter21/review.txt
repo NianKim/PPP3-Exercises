@@ -28,8 +28,12 @@ find_if	when the elements meets some criteria (using a predicate)
 
 
 [3] What does count_if() do?
+x is the number of elements in [b:e) so that p(x) is true.
+
 
 [4] What does sort(b,e) use as its sorting criterion?
+it uses < by default as a sorting criteria
+
 
 [5] How does an STL algorithm take a container as an input argument?
 by defining it's boundaries with two iterators:
@@ -65,7 +69,12 @@ Multiply pairs of values from two sequences and sum the results; e.g., for {a,b,
 [14] Why use a copy() algorithm when we could “just write a simple loop”?
 std::copy() provides a wide range of safety guarantees for STL containers and works nearly optimally on similarly implemented "homemade" containers.
 
+
 [15] What is a binary search?
+in a sorted sequence, look at the middle element:
+1) if element = search, stop searching
+2) else if search is greater or lesser than element: ignore the other half and look at the middle element of the half we know the element could be in
+3) repeat until found or both adjacent elements to search (the last remaining sequence) does not contain search
 
 
 Note on Lambda Captures: [&] [] (there are more, not covered in this book)
